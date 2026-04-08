@@ -2,6 +2,132 @@
    GRUPO AMPLIA — SCRIPT v2
    ============================================================ */
 
+// ── LOAD ADMIN OVERRIDES ────────────────────
+(function applyAdminContent() {
+  const STORAGE_KEY = 'amplia_content';
+  let data = {};
+  try { data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch {}
+  if (!Object.keys(data).length) return;
+
+  function setText(sel, val) {
+    const el = document.querySelector(sel);
+    if (el && val) el.textContent = val;
+  }
+  function setAttr(sel, attr, val) {
+    const el = document.querySelector(sel);
+    if (el && val) el.setAttribute(attr, val);
+  }
+  function setHref(sel, val) { setAttr(sel, 'href', val); }
+
+  // General
+  if (data['g-tagline']) setText('.footer__logo span', data['g-tagline']);
+  const wa = data['g-whatsapp'];
+  const ig = data['g-instagram'];
+  if (wa) document.querySelectorAll('a[href*="wa.me"]').forEach(a => a.href = `https://wa.me/${wa}`);
+  if (ig) document.querySelectorAll('a[href*="instagram.com"]').forEach(a => a.href = `https://instagram.com/${ig}`);
+
+  // Hero
+  if (data['h-eyebrow']) setText('.hero .eyebrow', data['h-eyebrow']);
+  if (data['h-cta']) setText('.hero__ctas .btn--pulse', data['h-cta']);
+  const p1 = data['h-pillar1'], p2 = data['h-pillar2'];
+  const pillars = document.querySelectorAll('.hero__pillar p');
+  if (p1 && pillars[0]) pillars[0].textContent = p1;
+  if (p2 && pillars[1]) pillars[1].textContent = p2;
+
+  // Stats
+  if (Array.isArray(data.stats)) {
+    const statEls = document.querySelectorAll('.numero-val');
+    data.stats.forEach((s, i) => {
+      if (!statEls[i]) return;
+      const el = statEls[i];
+      el.textContent = s.prefix + s.value + s.suffix;
+      el.dataset.target = s.value;
+      el.dataset.prefix = s.prefix;
+      el.dataset.suffix = s.suffix;
+    });
+    const labelEls = document.querySelectorAll('.numero-label');
+    data.stats.forEach((s, i) => { if (labelEls[i] && s.label) labelEls[i].textContent = s.label; });
+  }
+
+  // Solutions
+  if (Array.isArray(data.solutions)) {
+    const cards = document.querySelectorAll('.sol-card');
+    data.solutions.forEach((s, i) => {
+      const card = cards[i];
+      if (!card) return;
+      const iconEl = card.querySelector('.sol-card__icon');
+      const numEl  = card.querySelector('.sol-card__num');
+      const titleEl = card.querySelector('h3');
+      const descEl  = card.querySelector('p');
+      const ulEl    = card.querySelector('ul');
+      const hlEl    = card.querySelector('.sol-card__highlight');
+      if (iconEl && s.icon)  iconEl.textContent = s.icon;
+      if (numEl  && s.num)   numEl.textContent  = s.num;
+      if (titleEl && s.title) titleEl.textContent = s.title;
+      if (descEl  && s.desc)  descEl.textContent  = s.desc;
+      if (ulEl && s.items) {
+        ulEl.innerHTML = s.items.split('\n').filter(Boolean).map(item => `<li>${item}</li>`).join('');
+      }
+      if (hlEl) {
+        if (s.highlight) { hlEl.textContent = s.highlight; hlEl.style.display = ''; }
+        else hlEl.style.display = 'none';
+      }
+    });
+  }
+
+  // Clients
+  if (Array.isArray(data.clients)) {
+    const cards = document.querySelectorAll('.res-card');
+    data.clients.forEach((c, i) => {
+      const card = cards[i];
+      if (!card) return;
+      const tagEl  = card.querySelector('.res-card__tag');
+      const nameEl = card.querySelector('h3');
+      const valEl  = card.querySelector('.res-val');
+      const perEl  = card.querySelector('.res-period');
+      const descEl = card.querySelector('p');
+      if (tagEl  && c.tag)    tagEl.textContent  = c.tag;
+      if (nameEl && c.name)   nameEl.textContent = c.name;
+      if (valEl  && c.value)  valEl.textContent  = c.value;
+      if (perEl  && c.period) perEl.textContent  = c.period;
+      if (descEl && c.desc)   descEl.textContent = c.desc;
+    });
+  }
+
+  // Founders
+  if (Array.isArray(data.founders)) {
+    const cards = document.querySelectorAll('.fund-card');
+    data.founders.forEach((f, i) => {
+      const card = cards[i];
+      if (!card) return;
+      const avEl    = card.querySelector('.fund-card__avatar');
+      const nameEl  = card.querySelector('h3');
+      const roleEl  = card.querySelector('.fund-card__role');
+      const snumEl  = card.querySelector('.fund-stat-num');
+      const slabEl  = card.querySelector('.fund-stat-label');
+      const bioEl   = card.querySelector('p:last-child');
+      if (avEl    && f.initials)  avEl.textContent   = f.initials;
+      if (nameEl  && f.name)      nameEl.textContent  = f.name;
+      if (roleEl  && f.role)      roleEl.textContent  = f.role;
+      if (snumEl  && f.statNum)   snumEl.textContent  = f.statNum;
+      if (slabEl  && f.statLabel) slabEl.textContent  = f.statLabel;
+      if (bioEl   && f.bio)       bioEl.textContent   = f.bio;
+    });
+  }
+
+  // Contact
+  if (data['c-title']) {
+    const el = document.querySelector('.cta-final h2');
+    if (el) el.innerHTML = data['c-title'];
+  }
+  if (data['c-sub']) setText('.cta-final__inner > p', data['c-sub']);
+  if (data['c-wabtn']) {
+    const btn = document.querySelector('.cta-final__actions .btn--pulse');
+    if (btn) { const svg = btn.querySelector('svg'); btn.textContent = data['c-wabtn']; if (svg) btn.prepend(svg); }
+  }
+  if (data['c-igbtn']) setText('.cta-final__actions .btn--ghost', data['c-igbtn']);
+})();
+
 // ── NAV: scroll effect ──────────────────────
 const nav = document.getElementById('nav');
 const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 50);

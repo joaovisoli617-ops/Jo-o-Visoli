@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin – Grupo Amplia</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========== LOGIN ========== -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-box">
+      <div class="login-logo">
+        <svg viewBox="0 0 200 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="10,46 24,14 38,46 32,46 24,28 16,46" fill="#fc4900"/>
+          <polygon points="16,38 32,38 30,32 18,32" fill="#111"/>
+          <text x="46" y="44" font-family="Montserrat,sans-serif" font-weight="900" font-size="32" fill="#fc4900" letter-spacing="3">AMPLIA</text>
+        </svg>
+      </div>
+      <p class="login-sub">Painel Administrativo</p>
+      <form id="loginForm" autocomplete="off">
+        <div class="field">
+          <label for="pwd">Senha</label>
+          <div class="field__input-wrap">
+            <input type="password" id="pwd" placeholder="Digite a senha" required />
+            <button type="button" class="toggle-pwd" id="togglePwd" aria-label="Mostrar senha">
+              <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="login-error" id="loginError">Senha incorreta. Tente novamente.</div>
+        <button type="submit" class="btn-login">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========== DASHBOARD ========== -->
+  <div class="dashboard" id="dashboard" hidden>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__brand">
+        <svg viewBox="0 0 140 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="6,34 16,10 26,34 22,34 16,20 10,34" fill="#fc4900"/>
+          <polygon points="10,28 22,28 20,22 12,22" fill="#0d0d0d"/>
+          <text x="32" y="32" font-family="Montserrat,sans-serif" font-weight="900" font-size="24" fill="#fc4900" letter-spacing="2">AMPLIA</text>
+        </svg>
+        <span>Admin</span>
+      </div>
+      <nav class="sidebar__nav">
+        <button class="sidebar__item active" data-tab="geral">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 1 4.93 19.07 10 10 0 0 1 19.07 4.93"/></svg>
+          Configurações Gerais
+        </button>
+        <button class="sidebar__item" data-tab="hero">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Hero / Cabeçalho
+        </button>
+        <button class="sidebar__item" data-tab="numeros">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+          Números / Stats
+        </button>
+        <button class="sidebar__item" data-tab="solucoes">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Soluções
+        </button>
+        <button class="sidebar__item" data-tab="clientes">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Clientes / Resultados
+        </button>
+        <button class="sidebar__item" data-tab="fundadores">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+          Fundadores
+        </button>
+        <button class="sidebar__item" data-tab="contato">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 4.13 7.18 2 2 0 0 1 6.09 5h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L10.09 13a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 24 19.9v.02z"/></svg>
+          Contato / Links
+        </button>
+        <button class="sidebar__item" data-tab="senha">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Alterar Senha
+        </button>
+      </nav>
+      <button class="sidebar__logout" id="logoutBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        Sair
+      </button>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main" id="mainContent">
+
+      <!-- Header -->
+      <div class="main__header">
+        <button class="hamburger-dash" id="sidebarToggle" aria-label="Toggle sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h1 class="main__title" id="mainTitle">Configurações Gerais</h1>
+        <div class="main__actions">
+          <a href="index.html" target="_blank" class="btn-preview">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ver site
+          </a>
+          <button class="btn-save" id="saveBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            Salvar alterações
+          </button>
+        </div>
+      </div>
+
+      <!-- Toast -->
+      <div class="toast" id="toast">Alterações salvas com sucesso!</div>
+
+      <!-- ── TAB: GERAL ── -->
+      <section class="tab-panel active" id="tab-geral">
+        <div class="section-header">
+          <h2>Configurações Gerais</h2>
+          <p>Informações básicas que aparecem em todo o site.</p>
+        </div>
+        <div class="form-grid">
+          <div class="field full">
+            <label>Nome da empresa</label>
+            <input type="text" id="g-company" />
+          </div>
+          <div class="field full">
+            <label>Slogan / tagline</label>
+            <input type="text" id="g-tagline" />
+          </div>
+          <div class="field">
+            <label>WhatsApp (número com DDI)</label>
+            <input type="text" id="g-whatsapp" placeholder="5549999999999" />
+            <span class="field-hint">Ex: 5549999999999 (sem + ou espaços)</span>
+          </div>
+          <div class="field">
+            <label>Instagram (usuário)</label>
+            <input type="text" id="g-instagram" placeholder="grupoamplia" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ── TAB: HERO ── -->
+      <section class="tab-panel" id="tab-hero">
+        <div class="section-header">
+          <h2>Hero / Cabeçalho</h2>
+          <p>Textos da seção principal do site.</p>
+        </div>
+        <div class="form-grid">
+          <div class="field full">
+            <label>Eyebrow (pequeno texto acima do título)</label>
+            <input type="text" id="h-eyebrow" />
+          </div>
+          <div class="field full">
+            <label>Linha 1 do título (branco)</label>
+            <input type="text" id="h-line1" placeholder="VENDA MAIS e MELHOR" />
+          </div>
+          <div class="field full">
+            <label>Linha 2 do título (laranja)</label>
+            <input type="text" id="h-line2" placeholder="ESTRUTURAÇÃO COMERCIAL" />
+          </div>
+          <div class="field full">
+            <label>Linha 3 do título (itálico)</label>
+            <input type="text" id="h-line3" placeholder="de alta performance!" />
+          </div>
+          <div class="field full">
+            <label>Pilar 1 — texto</label>
+            <textarea id="h-pillar1" rows="2"></textarea>
+          </div>
+          <div class="field full">
+            <label>Pilar 2 — texto</label>
+            <textarea id="h-pillar2" rows="2"></textarea>
+          </div>
+          <div class="field full">
+            <label>Texto do botão principal</label>
+            <input type="text" id="h-cta" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ── TAB: NÚMEROS ── -->
+      <section class="tab-panel" id="tab-numeros">
+        <div class="section-header">
+          <h2>Números / Stats</h2>
+          <p>Os 4 números de destaque na barra de resultados.</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-editor" id="stat-editors">
+            <!-- generated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ── TAB: SOLUÇÕES ── -->
+      <section class="tab-panel" id="tab-solucoes">
+        <div class="section-header">
+          <h2>Soluções</h2>
+          <p>Os 4 produtos/serviços oferecidos pelo Grupo Amplia.</p>
+        </div>
+        <div id="sol-editors">
+          <!-- generated by JS -->
+        </div>
+      </section>
+
+      <!-- ── TAB: CLIENTES ── -->
+      <section class="tab-panel" id="tab-clientes">
+        <div class="section-header">
+          <h2>Clientes / Resultados</h2>
+          <p>Empresas parceiras e resultados gerados.</p>
+        </div>
+        <div id="client-editors">
+          <!-- generated by JS -->
+        </div>
+      </section>
+
+      <!-- ── TAB: FUNDADORES ── -->
+      <section class="tab-panel" id="tab-fundadores">
+        <div class="section-header">
+          <h2>Fundadores</h2>
+          <p>Informações dos sócios fundadores.</p>
+        </div>
+        <div id="founder-editors">
+          <!-- generated by JS -->
+        </div>
+      </section>
+
+      <!-- ── TAB: CONTATO ── -->
+      <section class="tab-panel" id="tab-contato">
+        <div class="section-header">
+          <h2>Contato / Links</h2>
+          <p>Textos e links da seção de contato final.</p>
+        </div>
+        <div class="form-grid">
+          <div class="field full">
+            <label>Título da seção</label>
+            <input type="text" id="c-title" />
+          </div>
+          <div class="field full">
+            <label>Subtítulo</label>
+            <textarea id="c-sub" rows="2"></textarea>
+          </div>
+          <div class="field">
+            <label>Texto botão WhatsApp</label>
+            <input type="text" id="c-wabtn" />
+          </div>
+          <div class="field">
+            <label>Texto botão Instagram</label>
+            <input type="text" id="c-igbtn" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ── TAB: SENHA ── -->
+      <section class="tab-panel" id="tab-senha">
+        <div class="section-header">
+          <h2>Alterar Senha</h2>
+          <p>Mude a senha de acesso ao painel administrativo.</p>
+        </div>
+        <div class="form-grid" style="max-width:420px">
+          <div class="field full">
+            <label>Senha atual</label>
+            <input type="password" id="pwd-current" />
+          </div>
+          <div class="field full">
+            <label>Nova senha</label>
+            <input type="password" id="pwd-new" />
+          </div>
+          <div class="field full">
+            <label>Confirmar nova senha</label>
+            <input type="password" id="pwd-confirm" />
+          </div>
+          <div class="pwd-msg" id="pwdMsg"></div>
+          <div class="field full">
+            <button class="btn-save" id="changePwdBtn" style="width:100%">Alterar senha</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
