@@ -1,112 +1,108 @@
-/* =============================================
-   GRUPO AMPLIA — MAIN SCRIPT
-   ============================================= */
+/* ============================================================
+   GRUPO AMPLIA — SCRIPT v2
+   ============================================================ */
 
-// ── NAV: scroll effect ───────────────────────
+// ── NAV: scroll effect ──────────────────────
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 50);
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
 
-// ── NAV: mobile hamburger ────────────────────
+// ── NAV: mobile hamburger ───────────────────
 const hamburger = document.getElementById('hamburger');
-const navLinks  = document.querySelector('.nav__links');
+const navLinks  = document.getElementById('navLinks');
 
 hamburger.addEventListener('click', () => {
   const open = hamburger.classList.toggle('open');
   navLinks.classList.toggle('open', open);
-  hamburger.setAttribute('aria-expanded', open);
+  hamburger.setAttribute('aria-expanded', String(open));
 });
 
-// Close menu when a link is clicked
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
+document.querySelectorAll('.nav__links a').forEach(a =>
+  a.addEventListener('click', () => {
     hamburger.classList.remove('open');
     navLinks.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', false);
-  });
-});
-
-// ── SCROLL FADE-IN ───────────────────────────
-const fadeEls = document.querySelectorAll(
-  '.conquistas__stat, .solucao-card, .cliente-card, .fundador-card, .sobre__text, .sobre__card'
+    hamburger.setAttribute('aria-expanded', 'false');
+  })
 );
 
-fadeEls.forEach(el => el.classList.add('fade-in'));
+// ── REVEAL ON SCROLL ────────────────────────
+const revealTargets = document.querySelectorAll(
+  '.numero-item, .sol-card, .res-card, .fund-card, .pq-card, .faq-item, .sobre__media, .sobre__text'
+);
+revealTargets.forEach(el => el.classList.add('reveal'));
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      // Stagger siblings
-      const siblings = [...entry.target.parentElement.children];
-      const idx = siblings.indexOf(entry.target);
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, idx * 90);
-      observer.unobserve(entry.target);
-    }
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const siblings = [...(entry.target.parentElement?.children ?? [])];
+    const idx = siblings.indexOf(entry.target);
+    setTimeout(() => entry.target.classList.add('in'), idx * 80);
+    revealObserver.unobserve(entry.target);
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 
-fadeEls.forEach(el => observer.observe(el));
+revealTargets.forEach(el => revealObserver.observe(el));
 
-// ── STAT COUNTER ANIMATION ───────────────────
-function animateCounter(el, target, suffix, duration = 1800) {
-  const start = performance.now();
-  const isDecimal = target % 1 !== 0;
+// ── COUNTER ANIMATION ───────────────────────
+const counters = document.querySelectorAll('.numero-val[data-target]');
 
-  const tick = (now) => {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    // Ease-out cubic
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const value = eased * target;
-    el.textContent = (isDecimal ? value.toFixed(1) : Math.floor(value)) + suffix;
-    if (progress < 1) requestAnimationFrame(tick);
+function animateCount(el) {
+  const target   = parseFloat(el.dataset.target);
+  const suffix   = el.dataset.suffix || '';
+  const prefix   = el.dataset.prefix || '';
+  const duration = 1600;
+  const start    = performance.now();
+
+  const tick = now => {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    const val = eased * target;
+    el.textContent = prefix + (Number.isInteger(target) ? Math.floor(val) : val.toFixed(0)) + suffix;
+    if (p < 1) requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
 }
 
-const statObserver = new IntersectionObserver((entries) => {
+const counterObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
-    const el = entry.target;
-    const raw = el.dataset.count;
-    const suffix = el.dataset.suffix || '';
-    animateCounter(el, parseFloat(raw), suffix);
-    statObserver.unobserve(el);
+    animateCount(entry.target);
+    counterObserver.unobserve(entry.target);
   });
 }, { threshold: 0.5 });
 
-// Tag stat numbers with data attributes
-const statDefs = [
-  { selector: '.conquistas__stat:nth-child(1) .stat-number', count: 500, suffix: 'mil+', prefix: 'R$' },
-  { selector: '.conquistas__stat:nth-child(2) .stat-number', count: 14,  suffix: ' meses' },
-  { selector: '.conquistas__stat:nth-child(3) .stat-number', count: 60,  suffix: '%' },
-  { selector: '.conquistas__stat:nth-child(4) .stat-number', count: 8,   suffix: '+' },
-];
+counters.forEach(el => counterObserver.observe(el));
 
-statDefs.forEach(({ selector, count, suffix, prefix = '' }) => {
-  const el = document.querySelector(selector);
-  if (!el) return;
-  el.dataset.count  = count;
-  el.dataset.suffix = suffix;
-  el.dataset.prefix = prefix;
-  statObserver.observe(el);
+// ── FAQ ACCORDION ───────────────────────────
+document.querySelectorAll('.faq-item__q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item    = btn.closest('.faq-item');
+    const isOpen  = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-item__q').setAttribute('aria-expanded', 'false');
+    });
+
+    // Open clicked (if was closed)
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
 });
 
-// ── SMOOTH ACTIVE NAV ────────────────────────
-const sections = document.querySelectorAll('section[id]');
+// ── ACTIVE NAV HIGHLIGHT ────────────────────
+const sections  = document.querySelectorAll('section[id]');
 const navAnchors = document.querySelectorAll('.nav__links a:not(.btn)');
 
-const sectionObserver = new IntersectionObserver((entries) => {
+const sectionObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
-    const id = entry.target.getAttribute('id');
     navAnchors.forEach(a => {
-      a.style.color = a.getAttribute('href') === `#${id}`
-        ? 'var(--orange)'
-        : '';
+      a.style.color = a.getAttribute('href') === `#${entry.target.id}` ? 'var(--or)' : '';
     });
   });
 }, { rootMargin: '-40% 0px -55% 0px' });
