@@ -227,6 +227,158 @@ input::placeholder, textarea::placeholder { color: var(--wh3); }
 .pwd-msg.error { display: block; color: #f87171; background: rgba(248,113,113,.1); border: 1px solid rgba(248,113,113,.25); }
 .pwd-msg.success { display: block; color: var(--green); background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.25); }
 
+/* ── LAYOUT EDITOR ─────────────────────────── */
+code, .code-badge {
+  background: rgba(252,73,0,.15); color: var(--or);
+  border: 1px solid rgba(252,73,0,.25);
+  border-radius: 4px; padding: .1rem .4rem;
+  font-family: monospace; font-size: .8rem;
+}
+
+.layout-editor {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.layout-controls { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.layout-block {
+  background: var(--bk2); border: 1px solid var(--bd);
+  border-radius: var(--r); padding: 1.25rem 1.5rem;
+}
+.layout-block__title {
+  font-family: var(--ff-head); font-weight: 700; font-size: .78rem;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--wh2); margin-bottom: .65rem;
+}
+.layout-block__hint { font-size: .78rem; color: var(--wh3); margin-bottom: .85rem; }
+
+.headline-textarea {
+  font-family: var(--ff-head); font-weight: 800;
+  font-size: 1rem; line-height: 1.5;
+  background: var(--bk3); border: 1px solid var(--bd);
+  border-radius: var(--r2); color: var(--wh);
+  padding: .85rem 1rem; width: 100%;
+  resize: vertical; min-height: 130px;
+}
+
+/* Size presets */
+.size-presets { display: flex; gap: .5rem; }
+.size-btn {
+  width: 44px; height: 44px; border-radius: var(--r2);
+  border: 1px solid var(--bd); background: var(--bk3);
+  color: var(--wh2); cursor: pointer;
+  font-family: var(--ff-head); font-weight: 700; font-size: .82rem;
+  transition: border-color var(--tr), color var(--tr), background var(--tr);
+}
+.size-btn:hover { border-color: var(--or); color: var(--or); }
+.size-btn.active { border-color: var(--or); background: rgba(252,73,0,.15); color: var(--or); }
+
+/* BG presets */
+.bg-presets { display: flex; gap: .65rem; }
+.bg-btn {
+  width: 40px; height: 40px; border-radius: var(--r2);
+  border: 2px solid transparent; cursor: pointer;
+  transition: border-color var(--tr), transform var(--tr);
+}
+.bg-btn:hover { transform: scale(1.08); }
+.bg-btn.active { border-color: var(--or); }
+
+/* Toggle switches */
+.vis-toggles { display: flex; flex-direction: column; gap: .75rem; }
+.toggle-switch {
+  display: flex; align-items: center; gap: .85rem; cursor: pointer;
+}
+.toggle-switch input { display: none; }
+.toggle-track {
+  width: 38px; height: 22px; border-radius: 11px;
+  background: var(--bd2); position: relative;
+  transition: background var(--tr); flex-shrink: 0;
+}
+.toggle-thumb {
+  position: absolute; top: 3px; left: 3px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--wh); transition: transform var(--tr);
+}
+.toggle-switch input:checked + .toggle-track { background: var(--or); }
+.toggle-switch input:checked + .toggle-track .toggle-thumb { transform: translateX(16px); }
+.toggle-label { font-size: .82rem; color: var(--wh2); }
+
+/* Preview */
+.layout-preview { position: sticky; top: calc(var(--header-h) + 1rem); }
+.preview-label {
+  font-family: var(--ff-head); font-weight: 700; font-size: .7rem;
+  text-transform: uppercase; letter-spacing: .15em;
+  color: var(--wh3); margin-bottom: .6rem;
+}
+.preview-frame {
+  background: #000; border: 1px solid var(--bd);
+  border-radius: var(--r); overflow: hidden;
+  aspect-ratio: 16/10;
+}
+.preview-hero {
+  width: 100%; height: 100%;
+  padding: 1.5rem 1.75rem;
+  display: flex; flex-direction: column; justify-content: center; gap: .75rem;
+  position: relative; overflow: hidden;
+}
+.preview-hero::before {
+  content: 'A'; position: absolute; right: -5%; top: 50%; transform: translateY(-50%);
+  font-family: 'Montserrat',sans-serif; font-weight: 900; font-size: 45vw;
+  color: rgba(252,73,0,.04); line-height: 1; pointer-events: none;
+}
+.preview-eyebrow {
+  font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: .55rem;
+  letter-spacing: .2em; text-transform: uppercase; color: #fc4900; margin: 0;
+}
+.preview-headline {
+  font-family: 'Montserrat',sans-serif; font-weight: 900;
+  text-transform: uppercase; line-height: 1.05; margin: 0;
+  color: #fff;
+}
+.preview-headline .or  { color: #fc4900; }
+.preview-headline em   { font-style: italic; }
+.preview-pillars {
+  display: flex; gap: .75rem; flex-wrap: wrap;
+}
+.preview-pillar {
+  display: flex; align-items: flex-start; gap: .4rem;
+  font-size: .6rem; color: rgba(255,255,255,.65); max-width: 140px;
+}
+.preview-icon {
+  font-size: .85rem; flex-shrink: 0;
+  width: 22px; height: 22px;
+  background: rgba(252,73,0,.1); border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+}
+.preview-btns { display: flex; gap: .5rem; flex-wrap: wrap; }
+.preview-btn-primary {
+  background: #fc4900; color: #fff;
+  font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: .5rem;
+  border-radius: 50px; padding: .35rem .9rem; letter-spacing: .06em;
+}
+.preview-btn-ghost {
+  background: transparent; color: #fc4900;
+  border: 1.5px solid #fc4900;
+  font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: .5rem;
+  border-radius: 50px; padding: .35rem .9rem; letter-spacing: .06em;
+}
+.preview-trust { display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+.preview-trust-text { font-size: .5rem; color: rgba(255,255,255,.4); letter-spacing: .1em; text-transform: uppercase; font-family: 'Montserrat',sans-serif; font-weight: 600; }
+.preview-trust-tag {
+  font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: .48rem;
+  color: rgba(255,255,255,.65); padding: .15rem .5rem;
+  border: 1px solid #222; border-radius: 50px; background: rgba(255,255,255,.05);
+}
+
+/* Font size presets applied to preview */
+.preview-headline.fs-xlarge { font-size: clamp(1.1rem,3.5vw,2.6rem); }
+.preview-headline.fs-large  { font-size: clamp(.9rem,2.8vw,2rem); }
+.preview-headline.fs-medium { font-size: clamp(.75rem,2.2vw,1.5rem); }
+.preview-headline.fs-small  { font-size: clamp(.65rem,1.8vw,1.1rem); }
+
 /* ── RESPONSIVE ────────────────────────────── */
 @media (max-width: 900px) {
   .sidebar { transform: translateX(calc(-1 * var(--sidebar-w))); }

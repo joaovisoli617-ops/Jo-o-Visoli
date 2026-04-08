@@ -166,6 +166,7 @@ document.getElementById('logoutBtn').addEventListener('click', () => {
 const tabTitles = {
   geral:       'Configurações Gerais',
   hero:        'Hero / Cabeçalho',
+  layout:      'Layout do Hero',
   numeros:     'Números / Stats',
   solucoes:    'Soluções',
   clientes:    'Clientes / Resultados',
@@ -386,7 +387,8 @@ function collectData() {
 
 // ── SAVE BUTTON ───────────────────────────────────────────────
 document.getElementById('saveBtn').addEventListener('click', () => {
-  const data = collectData();
+  let data = collectData();
+  data = collectLayoutData(data);
   saveData(data);
   showToast('Alterações salvas com sucesso!');
 });
@@ -423,6 +425,148 @@ document.getElementById('changePwdBtn').addEventListener('click', async () => {
   document.getElementById('pwd-confirm').value = '';
 });
 
+// ── LAYOUT DEFAULTS ───────────────────────────────────────────
+const LAYOUT_DEFAULTS = {
+  'l-headline':       '{VENDA} MAIS e {MELHOR}\natravés da\n{ESTRUTURAÇÃO\nCOMERCIAL}\nde alta {performance!}',
+  'l-fontsize':       'xlarge',
+  'l-italic':         true,
+  'l-show-eyebrow':   true,
+  'l-show-pillars':   true,
+  'l-show-trust':     true,
+  'l-show-ghost-btn': true,
+  'l-bg':             'black',
+};
+
+// ── MARKUP PARSER ─────────────────────────────────────────────
+// {text} = orange span, normal = white, \n = <br>
+function parseHeadlineMarkup(raw, isItalic) {
+  const lines = raw.split('\n');
+  const lastIdx = lines.length - 1;
+  return lines.map((line, i) => {
+    const parsed = line.replace(/\{([^}]*)\}/g, '<span class="or">$1</span>');
+    const isLast = i === lastIdx;
+    const wrapped = isLast && isItalic ? `<em>${parsed}</em>` : parsed;
+    return i < lastIdx ? wrapped + '<br/>' : wrapped;
+  }).join('');
+}
+
+// ── FONT SIZE MAP ─────────────────────────────────────────────
+const FONT_SIZE_CSS = {
+  xlarge: 'clamp(2.6rem, 6vw, 5.2rem)',
+  large:  'clamp(2rem, 4.5vw, 4rem)',
+  medium: 'clamp(1.6rem, 3.5vw, 3rem)',
+  small:  'clamp(1.2rem, 2.5vw, 2rem)',
+};
+
+// ── BG MAP ────────────────────────────────────────────────────
+const BG_CSS = {
+  'black':       '#000',
+  'dark-orange': 'linear-gradient(135deg,#000 0%,#1a0800 100%)',
+  'deep-dark':   '#080808',
+};
+
+// ── POPULATE LAYOUT TAB ───────────────────────────────────────
+function populateLayoutTab() {
+  const data = loadData();
+  const lget = key => key in data ? data[key] : LAYOUT_DEFAULTS[key];
+
+  const headlineEl = document.getElementById('l-headline');
+  if (headlineEl) headlineEl.value = lget('l-headline');
+
+  const fontSize = lget('l-fontsize');
+  document.getElementById('l-fontsize').value = fontSize;
+  document.querySelectorAll('.size-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.size === fontSize);
+  });
+
+  const bg = lget('l-bg');
+  document.getElementById('l-bg').value = bg;
+  document.querySelectorAll('.bg-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.bg === bg);
+  });
+
+  const checkboxIds = ['l-italic','l-show-eyebrow','l-show-pillars','l-show-trust','l-show-ghost-btn'];
+  checkboxIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.checked = lget(id);
+  });
+
+  updatePreview();
+}
+
+// ── LIVE PREVIEW ──────────────────────────────────────────────
+function updatePreview() {
+  const raw      = document.getElementById('l-headline')?.value ?? '';
+  const isItalic = document.getElementById('l-italic')?.checked ?? true;
+  const fontSize = document.getElementById('l-fontsize')?.value ?? 'xlarge';
+  const bg       = document.getElementById('l-bg')?.value ?? 'black';
+  const showEyebrow   = document.getElementById('l-show-eyebrow')?.checked ?? true;
+  const showPillars   = document.getElementById('l-show-pillars')?.checked ?? true;
+  const showTrust     = document.getElementById('l-show-trust')?.checked ?? true;
+  const showGhostBtn  = document.getElementById('l-show-ghost-btn')?.checked ?? true;
+
+  const prevHeadline = document.getElementById('prevHeadline');
+  const prevHero     = document.getElementById('previewHero');
+  const prevEyebrow  = document.getElementById('prevEyebrow');
+  const prevPillars  = document.getElementById('prevPillars');
+  const prevTrust    = document.getElementById('prevTrust');
+  const prevGhostBtn = document.getElementById('prevGhostBtn');
+
+  if (prevHeadline) {
+    prevHeadline.innerHTML = parseHeadlineMarkup(raw, isItalic);
+    prevHeadline.className = `preview-headline fs-${fontSize}`;
+  }
+  if (prevHero) prevHero.style.background = BG_CSS[bg] ?? '#000';
+  if (prevEyebrow)  prevEyebrow.style.display  = showEyebrow  ? '' : 'none';
+  if (prevPillars)  prevPillars.style.display   = showPillars  ? '' : 'none';
+  if (prevTrust)    prevTrust.style.display     = showTrust    ? '' : 'none';
+  if (prevGhostBtn) prevGhostBtn.style.display  = showGhostBtn ? '' : 'none';
+}
+
+// ── LAYOUT EVENT LISTENERS ────────────────────────────────────
+function initLayoutTab() {
+  // Headline textarea live update
+  document.getElementById('l-headline')?.addEventListener('input', updatePreview);
+
+  // Font size buttons
+  document.querySelectorAll('.size-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('l-fontsize').value = btn.dataset.size;
+      updatePreview();
+    });
+  });
+
+  // BG buttons
+  document.querySelectorAll('.bg-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.bg-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('l-bg').value = btn.dataset.bg;
+      updatePreview();
+    });
+  });
+
+  // Checkboxes
+  ['l-italic','l-show-eyebrow','l-show-pillars','l-show-trust','l-show-ghost-btn'].forEach(id => {
+    document.getElementById(id)?.addEventListener('change', updatePreview);
+  });
+}
+
+// ── COLLECT LAYOUT DATA ───────────────────────────────────────
+function collectLayoutData(existing) {
+  existing['l-headline']       = document.getElementById('l-headline')?.value ?? '';
+  existing['l-fontsize']       = document.getElementById('l-fontsize')?.value ?? 'xlarge';
+  existing['l-bg']             = document.getElementById('l-bg')?.value ?? 'black';
+  existing['l-italic']         = document.getElementById('l-italic')?.checked ?? true;
+  existing['l-show-eyebrow']   = document.getElementById('l-show-eyebrow')?.checked ?? true;
+  existing['l-show-pillars']   = document.getElementById('l-show-pillars')?.checked ?? true;
+  existing['l-show-trust']     = document.getElementById('l-show-trust')?.checked ?? true;
+  existing['l-show-ghost-btn'] = document.getElementById('l-show-ghost-btn')?.checked ?? true;
+  return existing;
+}
+
 // ── INIT ──────────────────────────────────────────────────────
 function initDashboard() {
   populateSimpleFields();
@@ -430,4 +574,6 @@ function initDashboard() {
   buildSolEditors();
   buildClientEditors();
   buildFounderEditors();
+  populateLayoutTab();
+  initLayoutTab();
 }
