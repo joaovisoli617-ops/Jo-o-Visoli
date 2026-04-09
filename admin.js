@@ -1,26 +1,20 @@
 /* ============================================================
-   GRUPO AMPLIA — ADMIN PANEL SCRIPT
+   GRUPO AMPLIA — ADMIN PANEL SCRIPT v3
    Senha padrão: Amplia@2024
    ============================================================ */
 
 // ── DEFAULTS ────────────────────────────────────────────────
 const DEFAULTS = {
-  // General
   'g-company':   'Grupo Amplia',
   'g-tagline':   'Estruturação comercial de alta performance.',
   'g-whatsapp':  '5549999999999',
   'g-instagram': 'grupoamplia',
 
-  // Hero
   'h-eyebrow':  'A nossa proposta de valor',
-  'h-line1':    'VENDA MAIS e MELHOR através da',
-  'h-line2':    'ESTRUTURAÇÃO COMERCIAL',
-  'h-line3':    'de alta performance!',
   'h-pillar1':  'Para construir um negócio que venda todos os dias, de forma independente do dono.',
   'h-pillar2':  'Através de uma metodologia que nós vivenciamos diariamente no Grupo Amplia.',
   'h-cta':      'Quero estruturar meu comercial',
 
-  // Números
   stats: [
     { prefix: 'R$', value: '500', suffix: 'mil+', label: 'em faturamento gerado para clientes' },
     { prefix: '',   value: '14',  suffix: ' meses', label: 'de mercado com resultados comprovados' },
@@ -28,87 +22,78 @@ const DEFAULTS = {
     { prefix: '',   value: '8',   suffix: '+ clientes', label: 'de grande porte atendidos' },
   ],
 
-  // Soluções
   solutions: [
-    { num: '01', icon: '📣', title: 'Assessoria de Marketing', desc: 'Estruturamos o marketing interno e a marca pessoal do empresário para gerar autoridade e atrair clientes de forma previsível.', items: 'Posicionamento de marca\nGestão de redes sociais\nEstratégia de conteúdo\n+6 dígitos gerenciados em anúncios', highlight: '' },
-    { num: '02', icon: '🎯', title: 'Mentoria Comercial', desc: 'Montamos todos os processos comerciais do zero: captação, qualificação, agendamento e fechamento.', items: 'Pesquisa completa de ICP\nScript de Cold Call validado\nProcesso de apresentação (valor antes de preço)\nGestão de equipe comercial\nEncontros 1x1 para estruturar o comercial', highlight: '60% de taxa de fechamento em reunião' },
-    { num: '03', icon: '🎬', title: 'Captação Audiovisual', desc: 'Produção de conteúdo estratégico que posiciona sua marca e converte visualizações em clientes reais.', items: 'Vídeos institucionais e de vendas\nConteúdo para redes sociais\n+10 milhões de visualizações geradas', highlight: '' },
-    { num: '04', icon: '📚', title: 'Produtos Educacionais', desc: 'Cursos e playbooks da área comercial e de marketing para você dominar as estratégias que realmente funcionam.', items: 'Cursos práticos de vendas\nPlaybooks comerciais\nMateriais de marketing', highlight: '' },
+    { num: '01', icon: '📣', title: 'Assessoria de Marketing', desc: 'Estruturamos o marketing interno e a marca pessoal do empresário.', items: 'Posicionamento de marca\nGestão de redes sociais\nEstratégia de conteúdo\n+6 dígitos gerenciados em anúncios', highlight: '' },
+    { num: '02', icon: '🎯', title: 'Mentoria Comercial', desc: 'Montamos todos os processos comerciais do zero.', items: 'Pesquisa completa de ICP\nScript de Cold Call validado\nProcesso de apresentação\nGestão de equipe comercial\nEncontros 1x1', highlight: '60% de taxa de fechamento em reunião' },
+    { num: '03', icon: '🎬', title: 'Captação Audiovisual', desc: 'Produção de conteúdo estratégico que converte visualizações em clientes.', items: 'Vídeos institucionais e de vendas\nConteúdo para redes sociais\n+10 milhões de visualizações geradas', highlight: '' },
+    { num: '04', icon: '📚', title: 'Produtos Educacionais', desc: 'Cursos e playbooks da área comercial e de marketing.', items: 'Cursos práticos de vendas\nPlaybooks comerciais\nMateriais de marketing', highlight: '' },
   ],
 
-  // Clientes
   clients: [
-    { tag: 'Automotivo', name: 'Marlon Veículos', value: '+R$350K', period: 'bruto no 1º mês', desc: 'Implementamos processos comerciais completos e geramos mais de R$350 mil em venda de veículos já no primeiro mês de trabalho conjunto.' },
-    { tag: 'Automotivo', name: 'Chama Autocar', value: '+R$100K', period: 'bruto no 1º mês', desc: 'Estruturamos o comercial e geramos mais de R$100 mil em vendas de veículos logo no primeiro mês de assessoria.' },
-    { tag: 'Moda', name: 'Colcci', value: 'R$60K', period: 'em vendas geradas', desc: 'Uma das maiores marcas de moda do Brasil confiou na nossa metodologia e colheu resultados expressivos.' },
-    { tag: 'Moda esportiva', name: 'Track & Field', value: 'R$30K', period: 'em vendas geradas', desc: 'Marca premium de moda esportiva. Desenvolvemos estratégias comerciais que impulsionaram as vendas de forma consistente.' },
-    { tag: 'Moda premium', name: 'Tommy Hilfiger', value: '✓', period: 'parceria ativa', desc: 'Uma das marcas mais reconhecidas do mundo. Confiou no Grupo Amplia para estruturar seus processos comerciais.' },
-    { tag: 'Automotivo / Serviços', name: 'F4 Autocenter', value: '✓', period: 'parceria ativa', desc: 'Um dos maiores autocenters do Oeste de SC. Estruturamos o comercial para garantir vendas previsíveis e escaláveis.' },
-    { tag: 'Gastronomia', name: 'Alecrim', value: '✓', period: 'parceria ativa', desc: 'Um dos maiores empórios e cafeterias da região. Fortalecemos o posicionamento de marca e os processos de captação.' },
-    { tag: 'Mentor', name: 'Ascendy – Ale Ferreira', value: '+180K', period: 'seguidores | R$200K aos 18 anos', desc: 'Nosso mentor que nos ajudou a estruturar a empresa. Ale Ferreira faturou R$200K aos 18 anos e é referência em empreendedorismo jovem.' },
+    { tag: 'Automotivo', name: 'Marlon Veículos', value: '+R$350K', period: 'bruto no 1º mês', desc: 'Mais de R$350 mil em venda de veículos no primeiro mês.' },
+    { tag: 'Automotivo', name: 'Chama Autocar', value: '+R$100K', period: 'bruto no 1º mês', desc: 'Mais de R$100 mil em vendas no primeiro mês de assessoria.' },
+    { tag: 'Moda', name: 'Colcci', value: 'R$60K', period: 'em vendas geradas', desc: 'Resultados expressivos para uma das maiores marcas de moda do Brasil.' },
+    { tag: 'Moda esportiva', name: 'Track & Field', value: 'R$30K', period: 'em vendas geradas', desc: 'Estratégias comerciais que impulsionaram as vendas de forma consistente.' },
+    { tag: 'Moda premium', name: 'Tommy Hilfiger', value: '✓', period: 'parceria ativa', desc: 'Marca reconhecida mundialmente confiou no Grupo Amplia.' },
+    { tag: 'Serviços', name: 'F4 Autocenter', value: '✓', period: 'parceria ativa', desc: 'Um dos maiores autocenters do Oeste de SC.' },
+    { tag: 'Gastronomia', name: 'Alecrim', value: '✓', period: 'parceria ativa', desc: 'Um dos maiores empórios e cafeterias da região.' },
+    { tag: 'Mentor', name: 'Ascendy – Ale Ferreira', value: '+180K', period: 'seguidores | R$200K aos 18 anos', desc: 'Mentor que ajudou a estruturar a empresa.' },
   ],
 
-  // Fundadores
   founders: [
-    { initials: 'JV', name: 'João Visoli', role: 'Expert em Vendas e Estratégias de Aquisição', statNum: '+60%', statLabel: 'taxa de conversão em reuniões de vendas', bio: 'Especialista em estruturar processos de captação e fechamento de alto desempenho para empresas de diferentes segmentos.' },
-    { initials: 'CL', name: 'Caetano Lorenci', role: 'Expert em Marketing e Gestão de Dados', statNum: '+6 dígitos', statLabel: 'gerenciados em anúncios', bio: 'Especialista em transformar dados em estratégias de marketing que geram receita real e previsível para o negócio.' },
-    { initials: 'JM', name: 'João Mortari', role: 'Expert em Criação de Conteúdo e Posicionamento', statNum: '+10M', statLabel: 'de visualizações geradas para clientes', bio: 'Especialista em posicionar marcas e empresários como referências no mercado, convertendo autoridade em vendas.' },
+    { initials: 'JV', name: 'João Visoli', role: 'Expert em Vendas e Estratégias de Aquisição', statNum: '+60%', statLabel: 'taxa de conversão em reuniões', bio: 'Especialista em estruturar processos de captação e fechamento de alto desempenho.' },
+    { initials: 'CL', name: 'Caetano Lorenci', role: 'Expert em Marketing e Gestão de Dados', statNum: '+6 dígitos', statLabel: 'gerenciados em anúncios', bio: 'Especialista em transformar dados em estratégias de marketing que geram receita.' },
+    { initials: 'JM', name: 'João Mortari', role: 'Expert em Criação de Conteúdo e Posicionamento', statNum: '+10M', statLabel: 'de visualizações para clientes', bio: 'Especialista em posicionar marcas e empresários como referências no mercado.' },
   ],
 
-  // Contato
-  'c-title': 'Pronto para vender mais e melhor?',
-  'c-sub':   'Fale com nossa equipe e descubra como estruturar seu comercial de alta performance. Sem enrolação.',
-  'c-wabtn': 'Falar no WhatsApp',
-  'c-igbtn': 'Ver no Instagram',
+  'ct-title': 'Pronto para vender mais e melhor?',
+  'ct-sub':   'Fale com nossa equipe e descubra como estruturar seu comercial de alta performance. Sem enrolação.',
+  'ct-wabtn': 'Falar no WhatsApp',
+  'ct-igbtn': 'Ver no Instagram',
+
+  // Layout
+  'l-headline':       '{VENDA} MAIS e {MELHOR}\natravés da\n{ESTRUTURAÇÃO\nCOMERCIAL}\nde alta {performance!}',
+  'l-fontsize':       'xlarge',
+  'l-align':          'left',
+  'l-italic':         true,
+  'l-mark-bg':        true,
+  'l-show-eyebrow':   true,
+  'l-show-pillars':   true,
+  'l-show-trust':     true,
+  'l-show-ghost-btn': true,
+  'l-wide-spacing':   false,
+  'l-bg':             'black',
+  'n-layout':         'row',
+  's-style':          'bordered',
+  'c-fmt':            'grid',
+  'f-style':          'centered',
 };
 
-// ── STORAGE KEY ──────────────────────────────────────────────
-const STORAGE_KEY  = 'amplia_content';
-const PWD_KEY      = 'amplia_pwd_hash';
-const SESSION_KEY  = 'amplia_auth';
-const DEFAULT_PWD  = 'Amplia@2024';
+// ── STORAGE / AUTH ───────────────────────────────────────────
+const STORAGE_KEY = 'amplia_content';
+const PWD_KEY     = 'amplia_pwd_hash';
+const SESSION_KEY = 'amplia_auth';
+const DEFAULT_PWD = 'Amplia@2024';
 
-// ── HASH (simple, client-side) ───────────────────────────────
 async function sha256(str) {
-  const buf  = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
 }
-
-function getStoredHash() {
-  return localStorage.getItem(PWD_KEY) || null;
-}
-
 async function checkPassword(input) {
-  const stored = getStoredHash();
-  const inputH = await sha256(input);
-  if (!stored) {
-    // First time: compare to default
-    const defaultH = await sha256(DEFAULT_PWD);
-    return inputH === defaultH;
-  }
-  return inputH === stored;
+  const stored  = localStorage.getItem(PWD_KEY);
+  const inputH  = await sha256(input);
+  const compare = stored || await sha256(DEFAULT_PWD);
+  return inputH === compare;
 }
-
 async function setPassword(newPwd) {
-  const h = await sha256(newPwd);
-  localStorage.setItem(PWD_KEY, h);
+  localStorage.setItem(PWD_KEY, await sha256(newPwd));
 }
 
-// ── DATA HELPERS ─────────────────────────────────────────────
-function loadData() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : {};
-  } catch { return {}; }
-}
-
-function saveData(data) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-}
-
+function loadData()     { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch { return {}; } }
+function saveData(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
 function get(key) {
-  const data = loadData();
-  if (key in data) return data[key];
+  const d = loadData();
+  if (key in d) return d[key];
   if (key in DEFAULTS) return DEFAULTS[key];
   return '';
 }
@@ -118,12 +103,6 @@ const loginScreen = document.getElementById('loginScreen');
 const dashboard   = document.getElementById('dashboard');
 const loginForm   = document.getElementById('loginForm');
 const loginError  = document.getElementById('loginError');
-const togglePwd   = document.getElementById('togglePwd');
-const pwdInput    = document.getElementById('pwd');
-
-function isAuthenticated() {
-  return sessionStorage.getItem(SESSION_KEY) === '1';
-}
 
 function showDashboard() {
   loginScreen.style.display = 'none';
@@ -131,326 +110,75 @@ function showDashboard() {
   initDashboard();
 }
 
-if (isAuthenticated()) {
-  showDashboard();
-}
+if (sessionStorage.getItem(SESSION_KEY) === '1') showDashboard();
 
 loginForm.addEventListener('submit', async e => {
   e.preventDefault();
-  const ok = await checkPassword(pwdInput.value);
-  if (ok) {
-    sessionStorage.setItem(SESSION_KEY, '1');
-    loginError.classList.remove('show');
-    showDashboard();
-  } else {
-    loginError.classList.add('show');
-    pwdInput.value = '';
-    pwdInput.focus();
-  }
+  const ok = await checkPassword(document.getElementById('pwd').value);
+  if (ok) { sessionStorage.setItem(SESSION_KEY, '1'); loginError.classList.remove('show'); showDashboard(); }
+  else    { loginError.classList.add('show'); document.getElementById('pwd').value = ''; }
 });
 
-// Toggle password visibility
-togglePwd.addEventListener('click', () => {
-  const isText = pwdInput.type === 'text';
-  pwdInput.type = isText ? 'password' : 'text';
-  togglePwd.setAttribute('aria-label', isText ? 'Mostrar senha' : 'Ocultar senha');
+document.getElementById('togglePwd').addEventListener('click', () => {
+  const el = document.getElementById('pwd');
+  el.type = el.type === 'text' ? 'password' : 'text';
 });
 
-// Logout
 document.getElementById('logoutBtn').addEventListener('click', () => {
-  sessionStorage.removeItem(SESSION_KEY);
-  location.reload();
+  sessionStorage.removeItem(SESSION_KEY); location.reload();
 });
 
 // ── TABS ─────────────────────────────────────────────────────
-const tabTitles = {
-  geral:       'Configurações Gerais',
-  hero:        'Hero / Cabeçalho',
-  layout:      'Layout do Hero',
-  numeros:     'Números / Stats',
-  solucoes:    'Soluções',
-  clientes:    'Clientes / Resultados',
-  fundadores:  'Fundadores',
-  contato:     'Contato / Links',
-  senha:       'Alterar Senha',
+const TAB_TITLES = {
+  geral: 'Configurações Gerais', layout: 'Layout do Hero', hero: 'Textos do Hero',
+  numeros: 'Números / Stats', solucoes: 'Soluções', clientes: 'Clientes / Resultados',
+  fundadores: 'Fundadores', contato: 'Contato / Links', senha: 'Alterar Senha',
 };
 
 function switchTab(tab) {
   document.querySelectorAll('.sidebar__item').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === `tab-${tab}`));
-  document.getElementById('mainTitle').textContent = tabTitles[tab] || tab;
+  document.getElementById('mainTitle').textContent = TAB_TITLES[tab] || tab;
 }
-
-document.querySelectorAll('.sidebar__item').forEach(btn => {
-  btn.addEventListener('click', () => switchTab(btn.dataset.tab));
-});
+document.querySelectorAll('.sidebar__item').forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
 
 // ── SIDEBAR TOGGLE ───────────────────────────────────────────
-const sidebar      = document.getElementById('sidebar');
-const mainContent  = document.getElementById('mainContent');
-const sidebarToggle = document.getElementById('sidebarToggle');
-
-function isMobile() { return window.innerWidth <= 900; }
-
-sidebarToggle.addEventListener('click', () => {
-  if (isMobile()) {
-    sidebar.classList.toggle('mobile-open');
-  } else {
-    sidebar.classList.toggle('collapsed');
-    mainContent.classList.toggle('full');
-  }
+const sidebar     = document.getElementById('sidebar');
+const mainContent = document.getElementById('mainContent');
+document.getElementById('sidebarToggle').addEventListener('click', () => {
+  if (window.innerWidth <= 900) sidebar.classList.toggle('mobile-open');
+  else { sidebar.classList.toggle('collapsed'); mainContent.classList.toggle('full'); }
 });
-
-// Close sidebar on mobile link click
-document.querySelectorAll('.sidebar__item').forEach(btn => {
-  btn.addEventListener('click', () => {
-    if (isMobile()) sidebar.classList.remove('mobile-open');
-  });
-});
+document.querySelectorAll('.sidebar__item').forEach(btn => btn.addEventListener('click', () => {
+  if (window.innerWidth <= 900) sidebar.classList.remove('mobile-open');
+}));
 
 // ── TOAST ─────────────────────────────────────────────────────
-function showToast(msg = 'Alterações salvas com sucesso!') {
+function showToast(msg = '✓ Alterações salvas com sucesso!') {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-// ── ACCORDION CARDS ──────────────────────────────────────────
-function makeCardEditor(title, fields, index) {
-  const card = document.createElement('div');
-  card.className = 'card-editor';
-  card.innerHTML = `
-    <div class="card-editor__header">
-      <h3>${title}</h3>
-      <span class="toggle-icon">+</span>
-    </div>
-    <div class="card-editor__body">
-      <div class="form-grid">${fields}</div>
-    </div>`;
-  card.querySelector('.card-editor__header').addEventListener('click', () => card.classList.toggle('open'));
-  return card;
-}
-
-// ── STAT EDITORS ─────────────────────────────────────────────
-function buildStatEditors() {
-  const container = document.getElementById('stat-editors');
-  container.innerHTML = '';
-  const stats = get('stats');
-  stats.forEach((s, i) => {
-    const card = document.createElement('div');
-    card.className = 'stat-card';
-    card.innerHTML = `
-      <h3>Stat ${i+1}</h3>
-      <div class="form-grid">
-        <div class="field full"><label>Prefixo (ex: R$)</label><input type="text" id="stat-prefix-${i}" value="${s.prefix}" /></div>
-        <div class="field full"><label>Valor (número)</label><input type="text" id="stat-value-${i}" value="${s.value}" /></div>
-        <div class="field full"><label>Sufixo (ex: mil+)</label><input type="text" id="stat-suffix-${i}" value="${s.suffix}" /></div>
-        <div class="field full"><label>Legenda</label><input type="text" id="stat-label-${i}" value="${s.label}" /></div>
-      </div>`;
-    container.appendChild(card);
-  });
-}
-
-// ── SOLUTION EDITORS ─────────────────────────────────────────
-function buildSolEditors() {
-  const container = document.getElementById('sol-editors');
-  container.innerHTML = '';
-  const sols = get('solutions');
-  sols.forEach((s, i) => {
-    const fields = `
-      <div class="field"><label>Ícone (emoji)</label><input type="text" id="sol-icon-${i}" value="${s.icon}" /></div>
-      <div class="field"><label>Número</label><input type="text" id="sol-num-${i}" value="${s.num}" /></div>
-      <div class="field full"><label>Título</label><input type="text" id="sol-title-${i}" value="${s.title}" /></div>
-      <div class="field full"><label>Descrição</label><textarea rows="2" id="sol-desc-${i}">${s.desc}</textarea></div>
-      <div class="field full"><label>Itens da lista (um por linha)</label><textarea rows="4" id="sol-items-${i}">${s.items}</textarea></div>
-      <div class="field full"><label>Destaque (deixe vazio para ocultar)</label><input type="text" id="sol-highlight-${i}" value="${s.highlight}" /></div>`;
-    container.appendChild(makeCardEditor(`Solução ${i+1}: ${s.title}`, fields, i));
-  });
-}
-
-// ── CLIENT EDITORS ────────────────────────────────────────────
-function buildClientEditors() {
-  const container = document.getElementById('client-editors');
-  container.innerHTML = '';
-  const clients = get('clients');
-  clients.forEach((c, i) => {
-    const fields = `
-      <div class="field"><label>Tag / Segmento</label><input type="text" id="cli-tag-${i}" value="${c.tag}" /></div>
-      <div class="field"><label>Nome da empresa</label><input type="text" id="cli-name-${i}" value="${c.name}" /></div>
-      <div class="field"><label>Valor (ex: +R$350K)</label><input type="text" id="cli-value-${i}" value="${c.value}" /></div>
-      <div class="field"><label>Período (ex: bruto no 1º mês)</label><input type="text" id="cli-period-${i}" value="${c.period}" /></div>
-      <div class="field full"><label>Descrição</label><textarea rows="3" id="cli-desc-${i}">${c.desc}</textarea></div>`;
-    container.appendChild(makeCardEditor(c.name, fields, i));
-  });
-}
-
-// ── FOUNDER EDITORS ──────────────────────────────────────────
-function buildFounderEditors() {
-  const container = document.getElementById('founder-editors');
-  container.innerHTML = '';
-  const founders = get('founders');
-  founders.forEach((f, i) => {
-    const fields = `
-      <div class="field"><label>Iniciais (avatar)</label><input type="text" id="fnd-initials-${i}" value="${f.initials}" /></div>
-      <div class="field"><label>Nome completo</label><input type="text" id="fnd-name-${i}" value="${f.name}" /></div>
-      <div class="field full"><label>Cargo / especialidade</label><input type="text" id="fnd-role-${i}" value="${f.role}" /></div>
-      <div class="field"><label>Número destaque</label><input type="text" id="fnd-statNum-${i}" value="${f.statNum}" /></div>
-      <div class="field"><label>Label do número</label><input type="text" id="fnd-statLabel-${i}" value="${f.statLabel}" /></div>
-      <div class="field full"><label>Bio</label><textarea rows="3" id="fnd-bio-${i}">${f.bio}</textarea></div>`;
-    container.appendChild(makeCardEditor(f.name, fields, i));
-  });
-}
-
-// ── POPULATE SIMPLE FIELDS ────────────────────────────────────
-function populateSimpleFields() {
-  const simpleIds = [
-    'g-company','g-tagline','g-whatsapp','g-instagram',
-    'h-eyebrow','h-line1','h-line2','h-line3','h-pillar1','h-pillar2','h-cta',
-    'c-title','c-sub','c-wabtn','c-igbtn',
-  ];
-  simpleIds.forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.value = get(id);
-  });
-}
-
-// ── COLLECT ALL DATA ──────────────────────────────────────────
-function collectData() {
-  const data = {};
-
-  // Simple fields
-  [
-    'g-company','g-tagline','g-whatsapp','g-instagram',
-    'h-eyebrow','h-line1','h-line2','h-line3','h-pillar1','h-pillar2','h-cta',
-    'c-title','c-sub','c-wabtn','c-igbtn',
-  ].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) data[id] = el.value;
-  });
-
-  // Stats
-  const statsCount = DEFAULTS.stats.length;
-  data.stats = [];
-  for (let i = 0; i < statsCount; i++) {
-    data.stats.push({
-      prefix: document.getElementById(`stat-prefix-${i}`)?.value ?? '',
-      value:  document.getElementById(`stat-value-${i}`)?.value ?? '',
-      suffix: document.getElementById(`stat-suffix-${i}`)?.value ?? '',
-      label:  document.getElementById(`stat-label-${i}`)?.value ?? '',
-    });
-  }
-
-  // Solutions
-  const solCount = DEFAULTS.solutions.length;
-  data.solutions = [];
-  for (let i = 0; i < solCount; i++) {
-    data.solutions.push({
-      num:       document.getElementById(`sol-num-${i}`)?.value ?? '',
-      icon:      document.getElementById(`sol-icon-${i}`)?.value ?? '',
-      title:     document.getElementById(`sol-title-${i}`)?.value ?? '',
-      desc:      document.getElementById(`sol-desc-${i}`)?.value ?? '',
-      items:     document.getElementById(`sol-items-${i}`)?.value ?? '',
-      highlight: document.getElementById(`sol-highlight-${i}`)?.value ?? '',
-    });
-  }
-
-  // Clients
-  const cliCount = DEFAULTS.clients.length;
-  data.clients = [];
-  for (let i = 0; i < cliCount; i++) {
-    data.clients.push({
-      tag:    document.getElementById(`cli-tag-${i}`)?.value ?? '',
-      name:   document.getElementById(`cli-name-${i}`)?.value ?? '',
-      value:  document.getElementById(`cli-value-${i}`)?.value ?? '',
-      period: document.getElementById(`cli-period-${i}`)?.value ?? '',
-      desc:   document.getElementById(`cli-desc-${i}`)?.value ?? '',
-    });
-  }
-
-  // Founders
-  const fndCount = DEFAULTS.founders.length;
-  data.founders = [];
-  for (let i = 0; i < fndCount; i++) {
-    data.founders.push({
-      initials:  document.getElementById(`fnd-initials-${i}`)?.value ?? '',
-      name:      document.getElementById(`fnd-name-${i}`)?.value ?? '',
-      role:      document.getElementById(`fnd-role-${i}`)?.value ?? '',
-      statNum:   document.getElementById(`fnd-statNum-${i}`)?.value ?? '',
-      statLabel: document.getElementById(`fnd-statLabel-${i}`)?.value ?? '',
-      bio:       document.getElementById(`fnd-bio-${i}`)?.value ?? '',
-    });
-  }
-
-  return data;
-}
-
-// ── SAVE BUTTON ───────────────────────────────────────────────
-document.getElementById('saveBtn').addEventListener('click', () => {
-  let data = collectData();
-  data = collectLayoutData(data);
-  saveData(data);
-  showToast('Alterações salvas com sucesso!');
-});
-
-// ── CHANGE PASSWORD ───────────────────────────────────────────
-document.getElementById('changePwdBtn').addEventListener('click', async () => {
-  const current  = document.getElementById('pwd-current').value;
-  const newPwd   = document.getElementById('pwd-new').value;
-  const confirm  = document.getElementById('pwd-confirm').value;
-  const msg      = document.getElementById('pwdMsg');
-
-  const ok = await checkPassword(current);
-  if (!ok) {
-    msg.className = 'pwd-msg error';
-    msg.textContent = 'Senha atual incorreta.';
-    return;
-  }
-  if (newPwd.length < 6) {
-    msg.className = 'pwd-msg error';
-    msg.textContent = 'A nova senha deve ter pelo menos 6 caracteres.';
-    return;
-  }
-  if (newPwd !== confirm) {
-    msg.className = 'pwd-msg error';
-    msg.textContent = 'As senhas não coincidem.';
-    return;
-  }
-
-  await setPassword(newPwd);
-  msg.className = 'pwd-msg success';
-  msg.textContent = 'Senha alterada com sucesso!';
-  document.getElementById('pwd-current').value = '';
-  document.getElementById('pwd-new').value = '';
-  document.getElementById('pwd-confirm').value = '';
-});
-
-// ── LAYOUT DEFAULTS ───────────────────────────────────────────
-const LAYOUT_DEFAULTS = {
-  'l-headline':       '{VENDA} MAIS e {MELHOR}\natravés da\n{ESTRUTURAÇÃO\nCOMERCIAL}\nde alta {performance!}',
-  'l-fontsize':       'xlarge',
-  'l-italic':         true,
-  'l-show-eyebrow':   true,
-  'l-show-pillars':   true,
-  'l-show-trust':     true,
-  'l-show-ghost-btn': true,
-  'l-bg':             'black',
-};
-
 // ── MARKUP PARSER ─────────────────────────────────────────────
-// {text} = orange span, normal = white, \n = <br>
-function parseHeadlineMarkup(raw, isItalic) {
+function parseMarkup(raw, isItalic) {
   const lines = raw.split('\n');
-  const lastIdx = lines.length - 1;
   return lines.map((line, i) => {
-    const parsed = line.replace(/\{([^}]*)\}/g, '<span class="or">$1</span>');
-    const isLast = i === lastIdx;
+    const parsed  = line.replace(/\{([^}]*)\}/g, '<span class="or">$1</span>');
+    const isLast  = i === lines.length - 1;
     const wrapped = isLast && isItalic ? `<em>${parsed}</em>` : parsed;
-    return i < lastIdx ? wrapped + '<br/>' : wrapped;
+    return i < lines.length - 1 ? wrapped + '<br/>' : wrapped;
   }).join('');
 }
 
-// ── FONT SIZE MAP ─────────────────────────────────────────────
+const BG_CSS = {
+  'black':       '#000',
+  'dark-orange': 'linear-gradient(135deg,#000 0%,#1c0900 100%)',
+  'deep-dark':   '#060606',
+  'dark-warm':   'linear-gradient(160deg,#0d0d0d 0%,#1a0500 100%)',
+  'charcoal':    '#141414',
+};
 const FONT_SIZE_CSS = {
   xlarge: 'clamp(2.6rem, 6vw, 5.2rem)',
   large:  'clamp(2rem, 4.5vw, 4rem)',
@@ -458,122 +186,397 @@ const FONT_SIZE_CSS = {
   small:  'clamp(1.2rem, 2.5vw, 2rem)',
 };
 
-// ── BG MAP ────────────────────────────────────────────────────
-const BG_CSS = {
-  'black':       '#000',
-  'dark-orange': 'linear-gradient(135deg,#000 0%,#1a0800 100%)',
-  'deep-dark':   '#080808',
-};
-
-// ── POPULATE LAYOUT TAB ───────────────────────────────────────
-function populateLayoutTab() {
-  const data = loadData();
-  const lget = key => key in data ? data[key] : LAYOUT_DEFAULTS[key];
-
-  const headlineEl = document.getElementById('l-headline');
-  if (headlineEl) headlineEl.value = lget('l-headline');
-
-  const fontSize = lget('l-fontsize');
-  document.getElementById('l-fontsize').value = fontSize;
-  document.querySelectorAll('.size-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.size === fontSize);
-  });
-
-  const bg = lget('l-bg');
-  document.getElementById('l-bg').value = bg;
-  document.querySelectorAll('.bg-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.bg === bg);
-  });
-
-  const checkboxIds = ['l-italic','l-show-eyebrow','l-show-pillars','l-show-trust','l-show-ghost-btn'];
-  checkboxIds.forEach(id => {
+// ─────────────────────────────────────────────
+// POPULATE FIELDS
+// ─────────────────────────────────────────────
+function populateSimpleFields() {
+  [
+    'g-company','g-tagline','g-whatsapp','g-instagram',
+    'h-eyebrow','h-pillar1','h-pillar2','h-cta',
+    'ct-title','ct-sub','ct-wabtn','ct-igbtn',
+  ].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.checked = lget(id);
+    if (el) el.value = get(id);
   });
-
-  updatePreview();
 }
 
-// ── LIVE PREVIEW ──────────────────────────────────────────────
-function updatePreview() {
-  const raw      = document.getElementById('l-headline')?.value ?? '';
-  const isItalic = document.getElementById('l-italic')?.checked ?? true;
-  const fontSize = document.getElementById('l-fontsize')?.value ?? 'xlarge';
-  const bg       = document.getElementById('l-bg')?.value ?? 'black';
-  const showEyebrow   = document.getElementById('l-show-eyebrow')?.checked ?? true;
-  const showPillars   = document.getElementById('l-show-pillars')?.checked ?? true;
-  const showTrust     = document.getElementById('l-show-trust')?.checked ?? true;
-  const showGhostBtn  = document.getElementById('l-show-ghost-btn')?.checked ?? true;
+function populateLayoutFields() {
+  document.getElementById('l-headline').value = get('l-headline');
 
-  const prevHeadline = document.getElementById('prevHeadline');
-  const prevHero     = document.getElementById('previewHero');
-  const prevEyebrow  = document.getElementById('prevEyebrow');
-  const prevPillars  = document.getElementById('prevPillars');
-  const prevTrust    = document.getElementById('prevTrust');
-  const prevGhostBtn = document.getElementById('prevGhostBtn');
+  const fs = get('l-fontsize');
+  document.getElementById('l-fontsize').value = fs;
+  document.querySelectorAll('[data-size]').forEach(b => b.classList.toggle('active', b.dataset.size === fs));
 
-  if (prevHeadline) {
-    prevHeadline.innerHTML = parseHeadlineMarkup(raw, isItalic);
-    prevHeadline.className = `preview-headline fs-${fontSize}`;
+  const al = get('l-align');
+  document.getElementById('l-align').value = al;
+  document.querySelectorAll('[data-align]').forEach(b => b.classList.toggle('active', b.dataset.align === al));
+
+  const bg = get('l-bg');
+  document.getElementById('l-bg').value = bg;
+  document.querySelectorAll('.swatch').forEach(b => b.classList.toggle('active', b.dataset.bg === bg));
+
+  ['l-italic','l-mark-bg','l-show-eyebrow','l-show-pillars','l-show-trust','l-show-ghost-btn','l-wide-spacing'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.checked = get(id) !== false;
+  });
+
+  const nl = get('n-layout');
+  document.getElementById('n-layout').value = nl;
+  document.querySelectorAll('[data-numlayout]').forEach(b => b.classList.toggle('active', b.dataset.numlayout === nl));
+
+  const ss = get('s-style');
+  document.getElementById('s-style').value = ss;
+  document.querySelectorAll('[data-solstyle]').forEach(b => b.classList.toggle('active', b.dataset.solstyle === ss));
+
+  const cf = get('c-fmt');
+  document.getElementById('c-fmt').value = cf;
+  document.querySelectorAll('[data-clifmt]').forEach(b => b.classList.toggle('active', b.dataset.clifmt === cf));
+
+  const fst = get('f-style');
+  document.getElementById('f-style').value = fst;
+  document.querySelectorAll('[data-fndstyle]').forEach(b => b.classList.toggle('active', b.dataset.fndstyle === fst));
+}
+
+// ─────────────────────────────────────────────
+// BUILD EDITORS (generated lists)
+// ─────────────────────────────────────────────
+function makeAccordion(title, fieldsHtml) {
+  const d = document.createElement('div');
+  d.className = 'card-editor';
+  d.innerHTML = `
+    <div class="card-editor__hd"><h3>${title}</h3><span class="card-editor__icon">+</span></div>
+    <div class="card-editor__body"><div class="form-grid">${fieldsHtml}</div></div>`;
+  d.querySelector('.card-editor__hd').addEventListener('click', () => {
+    d.classList.toggle('open');
+    updateAllPreviews();
+  });
+  return d;
+}
+
+function buildStatEditors() {
+  const c = document.getElementById('stat-editors');
+  c.innerHTML = '';
+  get('stats').forEach((s, i) => {
+    const el = document.createElement('div');
+    el.className = 'stat-card';
+    el.innerHTML = `<h3>Stat ${i+1}</h3>
+      <div class="form-grid">
+        <div class="field"><label>Prefixo</label><input type="text" id="st-pre-${i}" value="${s.prefix}" /></div>
+        <div class="field"><label>Valor</label><input type="text" id="st-val-${i}" value="${s.value}" /></div>
+        <div class="field"><label>Sufixo</label><input type="text" id="st-suf-${i}" value="${s.suffix}" /></div>
+        <div class="field"><label>Legenda</label><input type="text" id="st-lbl-${i}" value="${s.label}" /></div>
+      </div>`;
+    c.appendChild(el);
+  });
+}
+
+function buildSolEditors() {
+  const c = document.getElementById('sol-editors');
+  c.innerHTML = '';
+  get('solutions').forEach((s, i) => {
+    c.appendChild(makeAccordion(`${s.num} – ${s.title}`, `
+      <div class="field"><label>Ícone</label><input type="text" id="so-icon-${i}" value="${s.icon}" /></div>
+      <div class="field"><label>Número</label><input type="text" id="so-num-${i}" value="${s.num}" /></div>
+      <div class="field full"><label>Título</label><input type="text" id="so-title-${i}" value="${s.title}" /></div>
+      <div class="field full"><label>Descrição</label><textarea rows="2" id="so-desc-${i}">${s.desc}</textarea></div>
+      <div class="field full"><label>Itens (um por linha)</label><textarea rows="4" id="so-items-${i}">${s.items}</textarea></div>
+      <div class="field full"><label>Destaque (vazio = oculto)</label><input type="text" id="so-hl-${i}" value="${s.highlight}" /></div>`));
+  });
+}
+
+function buildClientEditors() {
+  const c = document.getElementById('client-editors');
+  c.innerHTML = '';
+  get('clients').forEach((cl, i) => {
+    c.appendChild(makeAccordion(cl.name, `
+      <div class="field"><label>Segmento</label><input type="text" id="cl-tag-${i}" value="${cl.tag}" /></div>
+      <div class="field"><label>Nome</label><input type="text" id="cl-name-${i}" value="${cl.name}" /></div>
+      <div class="field"><label>Valor</label><input type="text" id="cl-val-${i}" value="${cl.value}" /></div>
+      <div class="field"><label>Período</label><input type="text" id="cl-per-${i}" value="${cl.period}" /></div>
+      <div class="field full"><label>Descrição</label><textarea rows="2" id="cl-desc-${i}">${cl.desc}</textarea></div>`));
+  });
+}
+
+function buildFounderEditors() {
+  const c = document.getElementById('founder-editors');
+  c.innerHTML = '';
+  get('founders').forEach((f, i) => {
+    c.appendChild(makeAccordion(f.name, `
+      <div class="field"><label>Iniciais</label><input type="text" id="fn-ini-${i}" value="${f.initials}" /></div>
+      <div class="field"><label>Nome</label><input type="text" id="fn-name-${i}" value="${f.name}" /></div>
+      <div class="field full"><label>Cargo</label><input type="text" id="fn-role-${i}" value="${f.role}" /></div>
+      <div class="field"><label>Número destaque</label><input type="text" id="fn-snum-${i}" value="${f.statNum}" /></div>
+      <div class="field"><label>Label do número</label><input type="text" id="fn-slbl-${i}" value="${f.statLabel}" /></div>
+      <div class="field full"><label>Bio</label><textarea rows="2" id="fn-bio-${i}">${f.bio}</textarea></div>`));
+  });
+}
+
+// ─────────────────────────────────────────────
+// LIVE PREVIEWS
+// ─────────────────────────────────────────────
+function updatePreviewGeral() {
+  const co = document.getElementById('g-company')?.value  || DEFAULTS['g-company'];
+  const tl = document.getElementById('g-tagline')?.value  || DEFAULTS['g-tagline'];
+  const wa = document.getElementById('g-whatsapp')?.value || DEFAULTS['g-whatsapp'];
+  const ig = document.getElementById('g-instagram')?.value || DEFAULTS['g-instagram'];
+  const el = id => document.getElementById(id);
+  if (el('pv-company'))  el('pv-company').textContent  = co;
+  if (el('pv-tagline'))  el('pv-tagline').textContent  = tl;
+  if (el('pv-wa'))       el('pv-wa').textContent       = `WhatsApp: ${wa}`;
+  if (el('pv-ig'))       el('pv-ig').textContent       = `@${ig}`;
+}
+
+function updatePreviewHero() {
+  const ey = document.getElementById('h-eyebrow')?.value || DEFAULTS['h-eyebrow'];
+  const p1 = document.getElementById('h-pillar1')?.value || DEFAULTS['h-pillar1'];
+  const p2 = document.getElementById('h-pillar2')?.value || DEFAULTS['h-pillar2'];
+  const ct = document.getElementById('h-cta')?.value     || DEFAULTS['h-cta'];
+  const el = id => document.getElementById(id);
+  if (el('pv-h-eyebrow')) el('pv-h-eyebrow').textContent = ey.toUpperCase();
+  if (el('pv-h-pillar1')) el('pv-h-pillar1').textContent = p1;
+  if (el('pv-h-pillar2')) el('pv-h-pillar2').textContent = p2;
+  if (el('pv-h-cta'))     el('pv-h-cta').textContent    = ct.toUpperCase();
+}
+
+function updatePreviewLayout() {
+  const raw      = document.getElementById('l-headline')?.value   ?? get('l-headline');
+  const isItalic = document.getElementById('l-italic')?.checked   ?? true;
+  const fs       = document.getElementById('l-fontsize')?.value   ?? 'xlarge';
+  const bg       = document.getElementById('l-bg')?.value         ?? 'black';
+  const align    = document.getElementById('l-align')?.value      ?? 'left';
+  const wide     = document.getElementById('l-wide-spacing')?.checked ?? false;
+  const showEy   = document.getElementById('l-show-eyebrow')?.checked ?? true;
+  const showPi   = document.getElementById('l-show-pillars')?.checked ?? true;
+  const showTr   = document.getElementById('l-show-trust')?.checked   ?? true;
+  const showGh   = document.getElementById('l-show-ghost-btn')?.checked ?? true;
+  const showMk   = document.getElementById('l-mark-bg')?.checked   ?? true;
+  const eyText   = document.getElementById('h-eyebrow')?.value    || DEFAULTS['h-eyebrow'];
+  const ctaText  = document.getElementById('h-cta')?.value        || DEFAULTS['h-cta'];
+
+  const el = id => document.getElementById(id);
+  if (el('prevHeadline')) {
+    el('prevHeadline').innerHTML = parseMarkup(raw, isItalic);
+    el('prevHeadline').className = `pv-headline fs-${fs}`;
+    el('prevHeadline').style.textAlign  = align;
+    el('prevHeadline').style.letterSpacing = wide ? '.08em' : '';
   }
-  if (prevHero) prevHero.style.background = BG_CSS[bg] ?? '#000';
-  if (prevEyebrow)  prevEyebrow.style.display  = showEyebrow  ? '' : 'none';
-  if (prevPillars)  prevPillars.style.display   = showPillars  ? '' : 'none';
-  if (prevTrust)    prevTrust.style.display     = showTrust    ? '' : 'none';
-  if (prevGhostBtn) prevGhostBtn.style.display  = showGhostBtn ? '' : 'none';
+  if (el('previewHero'))    el('previewHero').style.background  = BG_CSS[bg] || '#000';
+  if (el('prevEyebrow'))  { el('prevEyebrow').textContent = eyText.toUpperCase(); el('prevEyebrow').style.display = showEy ? '' : 'none'; }
+  if (el('prevPillars'))    el('prevPillars').style.display   = showPi ? '' : 'none';
+  if (el('prevTrust'))      el('prevTrust').style.display     = showTr ? '' : 'none';
+  if (el('prevGhostBtn'))   el('prevGhostBtn').style.display  = showGh ? '' : 'none';
+  if (el('prevMark'))       el('prevMark').style.display      = showMk ? '' : 'none';
+  if (el('prevCtaBtn'))     el('prevCtaBtn').textContent      = ctaText.toUpperCase();
+  const hero = el('previewHero');
+  if (hero) hero.style.alignItems = align === 'center' ? 'center' : '';
 }
 
-// ── LAYOUT EVENT LISTENERS ────────────────────────────────────
-function initLayoutTab() {
-  // Headline textarea live update
-  document.getElementById('l-headline')?.addEventListener('input', updatePreview);
+function updatePreviewNumeros() {
+  const stats  = collectStats();
+  const layout = document.getElementById('n-layout')?.value ?? 'row';
+  const pv     = document.getElementById('pv-numeros');
+  if (!pv) return;
+  pv.className = 'pv-numeros' + (layout === 'grid' ? ' grid-layout' : '');
+  pv.innerHTML = stats.map(s => `
+    <div class="pv-stat">
+      <span class="pv-stat-val">${s.prefix}${s.value}${s.suffix}</span>
+      <span class="pv-stat-lbl">${s.label}</span>
+    </div>`).join('');
+}
 
-  // Font size buttons
-  document.querySelectorAll('.size-btn').forEach(btn => {
+function updatePreviewSolucoes() {
+  const sols  = collectSolutions();
+  const style = document.getElementById('s-style')?.value ?? 'bordered';
+  const pv    = document.getElementById('pv-solucoes');
+  if (!pv) return;
+  pv.innerHTML = sols.map((s, i) => {
+    const cls = i === 1 ? 'pv-sol-card featured' : (style === 'filled' ? 'pv-sol-card filled' : style === 'minimal' ? 'pv-sol-card minimal' : 'pv-sol-card');
+    const items = (s.items || '').split('\n').filter(Boolean).slice(0,3).map(it => `<li>${it}</li>`).join('');
+    return `<div class="${cls}">
+      <div class="pv-sol-icon">${s.icon}</div>
+      <div class="pv-sol-title">${s.title}</div>
+      <ul class="pv-sol-items">${items}</ul>
+    </div>`;
+  }).join('');
+}
+
+function updatePreviewClientes() {
+  const clients = collectClients();
+  const fmt     = document.getElementById('c-fmt')?.value ?? 'grid';
+  const pv      = document.getElementById('pv-clientes');
+  if (!pv) return;
+  pv.className = 'pv-clientes' + (fmt === 'list' ? ' list-layout' : fmt === 'compact' ? ' compact-layout' : '');
+  const shown = fmt === 'compact' ? clients.slice(0,6) : clients.slice(0,4);
+  pv.innerHTML = shown.map(c => `
+    <div class="pv-cli-card">
+      <span class="pv-cli-tag">${c.tag}</span>
+      <div class="pv-cli-name">${c.name}</div>
+      <span class="pv-cli-val">${c.value}</span>
+      <span class="pv-cli-per">${c.period}</span>
+    </div>`).join('');
+}
+
+function updatePreviewFundadores() {
+  const founders = collectFounders();
+  const style    = document.getElementById('f-style')?.value ?? 'centered';
+  const pv       = document.getElementById('pv-fundadores');
+  if (!pv) return;
+  pv.innerHTML = founders.map(f => {
+    const cls = style === 'left' ? 'pv-fnd-card left-style' : style === 'minimal' ? 'pv-fnd-card minimal-style' : 'pv-fnd-card';
+    return `<div class="${cls}">
+      <div class="pv-fnd-av">${f.initials}</div>
+      <div>
+        <div class="pv-fnd-name">${f.name}</div>
+        <div class="pv-fnd-role">${f.role}</div>
+        <div class="pv-fnd-stat">${f.statNum}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function updatePreviewContato() {
+  const title = document.getElementById('ct-title')?.value || DEFAULTS['ct-title'];
+  const sub   = document.getElementById('ct-sub')?.value   || DEFAULTS['ct-sub'];
+  const wa    = document.getElementById('ct-wabtn')?.value || DEFAULTS['ct-wabtn'];
+  const ig    = document.getElementById('ct-igbtn')?.value || DEFAULTS['ct-igbtn'];
+  const el = id => document.getElementById(id);
+  if (el('pv-ct-title')) el('pv-ct-title').innerHTML = title;
+  if (el('pv-ct-sub'))   el('pv-ct-sub').textContent = sub;
+  if (el('pv-ct-wa'))    el('pv-ct-wa').textContent  = wa;
+  if (el('pv-ct-ig'))    el('pv-ct-ig').textContent  = ig;
+}
+
+function updateAllPreviews() {
+  updatePreviewGeral();
+  updatePreviewHero();
+  updatePreviewLayout();
+  updatePreviewNumeros();
+  updatePreviewSolucoes();
+  updatePreviewClientes();
+  updatePreviewFundadores();
+  updatePreviewContato();
+}
+
+// ─────────────────────────────────────────────
+// PRESET BUTTON WIRING
+// ─────────────────────────────────────────────
+function wirePresets(selector, hiddenId, attr) {
+  document.querySelectorAll(selector).forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll(selector).forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      document.getElementById('l-fontsize').value = btn.dataset.size;
-      updatePreview();
+      document.getElementById(hiddenId).value = btn.dataset[attr];
+      updateAllPreviews();
     });
   });
-
-  // BG buttons
-  document.querySelectorAll('.bg-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.bg-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('l-bg').value = btn.dataset.bg;
-      updatePreview();
-    });
-  });
-
-  // Checkboxes
-  ['l-italic','l-show-eyebrow','l-show-pillars','l-show-trust','l-show-ghost-btn'].forEach(id => {
-    document.getElementById(id)?.addEventListener('change', updatePreview);
-  });
 }
 
-// ── COLLECT LAYOUT DATA ───────────────────────────────────────
-function collectLayoutData(existing) {
-  existing['l-headline']       = document.getElementById('l-headline')?.value ?? '';
-  existing['l-fontsize']       = document.getElementById('l-fontsize')?.value ?? 'xlarge';
-  existing['l-bg']             = document.getElementById('l-bg')?.value ?? 'black';
-  existing['l-italic']         = document.getElementById('l-italic')?.checked ?? true;
-  existing['l-show-eyebrow']   = document.getElementById('l-show-eyebrow')?.checked ?? true;
-  existing['l-show-pillars']   = document.getElementById('l-show-pillars')?.checked ?? true;
-  existing['l-show-trust']     = document.getElementById('l-show-trust')?.checked ?? true;
-  existing['l-show-ghost-btn'] = document.getElementById('l-show-ghost-btn')?.checked ?? true;
-  return existing;
+// ─────────────────────────────────────────────
+// COLLECT DATA
+// ─────────────────────────────────────────────
+function collectStats() {
+  return DEFAULTS.stats.map((_, i) => ({
+    prefix: document.getElementById(`st-pre-${i}`)?.value ?? '',
+    value:  document.getElementById(`st-val-${i}`)?.value ?? '',
+    suffix: document.getElementById(`st-suf-${i}`)?.value ?? '',
+    label:  document.getElementById(`st-lbl-${i}`)?.value ?? '',
+  }));
 }
+function collectSolutions() {
+  return DEFAULTS.solutions.map((_, i) => ({
+    num:       document.getElementById(`so-num-${i}`)?.value   ?? '',
+    icon:      document.getElementById(`so-icon-${i}`)?.value  ?? '',
+    title:     document.getElementById(`so-title-${i}`)?.value ?? '',
+    desc:      document.getElementById(`so-desc-${i}`)?.value  ?? '',
+    items:     document.getElementById(`so-items-${i}`)?.value ?? '',
+    highlight: document.getElementById(`so-hl-${i}`)?.value    ?? '',
+  }));
+}
+function collectClients() {
+  return DEFAULTS.clients.map((_, i) => ({
+    tag:    document.getElementById(`cl-tag-${i}`)?.value  ?? '',
+    name:   document.getElementById(`cl-name-${i}`)?.value ?? '',
+    value:  document.getElementById(`cl-val-${i}`)?.value  ?? '',
+    period: document.getElementById(`cl-per-${i}`)?.value  ?? '',
+    desc:   document.getElementById(`cl-desc-${i}`)?.value ?? '',
+  }));
+}
+function collectFounders() {
+  return DEFAULTS.founders.map((_, i) => ({
+    initials:  document.getElementById(`fn-ini-${i}`)?.value  ?? '',
+    name:      document.getElementById(`fn-name-${i}`)?.value  ?? '',
+    role:      document.getElementById(`fn-role-${i}`)?.value  ?? '',
+    statNum:   document.getElementById(`fn-snum-${i}`)?.value  ?? '',
+    statLabel: document.getElementById(`fn-slbl-${i}`)?.value  ?? '',
+    bio:       document.getElementById(`fn-bio-${i}`)?.value   ?? '',
+  }));
+}
+
+function collectAll() {
+  const d = {};
+  ['g-company','g-tagline','g-whatsapp','g-instagram','h-eyebrow','h-pillar1','h-pillar2','h-cta','ct-title','ct-sub','ct-wabtn','ct-igbtn'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) d[id] = el.value;
+  });
+  d.stats     = collectStats();
+  d.solutions = collectSolutions();
+  d.clients   = collectClients();
+  d.founders  = collectFounders();
+  // Layout
+  ['l-headline','l-fontsize','l-align','l-bg','n-layout','s-style','c-fmt','f-style'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) d[id] = el.value;
+  });
+  ['l-italic','l-mark-bg','l-show-eyebrow','l-show-pillars','l-show-trust','l-show-ghost-btn','l-wide-spacing'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) d[id] = el.checked;
+  });
+  return d;
+}
+
+// ── SAVE ──────────────────────────────────────────────────────
+document.getElementById('saveBtn').addEventListener('click', () => {
+  saveData(collectAll());
+  showToast('✓ Alterações salvas com sucesso!');
+});
+
+// ── PASSWORD CHANGE ───────────────────────────────────────────
+document.getElementById('changePwdBtn').addEventListener('click', async () => {
+  const curr = document.getElementById('pwd-current').value;
+  const nw   = document.getElementById('pwd-new').value;
+  const cf   = document.getElementById('pwd-confirm').value;
+  const msg  = document.getElementById('pwdMsg');
+  if (!(await checkPassword(curr)))  { msg.className='pwd-msg error';   msg.textContent='Senha atual incorreta.'; return; }
+  if (nw.length < 6)                 { msg.className='pwd-msg error';   msg.textContent='Nova senha muito curta (mín. 6 caracteres).'; return; }
+  if (nw !== cf)                     { msg.className='pwd-msg error';   msg.textContent='As senhas não coincidem.'; return; }
+  await setPassword(nw);
+  msg.className='pwd-msg success'; msg.textContent='Senha alterada com sucesso!';
+  ['pwd-current','pwd-new','pwd-confirm'].forEach(id => document.getElementById(id).value='');
+});
 
 // ── INIT ──────────────────────────────────────────────────────
 function initDashboard() {
   populateSimpleFields();
+  populateLayoutFields();
   buildStatEditors();
   buildSolEditors();
   buildClientEditors();
   buildFounderEditors();
-  populateLayoutTab();
-  initLayoutTab();
+
+  // Wire preset buttons
+  wirePresets('[data-size]',      'l-fontsize', 'size');
+  wirePresets('[data-align]',     'l-align',    'align');
+  wirePresets('.swatch',          'l-bg',       'bg');
+  wirePresets('[data-numlayout]', 'n-layout',   'numlayout');
+  wirePresets('[data-solstyle]',  's-style',    'solstyle');
+  wirePresets('[data-clifmt]',    'c-fmt',      'clifmt');
+  wirePresets('[data-fndstyle]',  'f-style',    'fndstyle');
+
+  // Wire all inputs → live preview
+  document.querySelectorAll('input:not([type=password]):not([type=hidden]), textarea').forEach(el => {
+    el.addEventListener('input', updateAllPreviews);
+    el.addEventListener('change', updateAllPreviews);
+  });
+
+  updateAllPreviews();
 }

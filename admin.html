@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="admin.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -29,7 +29,7 @@
           <div class="field__input-wrap">
             <input type="password" id="pwd" placeholder="Digite a senha" required />
             <button type="button" class="toggle-pwd" id="togglePwd" aria-label="Mostrar senha">
-              <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
             </button>
           </div>
         </div>
@@ -54,16 +54,16 @@
       </div>
       <nav class="sidebar__nav">
         <button class="sidebar__item active" data-tab="geral">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 1 4.93 19.07 10 10 0 0 1 19.07 4.93"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 1 4.93 19.07"/></svg>
           Configurações Gerais
         </button>
-        <button class="sidebar__item" data-tab="hero">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          Hero / Cabeçalho
-        </button>
         <button class="sidebar__item" data-tab="layout">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           Layout do Hero
+        </button>
+        <button class="sidebar__item" data-tab="hero">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Textos do Hero
         </button>
         <button class="sidebar__item" data-tab="numeros">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
@@ -82,11 +82,11 @@
           Fundadores
         </button>
         <button class="sidebar__item" data-tab="contato">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 4.13 7.18 2 2 0 0 1 6.09 5h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L10.09 13a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 24 19.9v.02z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 7.18 2 2 0 0 1 6.09 5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L10.09 13a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 24 20v-.08z"/></svg>
           Contato / Links
         </button>
         <button class="sidebar__item" data-tab="senha">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           Alterar Senha
         </button>
       </nav>
@@ -96,158 +96,191 @@
       </button>
     </aside>
 
-    <!-- Main content -->
+    <!-- Main -->
     <main class="main" id="mainContent">
-
-      <!-- Header -->
       <div class="main__header">
         <button class="hamburger-dash" id="sidebarToggle" aria-label="Toggle sidebar">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
         <h1 class="main__title" id="mainTitle">Configurações Gerais</h1>
         <div class="main__actions">
-          <a href="index.html" target="_blank" class="btn-preview">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <a href="index.html" target="_blank" class="btn-outline-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             Ver site
           </a>
           <button class="btn-save" id="saveBtn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
             Salvar alterações
           </button>
         </div>
       </div>
+      <div class="toast" id="toast">✓ Alterações salvas com sucesso!</div>
 
-      <!-- Toast -->
-      <div class="toast" id="toast">Alterações salvas com sucesso!</div>
-
-      <!-- ── TAB: GERAL ── -->
+      <!-- ═══ TAB: GERAL ═══ -->
       <section class="tab-panel active" id="tab-geral">
-        <div class="section-header">
-          <h2>Configurações Gerais</h2>
-          <p>Informações básicas que aparecem em todo o site.</p>
-        </div>
-        <div class="form-grid">
-          <div class="field full">
-            <label>Nome da empresa</label>
-            <input type="text" id="g-company" />
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Configurações Gerais</h2>
+              <p>Nome, contato e redes sociais usados em todo o site.</p>
+            </div>
+            <div class="form-grid">
+              <div class="field full"><label>Nome da empresa</label><input type="text" id="g-company" /></div>
+              <div class="field full"><label>Slogan / tagline</label><input type="text" id="g-tagline" /></div>
+              <div class="field">
+                <label>WhatsApp (com DDI)</label>
+                <input type="text" id="g-whatsapp" placeholder="5549999999999" />
+                <span class="field-hint">Sem + ou espaços. Ex: 5549999999999</span>
+              </div>
+              <div class="field"><label>Instagram (só o usuário)</label><input type="text" id="g-instagram" placeholder="grupoamplia" /></div>
+            </div>
           </div>
-          <div class="field full">
-            <label>Slogan / tagline</label>
-            <input type="text" id="g-tagline" />
-          </div>
-          <div class="field">
-            <label>WhatsApp (número com DDI)</label>
-            <input type="text" id="g-whatsapp" placeholder="5549999999999" />
-            <span class="field-hint">Ex: 5549999999999 (sem + ou espaços)</span>
-          </div>
-          <div class="field">
-            <label>Instagram (usuário)</label>
-            <input type="text" id="g-instagram" placeholder="grupoamplia" />
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-nav">
+              <div class="pv-nav">
+                <div class="pv-nav__brand">
+                  <svg viewBox="0 0 90 24" fill="none"><polygon points="4,20 10,6 16,20 14,20 10,12 6,20" fill="#fc4900"/><polygon points="6,16 14,16 13,12 7,12" fill="#000"/><text x="18" y="18" font-family="Montserrat,sans-serif" font-weight="900" font-size="13" fill="#fc4900" letter-spacing="1">AMPLIA</text></svg>
+                </div>
+                <div class="pv-nav__tagline" id="pv-tagline">Estruturação comercial de alta performance.</div>
+              </div>
+              <div class="pv-footer-brand">
+                <div class="pv-company" id="pv-company">Grupo Amplia</div>
+                <div class="pv-links">
+                  <span id="pv-wa">WhatsApp</span>
+                  <span id="pv-ig">@grupoamplia</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ── TAB: LAYOUT ── -->
+      <!-- ═══ TAB: LAYOUT DO HERO ═══ -->
       <section class="tab-panel" id="tab-layout">
-        <div class="section-header">
-          <h2>Layout do Hero</h2>
-          <p>Controle visual completo da seção principal. Use <code>{texto}</code> para colorir palavras em laranja e texto normal para branco. Pressione Enter para nova linha.</p>
-        </div>
+        <div class="tab-split tab-split--layout">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Layout do Hero</h2>
+              <p>Controle visual completo. Use <span class="code-badge">{texto}</span> para laranja, texto normal para branco, Enter para nova linha.</p>
+            </div>
 
-        <div class="layout-editor">
-          <!-- Left: controls -->
-          <div class="layout-controls">
-
-            <div class="layout-block">
-              <h3 class="layout-block__title">Título principal</h3>
-              <p class="layout-block__hint">
-                Use <span class="code-badge">{palavra}</span> = <span style="color:#fc4900">laranja</span> &nbsp;|&nbsp; texto normal = branco &nbsp;|&nbsp; Enter = nova linha
-              </p>
-              <textarea id="l-headline" rows="6" class="headline-textarea" spellcheck="false">{VENDA} MAIS e {MELHOR}
+            <div class="ctrl-block">
+              <h3 class="ctrl-title">Título principal</h3>
+              <p class="ctrl-hint"><span class="code-badge">{palavra}</span> = <span style="color:#fc4900;font-weight:700">laranja</span> &nbsp;·&nbsp; texto normal = branco &nbsp;·&nbsp; Enter = nova linha</p>
+              <textarea id="l-headline" rows="7" class="headline-ta" spellcheck="false">{VENDA} MAIS e {MELHOR}
 através da
 {ESTRUTURAÇÃO
 COMERCIAL}
 de alta {performance!}</textarea>
             </div>
 
-            <div class="layout-block">
-              <h3 class="layout-block__title">Tamanho da fonte</h3>
-              <div class="size-presets">
-                <button class="size-btn active" data-size="xlarge">XL</button>
-                <button class="size-btn" data-size="large">G</button>
-                <button class="size-btn" data-size="medium">M</button>
-                <button class="size-btn" data-size="small">P</button>
+            <div class="ctrl-row">
+              <div class="ctrl-block">
+                <h3 class="ctrl-title">Tamanho da fonte</h3>
+                <div class="preset-row">
+                  <button class="preset-btn active" data-size="xlarge">XL</button>
+                  <button class="preset-btn" data-size="large">G</button>
+                  <button class="preset-btn" data-size="medium">M</button>
+                  <button class="preset-btn" data-size="small">P</button>
+                </div>
+                <input type="hidden" id="l-fontsize" value="xlarge" />
               </div>
-              <input type="hidden" id="l-fontsize" value="xlarge" />
-            </div>
-
-            <div class="layout-block">
-              <h3 class="layout-block__title">Última linha em itálico</h3>
-              <label class="toggle-switch">
-                <input type="checkbox" id="l-italic" checked />
-                <span class="toggle-track"><span class="toggle-thumb"></span></span>
-                <span class="toggle-label">Ativado</span>
-              </label>
-            </div>
-
-            <div class="layout-block">
-              <h3 class="layout-block__title">Elementos visíveis</h3>
-              <div class="vis-toggles">
-                <label class="toggle-switch">
-                  <input type="checkbox" id="l-show-eyebrow" checked />
-                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
-                  <span class="toggle-label">Eyebrow (texto pequeno acima)</span>
-                </label>
-                <label class="toggle-switch">
-                  <input type="checkbox" id="l-show-pillars" checked />
-                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
-                  <span class="toggle-label">Pilares (ícones + texto)</span>
-                </label>
-                <label class="toggle-switch">
-                  <input type="checkbox" id="l-show-trust" checked />
-                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
-                  <span class="toggle-label">Barra de confiança (logos)</span>
-                </label>
-                <label class="toggle-switch">
-                  <input type="checkbox" id="l-show-ghost-btn" checked />
-                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
-                  <span class="toggle-label">Botão secundário "Ver soluções"</span>
-                </label>
+              <div class="ctrl-block">
+                <h3 class="ctrl-title">Alinhamento</h3>
+                <div class="preset-row">
+                  <button class="preset-btn active" data-align="left" title="Esquerda">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="18" y2="18"/></svg>
+                  </button>
+                  <button class="preset-btn" data-align="center" title="Centro">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+                  </button>
+                </div>
+                <input type="hidden" id="l-align" value="left" />
               </div>
             </div>
 
-            <div class="layout-block">
-              <h3 class="layout-block__title">Cor de fundo do hero</h3>
-              <div class="bg-presets">
-                <button class="bg-btn active" data-bg="black" style="background:#000" title="Preto"></button>
-                <button class="bg-btn" data-bg="dark-orange" style="background:linear-gradient(135deg,#000 0%,#1a0800 100%)" title="Preto com laranja"></button>
-                <button class="bg-btn" data-bg="deep-dark" style="background:#080808" title="Dark profundo"></button>
+            <div class="ctrl-block">
+              <h3 class="ctrl-title">Cor de fundo</h3>
+              <div class="bg-swatches">
+                <button class="swatch active" data-bg="black"        style="background:#000000"                                         title="Preto puro"></button>
+                <button class="swatch"        data-bg="dark-orange"  style="background:linear-gradient(135deg,#000 0%,#1c0900 100%)"   title="Preto + laranja suave"></button>
+                <button class="swatch"        data-bg="deep-dark"    style="background:#060606"                                         title="Dark profundo"></button>
+                <button class="swatch"        data-bg="dark-warm"    style="background:linear-gradient(160deg,#0d0d0d 0%,#1a0500 100%)" title="Dark warm"></button>
+                <button class="swatch"        data-bg="charcoal"     style="background:#141414"                                         title="Carvão"></button>
               </div>
               <input type="hidden" id="l-bg" value="black" />
             </div>
 
+            <div class="ctrl-block">
+              <h3 class="ctrl-title">Variações visuais</h3>
+              <div class="toggle-list">
+                <label class="tgl"><input type="checkbox" id="l-italic" checked /><span class="tgl-track"><span class="tgl-thumb"></span></span><span>Última linha em itálico</span></label>
+                <label class="tgl"><input type="checkbox" id="l-mark-bg" checked /><span class="tgl-track"><span class="tgl-thumb"></span></span><span>Letra "A" no fundo</span></label>
+                <label class="tgl"><input type="checkbox" id="l-show-eyebrow" checked /><span class="tgl-track"><span class="tgl-thumb"></span></span><span>Eyebrow (texto acima do título)</span></label>
+                <label class="tgl"><input type="checkbox" id="l-show-pillars" checked /><span class="tgl-track"><span class="tgl-thumb"></span></span><span>Pilares com ícones</span></label>
+                <label class="tgl"><input type="checkbox" id="l-show-trust" checked /><span class="tgl-track"><span class="tgl-thumb"></span></span><span>Barra de marcas parceiras</span></label>
+                <label class="tgl"><input type="checkbox" id="l-show-ghost-btn" checked /><span class="tgl-track"><span class="tgl-thumb"></span></span><span>Botão secundário "Ver soluções"</span></label>
+                <label class="tgl"><input type="checkbox" id="l-wide-spacing" /><span class="tgl-track"><span class="tgl-thumb"></span></span><span>Espaçamento de letras amplo</span></label>
+              </div>
+            </div>
           </div>
 
-          <!-- Right: live preview -->
-          <div class="layout-preview">
+          <!-- PREVIEW -->
+          <div class="tab-preview-sticky">
             <div class="preview-label">Preview em tempo real</div>
-            <div class="preview-frame" id="previewFrame">
-              <div class="preview-hero" id="previewHero">
-                <p class="preview-eyebrow" id="prevEyebrow">A NOSSA PROPOSTA DE VALOR</p>
-                <h1 class="preview-headline" id="prevHeadline"></h1>
-                <div class="preview-pillars" id="prevPillars">
-                  <div class="preview-pillar"><span class="preview-icon">💰</span><span>Para construir um negócio que venda todos os dias...</span></div>
-                  <div class="preview-pillar"><span class="preview-icon">📅</span><span>Através de uma metodologia que nós vivenciamos...</span></div>
+            <div class="preview-frame pf-hero" id="previewFrame">
+              <div class="pv-hero" id="previewHero">
+                <p class="pv-eyebrow" id="prevEyebrow">A NOSSA PROPOSTA DE VALOR</p>
+                <h1 class="pv-headline" id="prevHeadline"></h1>
+                <div class="pv-pillars" id="prevPillars">
+                  <div class="pv-pillar"><span class="pv-icon">💰</span><span>Para construir um negócio que venda todos os dias...</span></div>
+                  <div class="pv-pillar"><span class="pv-icon">📅</span><span>Através de uma metodologia que vivenciamos...</span></div>
                 </div>
-                <div class="preview-btns">
-                  <span class="preview-btn-primary">QUERO ESTRUTURAR MEU COMERCIAL</span>
-                  <span class="preview-btn-ghost" id="prevGhostBtn">VER SOLUÇÕES →</span>
+                <div class="pv-btns">
+                  <span class="pv-btn-primary" id="prevCtaBtn">QUERO ESTRUTURAR MEU COMERCIAL</span>
+                  <span class="pv-btn-ghost" id="prevGhostBtn">VER SOLUÇÕES →</span>
                 </div>
-                <div class="preview-trust" id="prevTrust">
-                  <span class="preview-trust-text">Empresas que confiam:</span>
-                  <span class="preview-trust-tag">Colcci</span>
-                  <span class="preview-trust-tag">Tommy Hilfiger</span>
-                  <span class="preview-trust-tag">Track & Field</span>
+                <div class="pv-trust" id="prevTrust">
+                  <span class="pv-trust-label">Empresas que confiam:</span>
+                  <span class="pv-tag">Colcci</span>
+                  <span class="pv-tag">Tommy Hilfiger</span>
+                  <span class="pv-tag">Track &amp; Field</span>
+                </div>
+                <div class="pv-mark" id="prevMark">A</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: TEXTOS DO HERO ═══ -->
+      <section class="tab-panel" id="tab-hero">
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Textos do Hero</h2>
+              <p>Edite os textos dos pilares, botão e eyebrow.</p>
+            </div>
+            <div class="form-grid">
+              <div class="field full"><label>Eyebrow (texto pequeno acima do título)</label><input type="text" id="h-eyebrow" /></div>
+              <div class="field full"><label>Pilar 1 — texto</label><textarea id="h-pillar1" rows="2"></textarea></div>
+              <div class="field full"><label>Pilar 2 — texto</label><textarea id="h-pillar2" rows="2"></textarea></div>
+              <div class="field full"><label>Texto do botão principal</label><input type="text" id="h-cta" /></div>
+            </div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-hero">
+              <div class="pv-hero pv-hero--texts">
+                <p class="pv-eyebrow" id="pv-h-eyebrow">A NOSSA PROPOSTA DE VALOR</p>
+                <h1 class="pv-headline pv-headline--sm"><span style="color:#fc4900">VENDA</span> MAIS e <span style="color:#fc4900">MELHOR</span><br/>através da<br/><span style="color:#fc4900">ESTRUTURAÇÃO COMERCIAL</span></h1>
+                <div class="pv-pillars">
+                  <div class="pv-pillar"><span class="pv-icon">💰</span><span id="pv-h-pillar1">Para construir um negócio que venda todos os dias...</span></div>
+                  <div class="pv-pillar"><span class="pv-icon">📅</span><span id="pv-h-pillar2">Através de uma metodologia que vivenciamos...</span></div>
+                </div>
+                <div class="pv-btns">
+                  <span class="pv-btn-primary" id="pv-h-cta">QUERO ESTRUTURAR MEU COMERCIAL</span>
                 </div>
               </div>
             </div>
@@ -255,138 +288,189 @@ de alta {performance!}</textarea>
         </div>
       </section>
 
-      <!-- ── TAB: HERO ── -->
-      <section class="tab-panel" id="tab-hero">
-        <div class="section-header">
-          <h2>Hero / Cabeçalho</h2>
-          <p>Textos da seção principal do site.</p>
-        </div>
-        <div class="form-grid">
-          <div class="field full">
-            <label>Eyebrow (pequeno texto acima do título)</label>
-            <input type="text" id="h-eyebrow" />
-          </div>
-          <div class="field full">
-            <label>Linha 1 do título (branco)</label>
-            <input type="text" id="h-line1" placeholder="VENDA MAIS e MELHOR" />
-          </div>
-          <div class="field full">
-            <label>Linha 2 do título (laranja)</label>
-            <input type="text" id="h-line2" placeholder="ESTRUTURAÇÃO COMERCIAL" />
-          </div>
-          <div class="field full">
-            <label>Linha 3 do título (itálico)</label>
-            <input type="text" id="h-line3" placeholder="de alta performance!" />
-          </div>
-          <div class="field full">
-            <label>Pilar 1 — texto</label>
-            <textarea id="h-pillar1" rows="2"></textarea>
-          </div>
-          <div class="field full">
-            <label>Pilar 2 — texto</label>
-            <textarea id="h-pillar2" rows="2"></textarea>
-          </div>
-          <div class="field full">
-            <label>Texto do botão principal</label>
-            <input type="text" id="h-cta" />
-          </div>
-        </div>
-      </section>
-
-      <!-- ── TAB: NÚMEROS ── -->
+      <!-- ═══ TAB: NÚMEROS ═══ -->
       <section class="tab-panel" id="tab-numeros">
-        <div class="section-header">
-          <h2>Números / Stats</h2>
-          <p>Os 4 números de destaque na barra de resultados.</p>
-        </div>
-        <div class="stats-grid">
-          <div class="stat-editor" id="stat-editors">
-            <!-- generated by JS -->
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Números / Stats</h2>
+              <p>Os 4 números em destaque na barra de resultados.</p>
+            </div>
+            <div class="ctrl-block">
+              <h3 class="ctrl-title">Layout da barra</h3>
+              <div class="preset-row">
+                <button class="preset-btn active" data-numlayout="row" title="Linha horizontal">4 em linha</button>
+                <button class="preset-btn" data-numlayout="grid" title="Grade 2x2">Grade 2×2</button>
+              </div>
+              <input type="hidden" id="n-layout" value="row" />
+            </div>
+            <div id="stat-editors" style="margin-top:1rem"></div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-numeros">
+              <div class="pv-numeros" id="pv-numeros">
+                <!-- generated by JS -->
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ── TAB: SOLUÇÕES ── -->
+      <!-- ═══ TAB: SOLUÇÕES ═══ -->
       <section class="tab-panel" id="tab-solucoes">
-        <div class="section-header">
-          <h2>Soluções</h2>
-          <p>Os 4 produtos/serviços oferecidos pelo Grupo Amplia.</p>
-        </div>
-        <div id="sol-editors">
-          <!-- generated by JS -->
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Soluções</h2>
+              <p>Os 4 produtos/serviços do Grupo Amplia.</p>
+            </div>
+            <div class="ctrl-block">
+              <h3 class="ctrl-title">Estilo dos cards</h3>
+              <div class="preset-row">
+                <button class="preset-btn active" data-solstyle="bordered">Bordado</button>
+                <button class="preset-btn" data-solstyle="filled">Preenchido</button>
+                <button class="preset-btn" data-solstyle="minimal">Minimal</button>
+              </div>
+              <input type="hidden" id="s-style" value="bordered" />
+            </div>
+            <div id="sol-editors" style="margin-top:1rem"></div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-solucoes">
+              <div class="pv-solucoes" id="pv-solucoes">
+                <!-- generated by JS -->
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- ── TAB: CLIENTES ── -->
+      <!-- ═══ TAB: CLIENTES ═══ -->
       <section class="tab-panel" id="tab-clientes">
-        <div class="section-header">
-          <h2>Clientes / Resultados</h2>
-          <p>Empresas parceiras e resultados gerados.</p>
-        </div>
-        <div id="client-editors">
-          <!-- generated by JS -->
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Clientes / Resultados</h2>
+              <p>Empresas parceiras e resultados gerados.</p>
+            </div>
+            <div class="ctrl-block">
+              <h3 class="ctrl-title">Layout dos cards</h3>
+              <div class="preset-row">
+                <button class="preset-btn active" data-clifmt="grid">Grade 2 colunas</button>
+                <button class="preset-btn" data-clifmt="list">Lista</button>
+                <button class="preset-btn" data-clifmt="compact">Compacto</button>
+              </div>
+              <input type="hidden" id="c-fmt" value="grid" />
+            </div>
+            <div id="client-editors" style="margin-top:1rem"></div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-clientes">
+              <div class="pv-clientes" id="pv-clientes">
+                <!-- generated by JS -->
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- ── TAB: FUNDADORES ── -->
+      <!-- ═══ TAB: FUNDADORES ═══ -->
       <section class="tab-panel" id="tab-fundadores">
-        <div class="section-header">
-          <h2>Fundadores</h2>
-          <p>Informações dos sócios fundadores.</p>
-        </div>
-        <div id="founder-editors">
-          <!-- generated by JS -->
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Fundadores</h2>
+              <p>Informações dos sócios fundadores.</p>
+            </div>
+            <div class="ctrl-block">
+              <h3 class="ctrl-title">Estilo dos cards</h3>
+              <div class="preset-row">
+                <button class="preset-btn active" data-fndstyle="centered">Centralizado</button>
+                <button class="preset-btn" data-fndstyle="left">Alinhado à esq.</button>
+                <button class="preset-btn" data-fndstyle="minimal">Minimal</button>
+              </div>
+              <input type="hidden" id="f-style" value="centered" />
+            </div>
+            <div id="founder-editors" style="margin-top:1rem"></div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-fundadores">
+              <div class="pv-fundadores" id="pv-fundadores">
+                <!-- generated by JS -->
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- ── TAB: CONTATO ── -->
+      <!-- ═══ TAB: CONTATO ═══ -->
       <section class="tab-panel" id="tab-contato">
-        <div class="section-header">
-          <h2>Contato / Links</h2>
-          <p>Textos e links da seção de contato final.</p>
-        </div>
-        <div class="form-grid">
-          <div class="field full">
-            <label>Título da seção</label>
-            <input type="text" id="c-title" />
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Contato / Links</h2>
+              <p>Textos e rótulos da seção de CTA final.</p>
+            </div>
+            <div class="form-grid">
+              <div class="field full"><label>Título da seção</label><input type="text" id="ct-title" /></div>
+              <div class="field full"><label>Subtítulo</label><textarea id="ct-sub" rows="2"></textarea></div>
+              <div class="field"><label>Texto botão WhatsApp</label><input type="text" id="ct-wabtn" /></div>
+              <div class="field"><label>Texto botão Instagram</label><input type="text" id="ct-igbtn" /></div>
+            </div>
           </div>
-          <div class="field full">
-            <label>Subtítulo</label>
-            <textarea id="c-sub" rows="2"></textarea>
-          </div>
-          <div class="field">
-            <label>Texto botão WhatsApp</label>
-            <input type="text" id="c-wabtn" />
-          </div>
-          <div class="field">
-            <label>Texto botão Instagram</label>
-            <input type="text" id="c-igbtn" />
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-contato">
+              <div class="pv-contato">
+                <div class="pv-mark pv-mark--contato" aria-hidden="true">A</div>
+                <p class="pv-eyebrow">PRÓXIMO PASSO</p>
+                <h2 class="pv-contato-title" id="pv-ct-title">Pronto para <span style="color:#fc4900">vender mais e melhor?</span></h2>
+                <p class="pv-contato-sub" id="pv-ct-sub">Fale com nossa equipe e descubra como estruturar seu comercial.</p>
+                <div class="pv-btns">
+                  <span class="pv-btn-primary" id="pv-ct-wa">Falar no WhatsApp</span>
+                  <span class="pv-btn-ghost" id="pv-ct-ig">Ver no Instagram</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ── TAB: SENHA ── -->
+      <!-- ═══ TAB: SENHA ═══ -->
       <section class="tab-panel" id="tab-senha">
-        <div class="section-header">
-          <h2>Alterar Senha</h2>
-          <p>Mude a senha de acesso ao painel administrativo.</p>
-        </div>
-        <div class="form-grid" style="max-width:420px">
-          <div class="field full">
-            <label>Senha atual</label>
-            <input type="password" id="pwd-current" />
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Alterar Senha</h2>
+              <p>Mude a senha de acesso ao painel administrativo.</p>
+            </div>
+            <div class="form-grid" style="max-width:400px">
+              <div class="field full"><label>Senha atual</label><input type="password" id="pwd-current" /></div>
+              <div class="field full"><label>Nova senha</label><input type="password" id="pwd-new" /></div>
+              <div class="field full"><label>Confirmar nova senha</label><input type="password" id="pwd-confirm" /></div>
+              <div class="pwd-msg" id="pwdMsg"></div>
+              <div class="field full"><button class="btn-save" id="changePwdBtn" style="width:100%">Alterar senha</button></div>
+            </div>
           </div>
-          <div class="field full">
-            <label>Nova senha</label>
-            <input type="password" id="pwd-new" />
-          </div>
-          <div class="field full">
-            <label>Confirmar nova senha</label>
-            <input type="password" id="pwd-confirm" />
-          </div>
-          <div class="pwd-msg" id="pwdMsg"></div>
-          <div class="field full">
-            <button class="btn-save" id="changePwdBtn" style="width:100%">Alterar senha</button>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Dica de segurança</div>
+            <div class="preview-frame pf-senha">
+              <div class="pv-senha">
+                <div class="pv-lock">🔒</div>
+                <p class="pv-lock-title">Senha segura</p>
+                <ul class="pv-lock-tips">
+                  <li>Mínimo de 8 caracteres</li>
+                  <li>Misture letras e números</li>
+                  <li>Use caracteres especiais (!@#$)</li>
+                  <li>Não compartilhe sua senha</li>
+                  <li>A sessão expira ao fechar o navegador</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>

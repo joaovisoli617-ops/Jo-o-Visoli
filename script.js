@@ -126,6 +126,8 @@
     'black':       '#000',
     'dark-orange': 'linear-gradient(135deg,#000 0%,#1a0800 100%)',
     'deep-dark':   '#080808',
+    'dark-warm':   'linear-gradient(135deg,#0a0500 0%,#1c0e00 100%)',
+    'charcoal':    '#1a1a1a',
   };
 
   function parseMarkup(raw, isItalic) {
@@ -160,17 +162,76 @@
   const ghostBtn = document.querySelector('.hero__ctas .btn--ghost');
   if (ghostBtn && data['l-show-ghost-btn'] === false) ghostBtn.style.display = 'none';
 
+  // ── Layout extras ──
+  if (data['l-align']) {
+    const h1 = document.querySelector('.hero h1');
+    const heroInner = document.querySelector('.hero__inner');
+    if (h1) h1.style.textAlign = data['l-align'];
+    if (heroInner) heroInner.style.alignItems = data['l-align'] === 'center' ? 'center' : 'flex-start';
+  }
+  if (data['l-mark-bg'] === false) {
+    document.querySelectorAll('.hero__mark, .hero-mark').forEach(el => el.style.display = 'none');
+  }
+  if (data['l-wide-spacing'] === true) {
+    const h1 = document.querySelector('.hero h1');
+    if (h1) h1.style.letterSpacing = '0.08em';
+  }
+
+  // ── Números layout ──
+  if (data['n-layout']) {
+    const grid = document.querySelector('.numeros__grid');
+    if (grid) {
+      grid.style.display = 'flex';
+      grid.style.flexWrap = 'wrap';
+      grid.style.justifyContent = 'center';
+      if (data['n-layout'] === 'row') {
+        grid.style.flexDirection = 'row';
+      } else {
+        grid.style.flexDirection = 'row';
+        grid.style.flexWrap = 'wrap';
+      }
+    }
+  }
+
+  // ── Solutions style ──
+  if (data['s-style']) {
+    document.querySelectorAll('.sol-card').forEach(card => {
+      card.classList.remove('sol-card--bordered', 'sol-card--minimal');
+      if (data['s-style'] === 'bordered') card.classList.add('sol-card--bordered');
+      if (data['s-style'] === 'minimal')  card.classList.add('sol-card--minimal');
+    });
+  }
+
+  // ── Clients format ──
+  if (data['c-fmt']) {
+    const grid = document.querySelector('.resultados__grid');
+    if (grid) {
+      grid.classList.remove('res-grid--list', 'res-grid--compact');
+      if (data['c-fmt'] === 'list')    grid.classList.add('res-grid--list');
+      if (data['c-fmt'] === 'compact') grid.classList.add('res-grid--compact');
+    }
+  }
+
+  // ── Founders style ──
+  if (data['f-style']) {
+    document.querySelectorAll('.fund-card').forEach(card => {
+      card.classList.remove('fund-card--left', 'fund-card--minimal');
+      if (data['f-style'] === 'left')    card.classList.add('fund-card--left');
+      if (data['f-style'] === 'minimal') card.classList.add('fund-card--minimal');
+    });
+  }
+
   // Contact
-  if (data['c-title']) {
+  if (data['ct-title']) {
     const el = document.querySelector('.cta-final h2');
-    if (el) el.innerHTML = data['c-title'];
+    if (el) el.innerHTML = data['ct-title'];
   }
-  if (data['c-sub']) setText('.cta-final__inner > p', data['c-sub']);
-  if (data['c-wabtn']) {
+  if (data['ct-sub']) setText('.cta-final__inner > p', data['ct-sub']);
+  if (data['ct-wabtn']) {
     const btn = document.querySelector('.cta-final__actions .btn--pulse');
-    if (btn) { const svg = btn.querySelector('svg'); btn.textContent = data['c-wabtn']; if (svg) btn.prepend(svg); }
+    if (btn) { const svg = btn.querySelector('svg'); btn.textContent = data['ct-wabtn']; if (svg) btn.prepend(svg); }
   }
-  if (data['c-igbtn']) setText('.cta-final__actions .btn--ghost', data['c-igbtn']);
+  if (data['ct-igbtn']) setText('.cta-final__actions .btn--ghost', data['ct-igbtn']);
 })();
 
 // ── NAV: scroll effect ──────────────────────
