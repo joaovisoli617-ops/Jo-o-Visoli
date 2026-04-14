@@ -61,6 +61,14 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
           Números / Stats
         </button>
+        <button class="sidebar__item" data-tab="sobre">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Sobre
+        </button>
+        <button class="sidebar__item" data-tab="paraquem">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Para Quem É
+        </button>
         <button class="sidebar__item" data-tab="solucoes">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
           Soluções
@@ -435,6 +443,85 @@ de alta {performance!}</textarea>
                 <div class="pv-btns">
                   <span class="pv-btn-primary" id="pv-ct-wa">Falar no WhatsApp</span>
                   <span class="pv-btn-ghost" id="pv-ct-ig">Ver no Instagram</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: SOBRE ═══ -->
+      <section class="tab-panel" id="tab-sobre">
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header"><h2>Sobre</h2><p>Seção "Quem Somos" — quote, texto e badge.</p></div>
+            <div class="form-grid">
+              <div class="field full"><label>Eyebrow (etiqueta)</label><input type="text" id="sb-eyebrow" placeholder="Quem somos" /></div>
+              <div class="field full"><label>Título</label><input type="text" id="sb-h2" placeholder="Somos uma {Estruturadora Comercial}" /></div>
+              <div class="field full"><label>Quote / Citação</label><textarea id="sb-quote" rows="3"></textarea></div>
+              <div class="field"><label>Autor da citação</label><input type="text" id="sb-cite" placeholder="— Grupo Amplia" /></div>
+              <div class="field full"><label>Parágrafo 1</label><textarea id="sb-p1" rows="3"></textarea></div>
+              <div class="field full"><label>Parágrafo 2</label><textarea id="sb-p2" rows="3"></textarea></div>
+              <div class="field full"><label>Bullet 1</label><input type="text" id="sb-b1" /></div>
+              <div class="field full"><label>Bullet 2</label><input type="text" id="sb-b2" /></div>
+              <div class="field full"><label>Bullet 3</label><input type="text" id="sb-b3" /></div>
+              <div class="field"><label>Badge — De</label><input type="text" id="sb-badge-from" placeholder="R$13K" /></div>
+              <div class="field"><label>Badge — Para</label><input type="text" id="sb-badge-to" placeholder="R$25K" /></div>
+              <div class="field full"><label>Badge — Legenda</label><input type="text" id="sb-badge-label" placeholder="nosso próprio faturamento dobrado" /></div>
+            </div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview</div>
+            <div class="preview-frame pf-sobre">
+              <div class="pv-sobre">
+                <div class="pv-sobre__quote" id="pv-sb-quote">"Construímos um negócio que vende todos os dias…"</div>
+                <div class="pv-sobre__cite" id="pv-sb-cite">— Grupo Amplia</div>
+                <div class="pv-sobre__badge"><span id="pv-sb-from">R$13K</span> → <span id="pv-sb-to">R$25K</span></div>
+                <div class="pv-sobre__eyebrow" id="pv-sb-eyebrow">QUEM SOMOS</div>
+                <div class="pv-sobre__h2" id="pv-sb-h2">Somos uma <span style="color:#fc4900">Estruturadora Comercial</span></div>
+                <div class="pv-sobre__p" id="pv-sb-p1">O foco aqui é aumentar a sua precificação…</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: PARA QUEM ═══ -->
+      <section class="tab-panel" id="tab-paraquem">
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header"><h2>Para Quem É</h2><p>Título e os 6 cards de dores do cliente.</p></div>
+            <div class="form-grid">
+              <div class="field full"><label>Eyebrow</label><input type="text" id="pq-eyebrow" placeholder="Para quem é" /></div>
+              <div class="field full"><label>Título da seção</label><textarea id="pq-title" rows="2"></textarea></div>
+            </div>
+            <div class="section-header" style="margin-top:1.2rem"><h3 style="font-size:.85rem;color:var(--wh2)">Cards de Dores</h3></div>
+            <div class="form-grid" id="pq-cards-grid">
+              <div class="ctrl-block" style="grid-column:1/-1"><div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem"><input type="text" id="pq-icon-1" placeholder="😤" style="width:56px;text-align:center;font-size:1.3rem" /><label style="margin:0">Card 1</label></div><textarea id="pq-text-1" rows="2"></textarea></div>
+              <div class="ctrl-block" style="grid-column:1/-1"><div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem"><input type="text" id="pq-icon-2" placeholder="📉" style="width:56px;text-align:center;font-size:1.3rem" /><label style="margin:0">Card 2</label></div><textarea id="pq-text-2" rows="2"></textarea></div>
+              <div class="ctrl-block" style="grid-column:1/-1"><div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem"><input type="text" id="pq-icon-3" placeholder="🤝" style="width:56px;text-align:center;font-size:1.3rem" /><label style="margin:0">Card 3</label></div><textarea id="pq-text-3" rows="2"></textarea></div>
+              <div class="ctrl-block" style="grid-column:1/-1"><div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem"><input type="text" id="pq-icon-4" placeholder="💸" style="width:56px;text-align:center;font-size:1.3rem" /><label style="margin:0">Card 4</label></div><textarea id="pq-text-4" rows="2"></textarea></div>
+              <div class="ctrl-block" style="grid-column:1/-1"><div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem"><input type="text" id="pq-icon-5" placeholder="📣" style="width:56px;text-align:center;font-size:1.3rem" /><label style="margin:0">Card 5</label></div><textarea id="pq-text-5" rows="2"></textarea></div>
+              <div class="ctrl-block" style="grid-column:1/-1"><div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem"><input type="text" id="pq-icon-6" placeholder="🎯" style="width:56px;text-align:center;font-size:1.3rem" /><label style="margin:0">Card 6</label></div><textarea id="pq-text-6" rows="2"></textarea></div>
+            </div>
+            <div class="form-grid" style="margin-top:1rem">
+              <div class="field full"><label>Texto CTA final</label><textarea id="pq-cta-text" rows="2"></textarea></div>
+              <div class="field full"><label>Botão CTA</label><input type="text" id="pq-cta-btn" placeholder="Quero resolver isso agora" /></div>
+            </div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview</div>
+            <div class="preview-frame pf-paraquem">
+              <div class="pv-paraquem">
+                <div class="pv-paraquem__eyebrow" id="pv-pq-eyebrow">PARA QUEM É</div>
+                <div class="pv-paraquem__title" id="pv-pq-title">Você se identifica com <span style="color:#fc4900">alguma dessas situações?</span></div>
+                <div class="pv-paraquem__grid" id="pv-pq-grid">
+                  <div class="pv-pq-card"><span>😤</span><p>Você é o único que sabe vender…</p></div>
+                  <div class="pv-pq-card"><span>📉</span><p>Suas vendas são inconsistentes…</p></div>
+                  <div class="pv-pq-card"><span>🤝</span><p>Você não sabe como contratar…</p></div>
+                  <div class="pv-pq-card"><span>💸</span><p>Você cobra barato…</p></div>
+                  <div class="pv-pq-card"><span>📣</span><p>Seu marketing não gera leads…</p></div>
+                  <div class="pv-pq-card"><span>🎯</span><p>Você quer escalar…</p></div>
                 </div>
               </div>
             </div>

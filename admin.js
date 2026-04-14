@@ -16,6 +16,30 @@ const DEFAULTS = {
   'h-pillar2':  'Através de uma metodologia que nós vivenciamos diariamente no Grupo Amplia.',
   'h-cta':      'Quero estruturar meu comercial',
 
+  'sb-eyebrow':     'Quem somos',
+  'sb-h2':          'Somos uma {Estruturadora Comercial}',
+  'sb-quote':       'Construímos um negócio que vende todos os dias, de forma independente do dono — e ensinamos nossos clientes a fazer o mesmo.',
+  'sb-cite':        '— Grupo Amplia',
+  'sb-p1':          'O foco aqui é aumentar a sua precificação e estruturar o seu comercial. Somos uma empresa jovem com 14 meses de mercado e resultados que falam por si: mais de meio milhão de reais gerados para empresários brasileiros em setores do varejo, automotivo e serviços.',
+  'sb-p2':          'Antes de levar a metodologia para os nossos clientes, nós a aplicamos em nós mesmos — e dobramos o nosso próprio faturamento, saindo de R$13K para R$25K ao mês no início de 2024.',
+  'sb-b1':          'Metodologia vivenciada internamente',
+  'sb-b2':          'Resultados mensuráveis desde o 1º mês',
+  'sb-b3':          'Processos completos: captação ao fechamento',
+  'sb-badge-from':  'R$13K',
+  'sb-badge-to':    'R$25K',
+  'sb-badge-label': 'nosso próprio faturamento dobrado',
+
+  'pq-eyebrow': 'Para quem é',
+  'pq-title':   'Você se identifica com alguma dessas situações?',
+  'pq-icon-1':  '😤', 'pq-text-1': 'Você é o único que sabe vender na empresa e se sente refém do seu próprio negócio',
+  'pq-icon-2':  '📉', 'pq-text-2': 'Suas vendas são inconsistentes — mês bom, mês ruim, sem previsibilidade',
+  'pq-icon-3':  '🤝', 'pq-text-3': 'Você não sabe como contratar, treinar e gerir um time comercial',
+  'pq-icon-4':  '💸', 'pq-text-4': 'Você cobra barato, tem dificuldade em aumentar sua precificação sem perder clientes',
+  'pq-icon-5':  '📣', 'pq-text-5': 'Seu marketing não gera leads qualificados para o seu time de vendas fechar',
+  'pq-icon-6':  '🎯', 'pq-text-6': 'Você quer escalar, mas não tem processos comerciais estruturados',
+  'pq-cta-text': 'Se você se identificou com pelo menos uma dessas situações, o Grupo Amplia é para você.',
+  'pq-cta-btn':  'Quero resolver isso agora',
+
   stats: [
     { prefix: 'R$', value: '500', suffix: 'mil+', label: 'em faturamento gerado para clientes' },
     { prefix: '',   value: '14',  suffix: ' meses', label: 'de mercado com resultados comprovados' },
@@ -195,6 +219,12 @@ function populateSimpleFields() {
     'g-company','g-tagline','g-whatsapp','g-instagram',
     'h-eyebrow','h-pillar1','h-pillar2','h-cta',
     'ct-title','ct-sub','ct-wabtn','ct-igbtn',
+    'sb-eyebrow','sb-h2','sb-quote','sb-cite','sb-p1','sb-p2','sb-b1','sb-b2','sb-b3',
+    'sb-badge-from','sb-badge-to','sb-badge-label',
+    'pq-eyebrow','pq-title',
+    'pq-icon-1','pq-text-1','pq-icon-2','pq-text-2','pq-icon-3','pq-text-3',
+    'pq-icon-4','pq-text-4','pq-icon-5','pq-text-5','pq-icon-6','pq-text-6',
+    'pq-cta-text','pq-cta-btn',
   ].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.value = get(id);
@@ -457,11 +487,38 @@ function updatePreviewContato() {
   if (el('pv-ct-ig'))    el('pv-ct-ig').textContent  = ig;
 }
 
+function updatePreviewSobre() {
+  const g = id => document.getElementById(id)?.value || DEFAULTS[id] || '';
+  const el = id => document.getElementById(id);
+  if (el('pv-sb-quote'))  el('pv-sb-quote').textContent  = '"' + g('sb-quote') + '"';
+  if (el('pv-sb-cite'))   el('pv-sb-cite').textContent   = g('sb-cite');
+  if (el('pv-sb-from'))   el('pv-sb-from').textContent   = g('sb-badge-from');
+  if (el('pv-sb-to'))     el('pv-sb-to').textContent     = g('sb-badge-to');
+  if (el('pv-sb-eyebrow'))el('pv-sb-eyebrow').textContent= g('sb-eyebrow').toUpperCase();
+  if (el('pv-sb-h2'))     el('pv-sb-h2').textContent     = g('sb-h2').replace(/\{([^}]*)\}/g, '$1');
+  if (el('pv-sb-p1'))     el('pv-sb-p1').textContent     = g('sb-p1').substring(0, 100) + '…';
+}
+
+function updatePreviewParaQuem() {
+  const g = id => document.getElementById(id)?.value || DEFAULTS[id] || '';
+  const el = id => document.getElementById(id);
+  if (el('pv-pq-eyebrow')) el('pv-pq-eyebrow').textContent = g('pq-eyebrow').toUpperCase();
+  if (el('pv-pq-title'))   el('pv-pq-title').textContent   = g('pq-title');
+  const grid = el('pv-pq-grid');
+  if (grid) {
+    grid.innerHTML = [1,2,3,4,5,6].map(i =>
+      `<div class="pv-pq-card"><span>${g('pq-icon-'+i)}</span><p>${g('pq-text-'+i).substring(0,60)}…</p></div>`
+    ).join('');
+  }
+}
+
 function updateAllPreviews() {
   updatePreviewGeral();
   updatePreviewHero();
   updatePreviewLayout();
   updatePreviewNumeros();
+  updatePreviewSobre();
+  updatePreviewParaQuem();
   updatePreviewSolucoes();
   updatePreviewClientes();
   updatePreviewFundadores();
@@ -543,6 +600,18 @@ function collectAll() {
   ['l-italic','l-mark-bg','l-show-eyebrow','l-show-pillars','l-show-trust','l-show-ghost-btn','l-wide-spacing'].forEach(id => {
     const el = document.getElementById(id);
     if (el) d[id] = el.checked;
+  });
+  // Sobre
+  ['sb-eyebrow','sb-h2','sb-quote','sb-cite','sb-p1','sb-p2','sb-b1','sb-b2','sb-b3','sb-badge-from','sb-badge-to','sb-badge-label'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) d[id] = el.value;
+  });
+  // Para Quem
+  const pqIds = ['pq-eyebrow','pq-title','pq-cta-text','pq-cta-btn'];
+  for (let i = 1; i <= 6; i++) { pqIds.push(`pq-icon-${i}`, `pq-text-${i}`); }
+  pqIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) d[id] = el.value;
   });
   return d;
 }

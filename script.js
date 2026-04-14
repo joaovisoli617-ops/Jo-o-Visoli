@@ -236,6 +236,44 @@
     if (btn) { const svg = btn.querySelector('svg'); btn.textContent = data['ct-wabtn']; if (svg) btn.prepend(svg); }
   }
   if (data['ct-igbtn']) setText('.cta-final__actions .btn--ghost', data['ct-igbtn']);
+
+  // Sobre
+  if (data['sb-eyebrow']) setText('.sobre .eyebrow', data['sb-eyebrow']);
+  if (data['sb-h2']) {
+    const el = document.querySelector('.sobre h2');
+    if (el) el.innerHTML = data['sb-h2'];
+  }
+  if (data['sb-quote']) setText('.sobre__quote p', data['sb-quote']);
+  if (data['sb-cite'])  setText('.sobre__quote cite', data['sb-cite']);
+  const sobrePs = document.querySelectorAll('.sobre__text > p');
+  if (data['sb-p1'] && sobrePs[0]) sobrePs[0].textContent = data['sb-p1'];
+  if (data['sb-p2'] && sobrePs[1]) sobrePs[1].textContent = data['sb-p2'];
+  const bullets = document.querySelectorAll('.sobre__bullets .bullet');
+  if (data['sb-b1'] && bullets[0]) bullets[0].lastChild.textContent = data['sb-b1'];
+  if (data['sb-b2'] && bullets[1]) bullets[1].lastChild.textContent = data['sb-b2'];
+  if (data['sb-b3'] && bullets[2]) bullets[2].lastChild.textContent = data['sb-b3'];
+  const badgeNums = document.querySelectorAll('.sobre__badge-num');
+  if (data['sb-badge-from'] && badgeNums[0]) badgeNums[0].textContent = data['sb-badge-from'];
+  if (data['sb-badge-to']   && badgeNums[1]) badgeNums[1].textContent = data['sb-badge-to'];
+  if (data['sb-badge-label']) setText('.sobre__badge-label', data['sb-badge-label']);
+
+  // Para Quem
+  if (data['pq-eyebrow']) setText('.para-quem .eyebrow', data['pq-eyebrow']);
+  if (data['pq-title']) {
+    const el = document.querySelector('.para-quem h2');
+    if (el) el.innerHTML = data['pq-title'];
+  }
+  const pqCards = document.querySelectorAll('.pq-card');
+  for (let i = 0; i < 6; i++) {
+    const card = pqCards[i];
+    if (!card) continue;
+    const iconEl = card.querySelector('.pq-card__icon');
+    const textEl = card.querySelector('p');
+    if (iconEl && data[`pq-icon-${i + 1}`]) iconEl.textContent = data[`pq-icon-${i + 1}`];
+    if (textEl && data[`pq-text-${i + 1}`]) textEl.textContent = data[`pq-text-${i + 1}`];
+  }
+  if (data['pq-cta-text']) setText('.pq-cta p', data['pq-cta-text']);
+  if (data['pq-cta-btn'])  setText('.pq-cta .btn', data['pq-cta-btn']);
 })();
 
 // ── NAV: scroll effect ──────────────────────

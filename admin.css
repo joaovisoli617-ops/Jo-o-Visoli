@@ -394,6 +394,26 @@ code, .code-badge {
 .pv-contato-title { font-family: 'Montserrat',sans-serif; font-weight: 900; font-size: clamp(.75rem,2vw,1.2rem); color: #fff; text-transform: uppercase; line-height: 1.1; }
 .pv-contato-sub   { font-size: .55rem; color: rgba(255,255,255,.6); max-width: 280px; }
 
+/* ── PF: SOBRE ─────────────────────────────── */
+.pf-sobre { aspect-ratio: unset; min-height: 220px; }
+.pv-sobre { background: #0a0a0a; padding: 1rem; display: flex; flex-direction: column; gap: .5rem; }
+.pv-sobre__quote { font-size: .72rem; color: rgba(255,255,255,.8); font-style: italic; border-left: 2px solid #fc4900; padding-left: .5rem; }
+.pv-sobre__cite  { font-size: .62rem; color: #fc4900; }
+.pv-sobre__badge { font-size: .78rem; font-weight: 700; color: #fc4900; font-family: 'Montserrat',sans-serif; }
+.pv-sobre__eyebrow { font-size: .55rem; letter-spacing: .15em; text-transform: uppercase; color: #fc4900; font-family: 'Montserrat',sans-serif; font-weight: 700; margin-top: .5rem; }
+.pv-sobre__h2 { font-size: .85rem; font-weight: 800; font-family: 'Montserrat',sans-serif; text-transform: uppercase; color: #fff; line-height: 1.15; }
+.pv-sobre__p  { font-size: .65rem; color: rgba(255,255,255,.65); }
+
+/* ── PF: PARA QUEM ─────────────────────────── */
+.pf-paraquem { aspect-ratio: unset; min-height: 260px; }
+.pv-paraquem { background: #0a0a0a; padding: 1rem; }
+.pv-paraquem__eyebrow { font-size: .55rem; letter-spacing: .15em; text-transform: uppercase; color: #fc4900; font-family: 'Montserrat',sans-serif; font-weight: 700; margin-bottom: .3rem; }
+.pv-paraquem__title { font-size: .8rem; font-weight: 800; font-family: 'Montserrat',sans-serif; text-transform: uppercase; color: #fff; margin-bottom: .75rem; line-height: 1.2; }
+.pv-paraquem__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+.pv-pq-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 6px; padding: .45rem .5rem; }
+.pv-pq-card span { font-size: .9rem; display: block; margin-bottom: .2rem; }
+.pv-pq-card p { font-size: .55rem; color: rgba(255,255,255,.7); line-height: 1.3; }
+
 /* ── PF: SENHA ─────────────────────────────── */
 .pf-senha { padding: 0; }
 .pv-senha { background: #111; padding: 1.75rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: .75rem; }
