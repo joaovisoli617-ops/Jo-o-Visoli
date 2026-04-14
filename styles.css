@@ -140,7 +140,7 @@ strong { color: var(--wh); font-weight: 700; }
   color: rgba(252,73,0,.04); line-height: 1;
   pointer-events: none; user-select: none;
 }
-.hero__content { position: relative; z-index: 1; max-width: 900px; }
+.hero__content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; text-align: center; }
 .hero h1 {
   font-family: var(--ff-head);
   font-weight: 900;
@@ -151,8 +151,8 @@ strong { color: var(--wh); font-weight: 700; }
 }
 .hero h1 em { font-style: italic; }
 .br-md { display: none; }
-.hero__pillars { display: flex; gap: 1.75rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
-.hero__pillar { display: flex; align-items: flex-start; gap: .85rem; max-width: 330px; }
+.hero__pillars { display: flex; gap: 1.75rem; margin-bottom: 2.5rem; flex-wrap: wrap; justify-content: center; }
+.hero__pillar { display: flex; align-items: flex-start; gap: .85rem; max-width: 330px; text-align: left; }
 .hero__pillar-icon {
   flex-shrink: 0; width: 46px; height: 46px; font-size: 1.4rem;
   background: rgba(252,73,0,.1); border: 1px solid rgba(252,73,0,.2);
@@ -160,7 +160,7 @@ strong { color: var(--wh); font-weight: 700; }
   margin-top: 2px;
 }
 .hero__pillar p { font-size: .9rem; margin: 0; }
-.hero__ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.75rem; }
+.hero__ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.75rem; justify-content: center; }
 .hero__trust { border-top: 1px solid var(--bd); padding-top: 1.5rem; }
 .hero__trust > span { font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; color: var(--wh3); display: block; margin-bottom: .85rem; font-family: var(--ff-head); font-weight: 600; }
 .hero__trust-logos { display: flex; flex-wrap: wrap; gap: .6rem; }
@@ -382,7 +382,7 @@ cite { color: var(--or); font-style: normal; font-size: .85rem; font-weight: 700
   .nav__links.open { display: flex; }
   .nav__links a:not(.btn) { font-size: .95rem; }
   .nav__hamburger { display: flex; }
-  .hero__ctas { flex-direction: column; align-items: flex-start; }
+  .hero__ctas { flex-direction: column; align-items: center; }
   .pq-grid { grid-template-columns: 1fr; }
   .cta-final__actions { flex-direction: column; align-items: center; }
   .footer__top { flex-direction: column; align-items: flex-start; }
