@@ -679,7 +679,10 @@ function initDashboard() {
     // Show remove button if custom logo already saved
     if (get('g-logo-src') && removeBtn) removeBtn.style.display = '';
 
-    uploadArea.addEventListener('click', () => fileInput.click());
+    uploadArea.addEventListener('click', (e) => {
+      if (e.target === fileInput) return; // evita loop
+      fileInput.click();
+    });
 
     fileInput.addEventListener('change', () => {
       const file = fileInput.files[0];
