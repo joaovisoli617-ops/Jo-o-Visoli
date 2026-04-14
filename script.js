@@ -21,6 +21,9 @@
 
   // General
   if (data['g-tagline']) setText('.footer__logo span:last-child', data['g-tagline']);
+  if (data['g-logo-src']) {
+    document.querySelectorAll('.logo-img').forEach(el => el.src = data['g-logo-src']);
+  }
   if (data['g-logo-size']) {
     const px = parseInt(data['g-logo-size']) + 'px';
     document.querySelectorAll('.logo-img').forEach(el => el.style.height = px);

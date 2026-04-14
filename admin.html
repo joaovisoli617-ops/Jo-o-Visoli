@@ -140,9 +140,21 @@
             </div>
             <div class="section-header" style="margin-top:1.5rem">
               <h2>Logo</h2>
-              <p>Ajuste o tamanho da logo na barra de navegação.</p>
+              <p>Faça upload de uma nova logo ou ajuste o tamanho.</p>
             </div>
             <div class="form-grid">
+              <div class="field full">
+                <label>Imagem da logo</label>
+                <div class="logo-upload-area" id="logoUploadArea">
+                  <img id="logoUploadPreview" src="logo.png" alt="Logo atual" />
+                  <div class="logo-upload-overlay">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    <span>Clique para trocar</span>
+                  </div>
+                  <input type="file" id="g-logo-file" accept="image/*" style="display:none" />
+                </div>
+                <button type="button" id="logoRemoveBtn" class="btn-remove-logo" style="display:none">Remover logo personalizada</button>
+              </div>
               <div class="field full">
                 <label>Altura da logo no nav — <span id="logo-size-val">36</span>px</label>
                 <input type="range" id="g-logo-size" min="20" max="80" step="1" value="36" style="width:100%;accent-color:#fc4900" />

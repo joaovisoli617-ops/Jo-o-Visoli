@@ -365,6 +365,12 @@ function updatePreviewGeral() {
   // Logo size preview (scaled: main site uses full px, preview is ~50% scale)
   if (el('pv-logo'))     el('pv-logo').style.height    = Math.round(size * 0.5) + 'px';
   if (el('logo-size-val')) el('logo-size-val').textContent = size;
+  // Custom logo src
+  const storedSrc = get('g-logo-src');
+  if (storedSrc) {
+    if (el('pv-logo'))          el('pv-logo').src          = storedSrc;
+    if (el('logoUploadPreview')) el('logoUploadPreview').src = storedSrc;
+  }
 }
 
 function updatePreviewHero() {
@@ -588,6 +594,9 @@ function collectAll() {
   });
   const logoSize = document.getElementById('g-logo-size');
   if (logoSize) d['g-logo-size'] = parseInt(logoSize.value);
+  // Logo src (base64) — carried over from stored data if not changed in this session
+  const storedLogoSrc = get('g-logo-src');
+  if (storedLogoSrc) d['g-logo-src'] = storedLogoSrc;
   d.stats     = collectStats();
   d.solutions = collectSolutions();
   d.clients   = collectClients();
@@ -659,6 +668,53 @@ function initDashboard() {
     el.addEventListener('input', updateAllPreviews);
     el.addEventListener('change', updateAllPreviews);
   });
+
+  // ── Logo upload ──
+  const uploadArea    = document.getElementById('logoUploadArea');
+  const fileInput     = document.getElementById('g-logo-file');
+  const removeBtn     = document.getElementById('logoRemoveBtn');
+  const uploadPreview = document.getElementById('logoUploadPreview');
+
+  if (uploadArea && fileInput) {
+    // Show remove button if custom logo already saved
+    if (get('g-logo-src') && removeBtn) removeBtn.style.display = '';
+
+    uploadArea.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        const src = e.target.result;
+        // Store immediately (will be included in next Save)
+        const d = (() => { try { return JSON.parse(localStorage.getItem('amplia_content') || '{}'); } catch { return {}; } })();
+        d['g-logo-src'] = src;
+        localStorage.setItem('amplia_content', JSON.stringify(d));
+        // Update previews
+        if (uploadPreview) uploadPreview.src = src;
+        const pvLogo = document.getElementById('pv-logo');
+        if (pvLogo) pvLogo.src = src;
+        if (removeBtn) removeBtn.style.display = '';
+        showToast('✓ Logo atualizada! Clique em Salvar para confirmar.');
+      };
+      reader.readAsDataURL(file);
+    });
+
+    if (removeBtn) {
+      removeBtn.addEventListener('click', () => {
+        const d = (() => { try { return JSON.parse(localStorage.getItem('amplia_content') || '{}'); } catch { return {}; } })();
+        delete d['g-logo-src'];
+        localStorage.setItem('amplia_content', JSON.stringify(d));
+        if (uploadPreview) uploadPreview.src = 'logo.png';
+        const pvLogo = document.getElementById('pv-logo');
+        if (pvLogo) pvLogo.src = 'logo.png';
+        removeBtn.style.display = 'none';
+        fileInput.value = '';
+        showToast('✓ Logo personalizada removida.');
+      });
+    }
+  }
 
   updateAllPreviews();
 }
