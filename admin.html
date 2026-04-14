@@ -126,13 +126,23 @@
               </div>
               <div class="field"><label>Instagram (só o usuário)</label><input type="text" id="g-instagram" placeholder="grupoamplia" /></div>
             </div>
+            <div class="section-header" style="margin-top:1.5rem">
+              <h2>Logo</h2>
+              <p>Ajuste o tamanho da logo na barra de navegação.</p>
+            </div>
+            <div class="form-grid">
+              <div class="field full">
+                <label>Altura da logo no nav — <span id="logo-size-val">36</span>px</label>
+                <input type="range" id="g-logo-size" min="20" max="80" step="1" value="36" style="width:100%;accent-color:#fc4900" />
+              </div>
+            </div>
           </div>
           <div class="tab-preview-sticky">
             <div class="preview-label">Preview em tempo real</div>
             <div class="preview-frame pf-nav">
               <div class="pv-nav">
                 <div class="pv-nav__brand">
-                  <span class="logo-wordmark" style="font-size:.75rem;letter-spacing:.04em">AMPLIA</span>
+                  <img src="logo.png" id="pv-logo" style="height:18px;width:auto;display:block" alt="Amplia" />
                 </div>
                 <div class="pv-nav__tagline" id="pv-tagline">Estruturação comercial de alta performance.</div>
               </div>

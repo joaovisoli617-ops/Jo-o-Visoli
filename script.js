@@ -20,7 +20,11 @@
   function setHref(sel, val) { setAttr(sel, 'href', val); }
 
   // General
-  if (data['g-tagline']) setText('.footer__logo span', data['g-tagline']);
+  if (data['g-tagline']) setText('.footer__logo span:last-child', data['g-tagline']);
+  if (data['g-logo-size']) {
+    const px = parseInt(data['g-logo-size']) + 'px';
+    document.querySelectorAll('.logo-img').forEach(el => el.style.height = px);
+  }
   const wa = data['g-whatsapp'];
   const ig = data['g-instagram'];
   if (wa) document.querySelectorAll('a[href*="wa.me"]').forEach(a => a.href = `https://wa.me/${wa}`);

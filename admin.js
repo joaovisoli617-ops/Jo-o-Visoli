@@ -5,10 +5,11 @@
 
 // ── DEFAULTS ────────────────────────────────────────────────
 const DEFAULTS = {
-  'g-company':   'Grupo Amplia',
-  'g-tagline':   'Estruturação comercial de alta performance.',
-  'g-whatsapp':  '5549999999999',
-  'g-instagram': 'grupoamplia',
+  'g-company':    'Grupo Amplia',
+  'g-tagline':    'Estruturação comercial de alta performance.',
+  'g-whatsapp':   '5549999999999',
+  'g-instagram':  'grupoamplia',
+  'g-logo-size':  36,
 
   'h-eyebrow':  'A nossa proposta de valor',
   'h-pillar1':  'Para construir um negócio que venda todos os dias, de forma independente do dono.',
@@ -198,6 +199,12 @@ function populateSimpleFields() {
     const el = document.getElementById(id);
     if (el) el.value = get(id);
   });
+  const logoSize = document.getElementById('g-logo-size');
+  if (logoSize) {
+    logoSize.value = get('g-logo-size') || 36;
+    const lbl = document.getElementById('logo-size-val');
+    if (lbl) lbl.textContent = logoSize.value;
+  }
 }
 
 function populateLayoutFields() {
@@ -315,15 +322,19 @@ function buildFounderEditors() {
 // LIVE PREVIEWS
 // ─────────────────────────────────────────────
 function updatePreviewGeral() {
-  const co = document.getElementById('g-company')?.value  || DEFAULTS['g-company'];
-  const tl = document.getElementById('g-tagline')?.value  || DEFAULTS['g-tagline'];
-  const wa = document.getElementById('g-whatsapp')?.value || DEFAULTS['g-whatsapp'];
-  const ig = document.getElementById('g-instagram')?.value || DEFAULTS['g-instagram'];
-  const el = id => document.getElementById(id);
+  const co   = document.getElementById('g-company')?.value   || DEFAULTS['g-company'];
+  const tl   = document.getElementById('g-tagline')?.value   || DEFAULTS['g-tagline'];
+  const wa   = document.getElementById('g-whatsapp')?.value  || DEFAULTS['g-whatsapp'];
+  const ig   = document.getElementById('g-instagram')?.value || DEFAULTS['g-instagram'];
+  const size = parseInt(document.getElementById('g-logo-size')?.value || DEFAULTS['g-logo-size']);
+  const el   = id => document.getElementById(id);
   if (el('pv-company'))  el('pv-company').textContent  = co;
   if (el('pv-tagline'))  el('pv-tagline').textContent  = tl;
   if (el('pv-wa'))       el('pv-wa').textContent       = `WhatsApp: ${wa}`;
   if (el('pv-ig'))       el('pv-ig').textContent       = `@${ig}`;
+  // Logo size preview (scaled: main site uses full px, preview is ~50% scale)
+  if (el('pv-logo'))     el('pv-logo').style.height    = Math.round(size * 0.5) + 'px';
+  if (el('logo-size-val')) el('logo-size-val').textContent = size;
 }
 
 function updatePreviewHero() {
@@ -518,6 +529,8 @@ function collectAll() {
     const el = document.getElementById(id);
     if (el) d[id] = el.value;
   });
+  const logoSize = document.getElementById('g-logo-size');
+  if (logoSize) d['g-logo-size'] = parseInt(logoSize.value);
   d.stats     = collectStats();
   d.solutions = collectSolutions();
   d.clients   = collectClients();
