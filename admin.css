@@ -114,6 +114,16 @@ input::placeholder, textarea::placeholder { color: var(--wh3); }
 .sidebar__item.active { background: rgba(252,73,0,.1); color: var(--or); border-left-color: var(--or); }
 .sidebar__item svg { flex-shrink: 0; opacity: .7; }
 .sidebar__item.active svg { opacity: 1; }
+.sidebar__edit-live {
+  display: flex; align-items: center; gap: .7rem;
+  padding: .9rem 1.2rem; border-top: 1px solid var(--bd);
+  background: rgba(252,73,0,.08); color: var(--or);
+  font-family: var(--ff-body); font-size: .8rem; font-weight: 600;
+  text-decoration: none; transition: background var(--tr);
+  border-left: 3px solid var(--or);
+}
+.sidebar__edit-live:hover { background: rgba(252,73,0,.16); }
+.sidebar__edit-live svg { flex-shrink: 0; }
 .sidebar__logout {
   display: flex; align-items: center; gap: .7rem;
   padding: .9rem 1.2rem; border-top: 1px solid var(--bd);

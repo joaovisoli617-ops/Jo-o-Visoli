@@ -248,10 +248,10 @@
   const sobrePs = document.querySelectorAll('.sobre__text > p');
   if (data['sb-p1'] && sobrePs[0]) sobrePs[0].textContent = data['sb-p1'];
   if (data['sb-p2'] && sobrePs[1]) sobrePs[1].textContent = data['sb-p2'];
-  const bullets = document.querySelectorAll('.sobre__bullets .bullet');
-  if (data['sb-b1'] && bullets[0]) bullets[0].lastChild.textContent = data['sb-b1'];
-  if (data['sb-b2'] && bullets[1]) bullets[1].lastChild.textContent = data['sb-b2'];
-  if (data['sb-b3'] && bullets[2]) bullets[2].lastChild.textContent = data['sb-b3'];
+  const bullets = document.querySelectorAll('.bullet__text');
+  if (data['sb-b1'] && bullets[0]) bullets[0].textContent = data['sb-b1'];
+  if (data['sb-b2'] && bullets[1]) bullets[1].textContent = data['sb-b2'];
+  if (data['sb-b3'] && bullets[2]) bullets[2].textContent = data['sb-b3'];
   const badgeNums = document.querySelectorAll('.sobre__badge-num');
   if (data['sb-badge-from'] && badgeNums[0]) badgeNums[0].textContent = data['sb-badge-from'];
   if (data['sb-badge-to']   && badgeNums[1]) badgeNums[1].textContent = data['sb-badge-to'];
