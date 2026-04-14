@@ -104,34 +104,11 @@ strong { color: var(--wh); font-weight: 700; }
 }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
 .nav__logo svg { height: 36px; width: auto; display: block; }
-/* Logo: 1920×1080 PNG — text AMPLIA at x≈275-1640, y≈295-545
-   Scale = 40/250 = 0.16 → bg-size 307px, text fits exactly in 220×40 */
-.logo-img {
-  display: block;
-  background: url('logo.png') no-repeat -43px -47px;
-  background-size: 307px auto;
-  width: 222px;
-  height: 40px;
-}
-.logo-img--sm {
-  background: url('logo.png') no-repeat -33px -36px;
-  background-size: 236px auto;
-  width: 170px;
-  height: 30px;
-}
-.logo-img--sidebar {
-  background: url('logo.png') no-repeat -22px -24px;
-  background-size: 160px auto;
-  width: 117px;
-  height: 20px;
-}
-}
-.logo-img--login {
-  background: url('logo.png') no-repeat -52px -55px;
-  background-size: 360px auto;
-  width: 260px;
-  height: 46px;
-}
+/* Logo 300×60px — simple proportional sizing */
+.logo-img          { display: block; height: 36px; width: auto; }
+.logo-img--sm      { height: 28px; width: auto; display: block; }
+.logo-img--sidebar { height: 22px; width: auto; display: block; }
+.logo-img--login   { height: 44px; width: auto; display: block; }
 .nav__links { display: flex; align-items: center; gap: 1.75rem; }
 .nav__links a {
   color: var(--wh2);
