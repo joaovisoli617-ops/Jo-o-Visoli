@@ -171,10 +171,17 @@
 
   // ── Layout extras ──
   if (data['l-align']) {
-    const h1 = document.querySelector('.hero h1');
-    const heroInner = document.querySelector('.hero__inner');
-    if (h1) h1.style.textAlign = data['l-align'];
-    if (heroInner) heroInner.style.alignItems = data['l-align'] === 'center' ? 'center' : 'flex-start';
+    const align   = data['l-align'];
+    const content = document.querySelector('.hero__content');
+    const h1      = document.querySelector('.hero h1');
+    const pillars = document.querySelector('.hero__pillars');
+    const ctas    = document.querySelector('.hero__ctas');
+    const trust   = document.querySelector('.hero__trust');
+    if (content) { content.style.textAlign = align; content.style.marginLeft = align === 'center' ? 'auto' : '0'; content.style.marginRight = align === 'center' ? 'auto' : '0'; }
+    if (h1)      h1.style.textAlign      = align;
+    if (pillars) pillars.style.justifyContent = align === 'center' ? 'center' : 'flex-start';
+    if (ctas)    ctas.style.justifyContent    = align === 'center' ? 'center' : 'flex-start';
+    if (trust)   trust.style.textAlign        = align;
   }
   if (data['l-mark-bg'] === false) {
     document.querySelectorAll('.hero__mark, .hero-mark').forEach(el => el.style.display = 'none');

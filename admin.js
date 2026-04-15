@@ -79,7 +79,7 @@ const DEFAULTS = {
   // Layout
   'l-headline':       '{VENDA} MAIS e {MELHOR}\natravés da\n{ESTRUTURAÇÃO\nCOMERCIAL}\nde alta {performance!}',
   'l-fontsize':       'xlarge',
-  'l-align':          'left',
+  'l-align':          'center',
   'l-italic':         true,
   'l-mark-bg':        true,
   'l-show-eyebrow':   true,
