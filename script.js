@@ -30,7 +30,10 @@
   }
   const wa = data['g-whatsapp'];
   const ig = data['g-instagram'];
-  if (wa) document.querySelectorAll('a[href*="wa.me"]').forEach(a => a.href = `https://wa.me/${wa}`);
+  if (wa) {
+    const cleanWa = wa.replace(/\D/g, ''); // remove espaços, traços, parênteses etc.
+    document.querySelectorAll('a[href*="wa.me"]').forEach(a => a.href = `https://wa.me/${cleanWa}`);
+  }
   if (ig) document.querySelectorAll('a[href*="instagram.com"]').forEach(a => a.href = `https://instagram.com/${ig}`);
 
   // Hero
