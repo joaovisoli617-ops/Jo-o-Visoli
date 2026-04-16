@@ -34,7 +34,10 @@
     const cleanWa = wa.replace(/\D/g, ''); // remove espaços, traços, parênteses etc.
     document.querySelectorAll('a[href*="wa.me"]').forEach(a => a.href = `https://wa.me/${cleanWa}`);
   }
-  if (ig) document.querySelectorAll('a[href*="instagram.com"]').forEach(a => a.href = `https://instagram.com/${ig}`);
+  if (ig) {
+    const igUrl = ig.startsWith('http') ? ig : `https://instagram.com/${ig}`;
+    document.querySelectorAll('a[href*="instagram.com"]').forEach(a => a.href = igUrl);
+  }
 
   // Hero
   if (data['h-eyebrow']) setText('.hero .eyebrow', data['h-eyebrow']);
