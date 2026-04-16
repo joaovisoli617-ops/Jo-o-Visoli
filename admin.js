@@ -71,6 +71,9 @@ const DEFAULTS = {
     { initials: 'JM', name: 'João Mortari', role: 'Expert em Criação de Conteúdo e Posicionamento', statNum: '+10M', statLabel: 'de visualizações para clientes', bio: 'Especialista em posicionar marcas e empresários como referências no mercado.' },
   ],
 
+  videos: [],
+  produtos: [],
+
   'ct-title': 'Pronto para vender mais e melhor?',
   'ct-sub':   'Fale com nossa equipe e descubra como estruturar seu comercial de alta performance. Sem enrolação.',
   'ct-wabtn': 'Falar no WhatsApp',
@@ -157,7 +160,8 @@ document.getElementById('logoutBtn').addEventListener('click', () => {
 const TAB_TITLES = {
   geral: 'Configurações Gerais', layout: 'Layout do Hero', hero: 'Textos do Hero',
   numeros: 'Números / Stats', solucoes: 'Soluções', clientes: 'Clientes / Resultados',
-  fundadores: 'Fundadores', contato: 'Contato / Links', senha: 'Alterar Senha',
+  fundadores: 'Fundadores', videos: 'Portfólio de Vídeos', produtos: 'Produtos',
+  contato: 'Contato / Links', senha: 'Alterar Senha',
 };
 
 function switchTab(tab) {
@@ -346,6 +350,122 @@ function buildFounderEditors() {
       <div class="field"><label>Label do número</label><input type="text" id="fn-slbl-${i}" value="${f.statLabel}" /></div>
       <div class="field full"><label>Bio</label><textarea rows="2" id="fn-bio-${i}">${f.bio}</textarea></div>`));
   });
+}
+
+// ─────────────────────────────────────────────
+// VIDEO EDITORS
+// ─────────────────────────────────────────────
+function buildVideoEditors() {
+  const list = document.getElementById('videos-list');
+  if (!list) return;
+  const videos = get('videos') || [];
+  list.innerHTML = '';
+  videos.forEach((v, i) => addVideoRow(i, v));
+}
+
+function addVideoRow(i, v = {}) {
+  const list = document.getElementById('videos-list');
+  const div = document.createElement('div');
+  div.className = 'video-editor';
+  div.dataset.vidIdx = i;
+  div.innerHTML = `
+    <div class="form-grid">
+      <div class="field full"><label>Título</label><input type="text" id="vid-title-${i}" value="${v.title||''}" placeholder="Ex: Case João Silva — R$0 para R$50K" /></div>
+      <div class="field full"><label>URL do YouTube</label><input type="text" id="vid-url-${i}" value="${v.url||''}" placeholder="https://www.youtube.com/watch?v=..." /></div>
+      <div class="field full"><label>Descrição (opcional)</label><input type="text" id="vid-desc-${i}" value="${v.desc||''}" /></div>
+    </div>
+    <button type="button" class="btn-remove-item" data-vid-remove="${i}">✕ Remover</button>
+    <hr style="border-color:var(--bd);margin:1rem 0" />
+  `;
+  list.appendChild(div);
+  div.querySelector('[data-vid-remove]').addEventListener('click', () => {
+    div.remove();
+    renumberVideos();
+  });
+}
+
+function renumberVideos() {
+  document.querySelectorAll('.video-editor').forEach((div, i) => {
+    div.dataset.vidIdx = i;
+    div.querySelector('[data-vid-remove]').dataset.vidRemove = i;
+    ['title','url','desc'].forEach(f => {
+      const el = div.querySelector(`[id^="vid-${f}-"]`);
+      if (el) el.id = `vid-${f}-${i}`;
+    });
+  });
+}
+
+function collectVideos() {
+  return [...document.querySelectorAll('.video-editor')].map(div => {
+    const i = div.dataset.vidIdx;
+    return {
+      title: document.getElementById(`vid-title-${i}`)?.value || '',
+      url:   document.getElementById(`vid-url-${i}`)?.value   || '',
+      desc:  document.getElementById(`vid-desc-${i}`)?.value  || '',
+    };
+  }).filter(v => v.url);
+}
+
+// ─────────────────────────────────────────────
+// PRODUTO EDITORS
+// ─────────────────────────────────────────────
+function buildProdutoEditors() {
+  const list = document.getElementById('produtos-list');
+  if (!list) return;
+  const produtos = get('produtos') || [];
+  list.innerHTML = '';
+  produtos.forEach((p, i) => addProdutoRow(i, p));
+}
+
+function addProdutoRow(i, p = {}) {
+  const list = document.getElementById('produtos-list');
+  const div = document.createElement('div');
+  div.className = 'produto-editor';
+  div.dataset.prodIdx = i;
+  div.innerHTML = `
+    <div class="form-grid">
+      <div class="field"><label>Ícone (emoji)</label><input type="text" id="prod-icon-${i}" value="${p.icon||''}" placeholder="🎓" maxlength="4" /></div>
+      <div class="field"><label>Badge (ex: Mais vendido)</label><input type="text" id="prod-badge-${i}" value="${p.badge||''}" placeholder="Deixe vazio para ocultar" /></div>
+      <div class="field full"><label>Nome do produto</label><input type="text" id="prod-name-${i}" value="${p.name||''}" /></div>
+      <div class="field full"><label>Descrição</label><textarea id="prod-desc-${i}" rows="2">${p.desc||''}</textarea></div>
+      <div class="field"><label>Preço (ex: R$ 997)</label><input type="text" id="prod-price-${i}" value="${p.price||''}" /></div>
+      <div class="field"><label>Texto do botão</label><input type="text" id="prod-btn-${i}" value="${p.btn||'Quero comprar'}" /></div>
+      <div class="field full"><label>Link de compra</label><input type="text" id="prod-link-${i}" value="${p.link||''}" placeholder="https://..." /></div>
+    </div>
+    <button type="button" class="btn-remove-item" data-prod-remove="${i}">✕ Remover</button>
+    <hr style="border-color:var(--bd);margin:1rem 0" />
+  `;
+  list.appendChild(div);
+  div.querySelector('[data-prod-remove]').addEventListener('click', () => {
+    div.remove();
+    renumberProdutos();
+  });
+}
+
+function renumberProdutos() {
+  document.querySelectorAll('.produto-editor').forEach((div, i) => {
+    div.dataset.prodIdx = i;
+    div.querySelector('[data-prod-remove]').dataset.prodRemove = i;
+    ['icon','badge','name','desc','price','btn','link'].forEach(f => {
+      const el = div.querySelector(`[id^="prod-${f}-"]`);
+      if (el) el.id = `prod-${f}-${i}`;
+    });
+  });
+}
+
+function collectProdutos() {
+  return [...document.querySelectorAll('.produto-editor')].map(div => {
+    const i = div.dataset.prodIdx;
+    return {
+      icon:  document.getElementById(`prod-icon-${i}`)?.value  || '',
+      badge: document.getElementById(`prod-badge-${i}`)?.value || '',
+      name:  document.getElementById(`prod-name-${i}`)?.value  || '',
+      desc:  document.getElementById(`prod-desc-${i}`)?.value  || '',
+      price: document.getElementById(`prod-price-${i}`)?.value || '',
+      btn:   document.getElementById(`prod-btn-${i}`)?.value   || 'Quero comprar',
+      link:  document.getElementById(`prod-link-${i}`)?.value  || '',
+    };
+  }).filter(p => p.name);
 }
 
 // ─────────────────────────────────────────────
@@ -601,6 +721,8 @@ function collectAll() {
   d.solutions = collectSolutions();
   d.clients   = collectClients();
   d.founders  = collectFounders();
+  d.videos    = collectVideos();
+  d.produtos  = collectProdutos();
   // Layout
   ['l-headline','l-fontsize','l-align','l-bg','n-layout','s-style','c-fmt','f-style'].forEach(id => {
     const el = document.getElementById(id);
@@ -653,6 +775,18 @@ function initDashboard() {
   buildSolEditors();
   buildClientEditors();
   buildFounderEditors();
+  buildVideoEditors();
+  buildProdutoEditors();
+
+  // Wire add buttons for videos and products
+  document.getElementById('addVideoBtn')?.addEventListener('click', () => {
+    const count = document.querySelectorAll('.video-editor').length;
+    addVideoRow(count);
+  });
+  document.getElementById('addProdutoBtn')?.addEventListener('click', () => {
+    const count = document.querySelectorAll('.produto-editor').length;
+    addProdutoRow(count);
+  });
 
   // Wire preset buttons
   wirePresets('[data-size]',      'l-fontsize', 'size');

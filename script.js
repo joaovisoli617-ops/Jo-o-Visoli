@@ -2,6 +2,12 @@
    GRUPO AMPLIA — SCRIPT v2
    ============================================================ */
 
+function extractYouTubeId(url) {
+  if (!url) return null;
+  const m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  return m ? m[1] : null;
+}
+
 // ── LOAD ADMIN OVERRIDES ────────────────────
 (function applyAdminContent() {
   const STORAGE_KEY = 'amplia_content';
@@ -290,6 +296,49 @@
   }
   if (data['pq-cta-text']) setText('.pq-cta p', data['pq-cta-text']);
   if (data['pq-cta-btn'])  setText('.pq-cta .btn', data['pq-cta-btn']);
+
+  // Videos
+  if (Array.isArray(data.videos) && data.videos.length) {
+    const grid = document.getElementById('portfolio-grid');
+    if (grid) {
+      grid.innerHTML = data.videos.map(v => {
+        const id = extractYouTubeId(v.url);
+        if (!id) return '';
+        return `<div class="vid-card">
+          <div class="vid-card__thumb">
+            <iframe src="https://www.youtube.com/embed/${id}" frameborder="0" allowfullscreen loading="lazy" title="${v.title}"></iframe>
+          </div>
+          <div class="vid-card__info">
+            <h3>${v.title}</h3>
+            ${v.desc ? `<p>${v.desc}</p>` : ''}
+          </div>
+        </div>`;
+      }).join('');
+    }
+  } else {
+    const portfolioSection = document.querySelector('.portfolio');
+    if (portfolioSection) portfolioSection.style.display = 'none';
+  }
+
+  // Products
+  if (Array.isArray(data.produtos) && data.produtos.length) {
+    const grid = document.getElementById('produtos-grid');
+    if (grid) {
+      grid.innerHTML = data.produtos.map(p => `
+        <div class="prod-card">
+          ${p.badge ? `<div class="prod-card__badge">${p.badge}</div>` : ''}
+          ${p.icon  ? `<div class="prod-card__icon">${p.icon}</div>`  : ''}
+          <h3>${p.name}</h3>
+          ${p.desc  ? `<p>${p.desc}</p>` : ''}
+          ${p.price ? `<div class="prod-card__price">${p.price}</div>` : ''}
+          <a href="${p.link||'#'}" target="_blank" class="btn btn--primary btn--lg prod-card__btn">${p.btn||'Quero comprar'}</a>
+        </div>
+      `).join('');
+    }
+  } else {
+    const produtosSection = document.querySelector('.produtos');
+    if (produtosSection) produtosSection.style.display = 'none';
+  }
 })();
 
 // ── NAV: scroll effect ──────────────────────
