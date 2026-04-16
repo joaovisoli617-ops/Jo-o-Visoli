@@ -396,12 +396,18 @@ cite { color: var(--or); font-style: normal; font-size: .85rem; font-weight: 700
 
 /* ── PORTFOLIO ─────────────────────────────── */
 .portfolio { padding: 6rem 0; }
-.portfolio__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+.portfolio__grid { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 3rem; justify-content: center; }
+.portfolio__grid .vid-card { flex: 1 1 320px; max-width: 560px; }
+.portfolio__grid .vid-card--vertical { flex: 0 0 300px; max-width: 340px; }
 .portfolio__empty { color: var(--wh3); font-size: .9rem; text-align: center; padding: 3rem; grid-column: 1/-1; }
 .vid-card { background: #0d0d0d; border: 1px solid var(--bd); border-radius: 12px; overflow: hidden; transition: border-color .2s, transform .2s; }
 .vid-card:hover { border-color: var(--or); transform: translateY(-3px); }
 .vid-card__thumb { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
-.vid-card__thumb iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.vid-card__thumb iframe,
+.vid-card__thumb video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+/* Vertical video (9:16) */
+.vid-card--vertical { max-width: 340px; }
+.vid-card--vertical .vid-card__thumb { padding-bottom: 177.78%; }
 .vid-card__info { padding: 1rem 1.25rem 1.25rem; }
 .vid-card__info h3 { font-size: .95rem; font-weight: 700; margin-bottom: .4rem; }
 .vid-card__info p { font-size: .82rem; color: var(--wh3); margin: 0; }

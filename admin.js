@@ -371,8 +371,23 @@ function addVideoRow(i, v = {}) {
   div.innerHTML = `
     <div class="form-grid">
       <div class="field full"><label>Título</label><input type="text" id="vid-title-${i}" value="${v.title||''}" placeholder="Ex: Case João Silva — R$0 para R$50K" /></div>
-      <div class="field full"><label>URL do YouTube</label><input type="text" id="vid-url-${i}" value="${v.url||''}" placeholder="https://www.youtube.com/watch?v=..." /></div>
+      <div class="field full">
+        <label>URL do vídeo</label>
+        <input type="text" id="vid-url-${i}" value="${v.url||''}" placeholder="YouTube, Vimeo ou link .mp4 direto" />
+        <small style="color:var(--wh3);font-size:.72rem;margin-top:.25rem;display:block">Suporta: youtube.com, youtu.be, vimeo.com, ou link direto .mp4</small>
+      </div>
       <div class="field full"><label>Descrição (opcional)</label><input type="text" id="vid-desc-${i}" value="${v.desc||''}" /></div>
+      <div class="field">
+        <label>Orientação</label>
+        <div style="display:flex;gap:.5rem;margin-top:.35rem">
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.82rem">
+            <input type="radio" name="vid-orient-${i}" id="vid-orient-h-${i}" value="horizontal" ${(v.orient||'horizontal')==='horizontal'?'checked':''} /> Horizontal
+          </label>
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.82rem">
+            <input type="radio" name="vid-orient-${i}" id="vid-orient-v-${i}" value="vertical" ${v.orient==='vertical'?'checked':''} /> Vertical
+          </label>
+        </div>
+      </div>
     </div>
     <button type="button" class="btn-remove-item" data-vid-remove="${i}">✕ Remover</button>
     <hr style="border-color:var(--bd);margin:1rem 0" />
@@ -398,10 +413,12 @@ function renumberVideos() {
 function collectVideos() {
   return [...document.querySelectorAll('.video-editor')].map(div => {
     const i = div.dataset.vidIdx;
+    const orientEl = div.querySelector(`input[name="vid-orient-${i}"]:checked`);
     return {
-      title: document.getElementById(`vid-title-${i}`)?.value || '',
-      url:   document.getElementById(`vid-url-${i}`)?.value   || '',
-      desc:  document.getElementById(`vid-desc-${i}`)?.value  || '',
+      title:  document.getElementById(`vid-title-${i}`)?.value || '',
+      url:    document.getElementById(`vid-url-${i}`)?.value   || '',
+      desc:   document.getElementById(`vid-desc-${i}`)?.value  || '',
+      orient: orientEl?.value || 'horizontal',
     };
   }).filter(v => v.url);
 }

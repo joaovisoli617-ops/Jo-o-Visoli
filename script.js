@@ -7,6 +7,34 @@ function extractYouTubeId(url) {
   const m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
   return m ? m[1] : null;
 }
+function extractVimeoId(url) {
+  if (!url) return null;
+  const m = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  return m ? m[1] : null;
+}
+function buildVideoEmbed(v) {
+  const isVertical = v.orient === 'vertical';
+  const cls = `vid-card${isVertical ? ' vid-card--vertical' : ''}`;
+  let embed = '';
+  const ytId = extractYouTubeId(v.url);
+  const vmId = extractVimeoId(v.url);
+  if (ytId) {
+    embed = `<iframe src="https://www.youtube.com/embed/${ytId}" frameborder="0" allowfullscreen loading="lazy" title="${v.title}"></iframe>`;
+  } else if (vmId) {
+    embed = `<iframe src="https://player.vimeo.com/video/${vmId}" frameborder="0" allowfullscreen loading="lazy" title="${v.title}"></iframe>`;
+  } else if (v.url.match(/\.(mp4|webm|ogg)(\?|$)/i)) {
+    embed = `<video controls playsinline preload="metadata"><source src="${v.url}" /></video>`;
+  } else {
+    return '';
+  }
+  return `<div class="${cls}">
+    <div class="vid-card__thumb">${embed}</div>
+    <div class="vid-card__info">
+      <h3>${v.title}</h3>
+      ${v.desc ? `<p>${v.desc}</p>` : ''}
+    </div>
+  </div>`;
+}
 
 // ── LOAD ADMIN OVERRIDES ────────────────────
 (function applyAdminContent() {
@@ -301,19 +329,7 @@ function extractYouTubeId(url) {
   if (Array.isArray(data.videos) && data.videos.length) {
     const grid = document.getElementById('portfolio-grid');
     if (grid) {
-      grid.innerHTML = data.videos.map(v => {
-        const id = extractYouTubeId(v.url);
-        if (!id) return '';
-        return `<div class="vid-card">
-          <div class="vid-card__thumb">
-            <iframe src="https://www.youtube.com/embed/${id}" frameborder="0" allowfullscreen loading="lazy" title="${v.title}"></iframe>
-          </div>
-          <div class="vid-card__info">
-            <h3>${v.title}</h3>
-            ${v.desc ? `<p>${v.desc}</p>` : ''}
-          </div>
-        </div>`;
-      }).join('');
+      grid.innerHTML = data.videos.map(v => buildVideoEmbed(v)).filter(Boolean).join('');
     }
   } else {
     const portfolioSection = document.querySelector('.portfolio');
