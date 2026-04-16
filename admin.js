@@ -373,8 +373,8 @@ function addVideoRow(i, v = {}) {
       <div class="field full"><label>Título</label><input type="text" id="vid-title-${i}" value="${v.title||''}" placeholder="Ex: Case João Silva — R$0 para R$50K" /></div>
       <div class="field full">
         <label>URL do vídeo</label>
-        <input type="text" id="vid-url-${i}" value="${v.url||''}" placeholder="YouTube, Vimeo ou link .mp4 direto" />
-        <small style="color:var(--wh3);font-size:.72rem;margin-top:.25rem;display:block">Suporta: youtube.com, youtu.be, vimeo.com, ou link direto .mp4</small>
+        <input type="text" id="vid-url-${i}" value="${v.url||''}" placeholder="YouTube, Vimeo, Google Drive ou link .mp4" />
+        <small style="color:var(--wh3);font-size:.72rem;margin-top:.25rem;display:block">Suporta: youtube.com, youtu.be, vimeo.com, drive.google.com, ou link direto .mp4</small>
       </div>
       <div class="field full"><label>Descrição (opcional)</label><input type="text" id="vid-desc-${i}" value="${v.desc||''}" /></div>
       <div class="field">
