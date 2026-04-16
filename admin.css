@@ -477,3 +477,19 @@ code, .code-badge {
   .main__header { padding: 0 1rem; }
   .tab-panel { padding: 1rem .85rem; }
 }
+
+/* ── VIDEO / PRODUCT EDITORS ───────────────── */
+.btn-add {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(252,73,0,.1); color: var(--or); border: 1px dashed var(--or);
+  border-radius: var(--r); padding: .6rem 1.2rem; font-size: .85rem; font-weight: 600;
+  cursor: pointer; font-family: var(--ff-body); transition: background .15s;
+  margin-top: .5rem;
+}
+.btn-add:hover { background: rgba(252,73,0,.2); }
+.btn-remove-item {
+  background: none; border: 1px solid #ef4444; color: #ef4444;
+  border-radius: 5px; padding: .3rem .7rem; font-size: .75rem; cursor: pointer;
+  font-family: var(--ff-body); margin-top: .5rem; transition: background .15s;
+}
+.btn-remove-item:hover { background: rgba(239,68,68,.1); }
