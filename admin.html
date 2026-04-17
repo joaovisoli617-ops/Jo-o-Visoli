@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin – Grupo Amplia</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;500;600&family=Audiowide&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========== LOGIN ========== -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-box">
+      <div class="login-logo">
+        <img src="logo.png" alt="Amplia" class="logo-img logo-img--login" />
+      </div>
+      <p class="login-sub">Painel Administrativo</p>
+      <form id="loginForm" autocomplete="off">
+        <div class="field">
+          <label for="pwd">Senha</label>
+          <div class="field__input-wrap">
+            <input type="password" id="pwd" placeholder="Digite a senha" required />
+            <button type="button" class="toggle-pwd" id="togglePwd" aria-label="Mostrar senha">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="login-error" id="loginError">Senha incorreta. Tente novamente.</div>
+        <button type="submit" class="btn-login">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========== DASHBOARD ========== -->
+  <div class="dashboard" id="dashboard" hidden>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__brand">
+        <img src="logo.png" alt="Amplia" class="logo-img logo-img--sidebar" />
+        <span>Admin</span>
+      </div>
+      <nav class="sidebar__nav">
+        <button class="sidebar__item active" data-tab="geral">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 1 4.93 19.07"/></svg>
+          Configurações Gerais
+        </button>
+        <button class="sidebar__item" data-tab="layout">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Layout do Hero
+        </button>
+        <button class="sidebar__item" data-tab="hero">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Textos do Hero
+        </button>
+        <button class="sidebar__item" data-tab="numeros">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+          Números / Stats
+        </button>
+        <button class="sidebar__item" data-tab="sobre">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Sobre
+        </button>
+        <button class="sidebar__item" data-tab="paraquem">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Para Quem É
+        </button>
+        <button class="sidebar__item" data-tab="solucoes">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Soluções
+        </button>
+        <button class="sidebar__item" data-tab="clientes">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Clientes / Resultados
+        </button>
+        <button class="sidebar__item" data-tab="fundadores">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+          Fundadores
+        </button>
+        <button class="sidebar__item" data-tab="videos">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          Portfólio de Vídeos
+        </button>
+        <button class="sidebar__item" data-tab="produtos">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Produtos
+        </button>
+        <button class="sidebar__item" data-tab="contato">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 7.18 2 2 0 0 1 6.09 5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L10.09 13a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 24 20v-.08z"/></svg>
+          Contato / Links
+        </button>
+        <button class="sidebar__item" data-tab="senha">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Alterar Senha
+        </button>
+      </nav>
+      <a href="index.html?edit" target="_blank" class="sidebar__edit-live">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        Editar Página ao Vivo
+      </a>
+      <button class="sidebar__logout" id="logoutBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        Sair
+      </button>
+    </aside>
+
+    <!-- Main -->
+    <main class="main" id="mainContent">
+      <div class="main__header">
+        <button class="hamburger-dash" id="sidebarToggle" aria-label="Toggle sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h1 class="main__title" id="mainTitle">Configurações Gerais</h1>
+        <div class="main__actions">
+          <a href="index.html" target="_blank" class="btn-outline-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ver site
+          </a>
+          <button class="btn-save" id="saveBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            Salvar alterações
+          </button>
+          <button class="btn-publish" id="publishBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Publicar
+          </button>
+        </div>
+      </div>
+      <div class="toast" id="toast">✓ Alterações salvas com sucesso!</div>
+
+      <!-- ═══ TAB: GERAL ═══ -->
+      <section class="tab-panel active" id="tab-geral">
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Configurações Gerais</h2>
+              <p>Nome, contato e redes sociais usados em todo o site.</p>
+            </div>
+            <div class="form-grid">
+              <div class="field full"><label>Nome da empresa</label><input type="text" id="g-company" /></div>
+              <div class="field full"><label>Slogan / tagline</label><input type="text" id="g-tagline" /></div>
+              <div class="field">
+                <label>WhatsApp (com DDI)</label>
+                <input type="text" id="g-whatsapp" placeholder="5549999999999" />
+                <span class="field-hint">Sem + ou espaços. Ex: 5549999999999</span>
+              </div>
+              <div class="field"><label>Instagram (só o usuário)</label><input type="text" id="g-instagram" placeholder="grupoamplia" /></div>
+            </div>
+            <div class="section-header" style="margin-top:1.5rem">
+              <h2>Logo</h2>
+              <p>Faça upload de uma nova logo ou ajuste o tamanho.</p>
+            </div>
+            <div class="form-grid">
+              <div class="field full">
+                <label>Imagem da logo</label>
+                <div class="logo-upload-area" id="logoUploadArea">
+                  <img id="logoUploadPreview" src="logo.png" alt="Logo atual" />
+                  <div class="logo-upload-overlay">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    <span>Clique para trocar</span>
+                  </div>
+                  <input type="file" id="g-logo-file" accept="image/*" style="display:none" />
+                </div>
+                <button type="button" id="logoRemoveBtn" class="btn-remove-logo" style="display:none">Remover logo personalizada</button>
+              </div>
+              <div class="field full">
+                <label>Altura da logo no nav — <span id="logo-size-val">36</span>px</label>
+                <input type="range" id="g-logo-size" min="20" max="80" step="1" value="36" style="width:100%;accent-color:#fc4900" />
+              </div>
+            </div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-nav">
+              <div class="pv-nav">
+                <div class="pv-nav__brand">
+                  <img src="logo.png" id="pv-logo" style="height:18px;width:auto;display:block" alt="Amplia" />
+                </div>
+                <div class="pv-nav__tagline" id="pv-tagline">Estruturação comercial de alta performance.</div>
+              </div>
+              <div class="pv-footer-brand">
+                <div class="pv-company" id="pv-company">Grupo Amplia</div>
+                <div class="pv-links">
+                  <span id="pv-wa">WhatsApp</span>
+                  <span id="pv-ig">@grupoamplia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: LAYOUT DO HERO ═══ -->
+      <section class="tab-panel" id="tab-layout">
+        <div class="tab-split tab-split--layout">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Layout do Hero</h2>
+              <p>Controle visual completo. Use <span class="code-badge">{texto}</span> para laranja, texto normal para branco, Enter para nova linha.</p>
+            </div>
+
+            <div class="ctrl-block">
+              <h3 class="ctrl-title">Título principal</h3>
+              <p class="ctrl-hint"><span class="code-badge">{palavra}</span> = <span style="color:#fc4900;font-weight:700">laranja</span> &nbsp;·&nbsp; texto normal = branco &nbsp;·&nbsp; Enter = nova linha</p>
+              <textarea id="l-headline" rows="7" class="headline-ta" spellcheck="false">{VENDA} MAIS e {MELHOR}
+através da
+{ESTRUTURAÇÃO
+COMERCIAL}
+de alta {performance!}</textarea>
+            </div>
+
+            <div class="ctrl-row">
+              <div class="ctrl-block">
+                <h3 class="ctrl-title">Tamanho da fonte</h3>
+                <div class="preset-row">
+                  <button class="preset-btn active" data-size="xlarge">XL</button>
+                  <button class="preset-btn" data-size="large">G</button>
+                  <button class="preset-btn" data-size="medium">M</button>
+                  <button class="preset-btn" data-size="small">P</button>
+                </div>
+                <input type="hidden" id="l-fontsize" value="xlarge" />
+              </div>
+              <div class="ctrl-block">
+                <h3 class="ctrl-title">Alinhamento do Hero</h3>
+                <div class="preset-row">
+                  <button class="preset-btn" data-align="left" title="Esquerda">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="18" y2="18"/></svg>
+                  </button>
+                  <button class="preset-btn active" data-align="center" title="Centro">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+                  </button>
+                </div>
+                <input type="hidden" id="l-align" value="center" />
+              </div>
+            </div>
+
+            <div class="ctrl-block">
+              <h3 class="ctrl-title">Cor de fundo</h3>
+              <div class="bg-swatches">
+                <button class="swatch active" data-bg="black"        style="background:#000000"                                         title="Preto puro"></button>
+                <button class="swatch"        data-bg="dark-orange"  style="background:linear-gradient(135deg,#000 0%,#1c0900 100%)"   title="Preto + laranja suave"></button>
+                <button class="swatch"        data-bg="deep-dark"    style="background:#060606"                                         title="Dark profundo"></button>
+                <button class="swatch"        data-bg="dark-warm"    style="background:linear-gradient(160deg,#0d0d0d 0%,#1a0500 100%)" title="Dark warm"></button>
+                <button class="swatch"        data-bg="charcoal"     style="background:#141414"                                         title="Carvão"></button>
+              </div>
+              <input type="hidden" id="l-bg" value="black" />
+            </div>
+
+            <div class="ctrl-block">
+              <h3 class="ctrl-title">Variações visuais</h3>
+              <div class="toggle-list">
+                <label class="tgl"><input type="checkbox" id="l-italic" checked /><span class="tgl-track"><span class="tgl-thumb"></span></span><span>Última linha em itálico</span></label>
+                <label class="tgl"><input type="checkbox" id="l-mark-bg" checked /><span class="tgl-track"><span class="tgl-thumb"></span></span><span>Letra "A" no fundo</span></label>
+                <label class="tgl"><input type="checkbox" id="l-show-eyebrow" checked /><span class="tgl-track"><span class="tgl-thumb"></span></span><span>Eyebrow (texto acima do título)</span></label>
+                <label class="tgl"><input type="checkbox" id="l-show-pillars" checked /><span class="tgl-track"><span class="tgl-thumb"></span></span><span>Pilares com ícones</span></label>
+                <label class="tgl"><input type="checkbox" id="l-show-trust" checked /><span class="tgl-track"><span class="tgl-thumb"></span></span><span>Barra de marcas parceiras</span></label>
+                <label class="tgl"><input type="checkbox" id="l-show-ghost-btn" checked /><span class="tgl-track"><span class="tgl-thumb"></span></span><span>Botão secundário "Ver soluções"</span></label>
+                <label class="tgl"><input type="checkbox" id="l-wide-spacing" /><span class="tgl-track"><span class="tgl-thumb"></span></span><span>Espaçamento de letras amplo</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- PREVIEW -->
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-hero" id="previewFrame">
+              <div class="pv-hero" id="previewHero">
+                <p class="pv-eyebrow" id="prevEyebrow">A NOSSA PROPOSTA DE VALOR</p>
+                <h1 class="pv-headline" id="prevHeadline"></h1>
+                <div class="pv-pillars" id="prevPillars">
+                  <div class="pv-pillar"><span class="pv-icon">💰</span><span>Para construir um negócio que venda todos os dias...</span></div>
+                  <div class="pv-pillar"><span class="pv-icon">📅</span><span>Através de uma metodologia que vivenciamos...</span></div>
+                </div>
+                <div class="pv-btns">
+                  <span class="pv-btn-primary" id="prevCtaBtn">QUERO ESTRUTURAR MEU COMERCIAL</span>
+                  <span class="pv-btn-ghost" id="prevGhostBtn">VER SOLUÇÕES →</span>
+                </div>
+                <div class="pv-trust" id="prevTrust">
+                  <span class="pv-trust-label">Empresas que confiam:</span>
+                  <span class="pv-tag">Colcci</span>
+                  <span class="pv-tag">Tommy Hilfiger</span>
+                  <span class="pv-tag">Track &amp; Field</span>
+                </div>
+                <div class="pv-mark" id="prevMark">A</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: TEXTOS DO HERO ═══ -->
+      <section class="tab-panel" id="tab-hero">
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Textos do Hero</h2>
+              <p>Edite os textos dos pilares, botão e eyebrow.</p>
+            </div>
+            <div class="form-grid">
+              <div class="field full"><label>Eyebrow (texto pequeno acima do título)</label><input type="text" id="h-eyebrow" /></div>
+              <div class="field full"><label>Pilar 1 — texto</label><textarea id="h-pillar1" rows="2"></textarea></div>
+              <div class="field full"><label>Pilar 2 — texto</label><textarea id="h-pillar2" rows="2"></textarea></div>
+              <div class="field full"><label>Texto do botão principal</label><input type="text" id="h-cta" /></div>
+            </div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-hero">
+              <div class="pv-hero pv-hero--texts">
+                <p class="pv-eyebrow" id="pv-h-eyebrow">A NOSSA PROPOSTA DE VALOR</p>
+                <h1 class="pv-headline pv-headline--sm"><span style="color:#fc4900">VENDA</span> MAIS e <span style="color:#fc4900">MELHOR</span><br/>através da<br/><span style="color:#fc4900">ESTRUTURAÇÃO COMERCIAL</span></h1>
+                <div class="pv-pillars">
+                  <div class="pv-pillar"><span class="pv-icon">💰</span><span id="pv-h-pillar1">Para construir um negócio que venda todos os dias...</span></div>
+                  <div class="pv-pillar"><span class="pv-icon">📅</span><span id="pv-h-pillar2">Através de uma metodologia que vivenciamos...</span></div>
+                </div>
+                <div class="pv-btns">
+                  <span class="pv-btn-primary" id="pv-h-cta">QUERO ESTRUTURAR MEU COMERCIAL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: NÚMEROS ═══ -->
+      <section class="tab-panel" id="tab-numeros">
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Números / Stats</h2>
+              <p>Os 4 números em destaque na barra de resultados.</p>
+            </div>
+            <div class="ctrl-block">
+              <h3 class="ctrl-title">Layout da barra</h3>
+              <div class="preset-row">
+                <button class="preset-btn active" data-numlayout="row" title="Linha horizontal">4 em linha</button>
+                <button class="preset-btn" data-numlayout="grid" title="Grade 2x2">Grade 2×2</button>
+              </div>
+              <input type="hidden" id="n-layout" value="row" />
+            </div>
+            <div id="stat-editors" style="margin-top:1rem"></div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-numeros">
+              <div class="pv-numeros" id="pv-numeros">
+                <!-- generated by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: SOLUÇÕES ═══ -->
+      <section class="tab-panel" id="tab-solucoes">
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Soluções</h2>
+              <p>Os 4 produtos/serviços do Grupo Amplia.</p>
+            </div>
+            <div class="ctrl-block">
+              <h3 class="ctrl-title">Estilo dos cards</h3>
+              <div class="preset-row">
+                <button class="preset-btn active" data-solstyle="bordered">Bordado</button>
+                <button class="preset-btn" data-solstyle="filled">Preenchido</button>
+                <button class="preset-btn" data-solstyle="minimal">Minimal</button>
+              </div>
+              <input type="hidden" id="s-style" value="bordered" />
+            </div>
+            <div id="sol-editors" style="margin-top:1rem"></div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-solucoes">
+              <div class="pv-solucoes" id="pv-solucoes">
+                <!-- generated by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: CLIENTES ═══ -->
+      <section class="tab-panel" id="tab-clientes">
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Clientes / Resultados</h2>
+              <p>Empresas parceiras e resultados gerados.</p>
+            </div>
+            <div class="ctrl-block">
+              <h3 class="ctrl-title">Layout dos cards</h3>
+              <div class="preset-row">
+                <button class="preset-btn active" data-clifmt="grid">Grade 2 colunas</button>
+                <button class="preset-btn" data-clifmt="list">Lista</button>
+                <button class="preset-btn" data-clifmt="compact">Compacto</button>
+              </div>
+              <input type="hidden" id="c-fmt" value="grid" />
+            </div>
+            <div id="client-editors" style="margin-top:1rem"></div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-clientes">
+              <div class="pv-clientes" id="pv-clientes">
+                <!-- generated by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: FUNDADORES ═══ -->
+      <section class="tab-panel" id="tab-fundadores">
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Fundadores</h2>
+              <p>Informações dos sócios fundadores.</p>
+            </div>
+            <div class="ctrl-block">
+              <h3 class="ctrl-title">Estilo dos cards</h3>
+              <div class="preset-row">
+                <button class="preset-btn active" data-fndstyle="centered">Centralizado</button>
+                <button class="preset-btn" data-fndstyle="left">Alinhado à esq.</button>
+                <button class="preset-btn" data-fndstyle="minimal">Minimal</button>
+              </div>
+              <input type="hidden" id="f-style" value="centered" />
+            </div>
+            <div id="founder-editors" style="margin-top:1rem"></div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-fundadores">
+              <div class="pv-fundadores" id="pv-fundadores">
+                <!-- generated by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: VÍDEOS ═══ -->
+      <section class="tab-panel" id="tab-videos">
+        <div class="tab-controls" style="max-width:800px">
+          <div class="section-header">
+            <h2>Portfólio de Vídeos</h2>
+            <p>Cole links do YouTube. Os vídeos aparecem automaticamente na página.</p>
+          </div>
+          <div id="videos-list"></div>
+          <button type="button" class="btn-add" id="addVideoBtn">+ Adicionar vídeo</button>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: PRODUTOS ═══ -->
+      <section class="tab-panel" id="tab-produtos">
+        <div class="tab-controls" style="max-width:800px">
+          <div class="section-header">
+            <h2>Produtos</h2>
+            <p>Adicione cursos, mentorias ou qualquer produto para venda.</p>
+          </div>
+          <div id="produtos-list"></div>
+          <button type="button" class="btn-add" id="addProdutoBtn">+ Adicionar produto</button>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: CONTATO ═══ -->
+      <section class="tab-panel" id="tab-contato">
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Contato / Links</h2>
+              <p>Textos e rótulos da seção de CTA final.</p>
+            </div>
+            <div class="form-grid">
+              <div class="field full"><label>Título da seção</label><input type="text" id="ct-title" /></div>
+              <div class="field full"><label>Subtítulo</label><textarea id="ct-sub" rows="2"></textarea></div>
+              <div class="field"><label>Texto botão WhatsApp</label><input type="text" id="ct-wabtn" /></div>
+              <div class="field"><label>Texto botão Instagram</label><input type="text" id="ct-igbtn" /></div>
+            </div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview em tempo real</div>
+            <div class="preview-frame pf-contato">
+              <div class="pv-contato">
+                <div class="pv-mark pv-mark--contato" aria-hidden="true">A</div>
+                <p class="pv-eyebrow">PRÓXIMO PASSO</p>
+                <h2 class="pv-contato-title" id="pv-ct-title">Pronto para <span style="color:#fc4900">vender mais e melhor?</span></h2>
+                <p class="pv-contato-sub" id="pv-ct-sub">Fale com nossa equipe e descubra como estruturar seu comercial.</p>
+                <div class="pv-btns">
+                  <span class="pv-btn-primary" id="pv-ct-wa">Falar no WhatsApp</span>
+                  <span class="pv-btn-ghost" id="pv-ct-ig">Ver no Instagram</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: SOBRE ═══ -->
+      <section class="tab-panel" id="tab-sobre">
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header"><h2>Sobre</h2><p>Seção "Quem Somos" — quote, texto e badge.</p></div>
+            <div class="form-grid">
+              <div class="field full"><label>Eyebrow (etiqueta)</label><input type="text" id="sb-eyebrow" placeholder="Quem somos" /></div>
+              <div class="field full"><label>Título</label><input type="text" id="sb-h2" placeholder="Somos uma {Estruturadora Comercial}" /></div>
+              <div class="field full"><label>Quote / Citação</label><textarea id="sb-quote" rows="3"></textarea></div>
+              <div class="field"><label>Autor da citação</label><input type="text" id="sb-cite" placeholder="— Grupo Amplia" /></div>
+              <div class="field full"><label>Parágrafo 1</label><textarea id="sb-p1" rows="3"></textarea></div>
+              <div class="field full"><label>Parágrafo 2</label><textarea id="sb-p2" rows="3"></textarea></div>
+              <div class="field full"><label>Bullet 1</label><input type="text" id="sb-b1" /></div>
+              <div class="field full"><label>Bullet 2</label><input type="text" id="sb-b2" /></div>
+              <div class="field full"><label>Bullet 3</label><input type="text" id="sb-b3" /></div>
+              <div class="field"><label>Badge — De</label><input type="text" id="sb-badge-from" placeholder="R$13K" /></div>
+              <div class="field"><label>Badge — Para</label><input type="text" id="sb-badge-to" placeholder="R$25K" /></div>
+              <div class="field full"><label>Badge — Legenda</label><input type="text" id="sb-badge-label" placeholder="nosso próprio faturamento dobrado" /></div>
+            </div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview</div>
+            <div class="preview-frame pf-sobre">
+              <div class="pv-sobre">
+                <div class="pv-sobre__quote" id="pv-sb-quote">"Construímos um negócio que vende todos os dias…"</div>
+                <div class="pv-sobre__cite" id="pv-sb-cite">— Grupo Amplia</div>
+                <div class="pv-sobre__badge"><span id="pv-sb-from">R$13K</span> → <span id="pv-sb-to">R$25K</span></div>
+                <div class="pv-sobre__eyebrow" id="pv-sb-eyebrow">QUEM SOMOS</div>
+                <div class="pv-sobre__h2" id="pv-sb-h2">Somos uma <span style="color:#fc4900">Estruturadora Comercial</span></div>
+                <div class="pv-sobre__p" id="pv-sb-p1">O foco aqui é aumentar a sua precificação…</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: PARA QUEM ═══ -->
+      <section class="tab-panel" id="tab-paraquem">
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header"><h2>Para Quem É</h2><p>Título e os 6 cards de dores do cliente.</p></div>
+            <div class="form-grid">
+              <div class="field full"><label>Eyebrow</label><input type="text" id="pq-eyebrow" placeholder="Para quem é" /></div>
+              <div class="field full"><label>Título da seção</label><textarea id="pq-title" rows="2"></textarea></div>
+            </div>
+            <div class="section-header" style="margin-top:1.2rem"><h3 style="font-size:.85rem;color:var(--wh2)">Cards de Dores</h3></div>
+            <div class="form-grid" id="pq-cards-grid">
+              <div class="ctrl-block" style="grid-column:1/-1"><div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem"><input type="text" id="pq-icon-1" placeholder="😤" style="width:56px;text-align:center;font-size:1.3rem" /><label style="margin:0">Card 1</label></div><textarea id="pq-text-1" rows="2"></textarea></div>
+              <div class="ctrl-block" style="grid-column:1/-1"><div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem"><input type="text" id="pq-icon-2" placeholder="📉" style="width:56px;text-align:center;font-size:1.3rem" /><label style="margin:0">Card 2</label></div><textarea id="pq-text-2" rows="2"></textarea></div>
+              <div class="ctrl-block" style="grid-column:1/-1"><div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem"><input type="text" id="pq-icon-3" placeholder="🤝" style="width:56px;text-align:center;font-size:1.3rem" /><label style="margin:0">Card 3</label></div><textarea id="pq-text-3" rows="2"></textarea></div>
+              <div class="ctrl-block" style="grid-column:1/-1"><div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem"><input type="text" id="pq-icon-4" placeholder="💸" style="width:56px;text-align:center;font-size:1.3rem" /><label style="margin:0">Card 4</label></div><textarea id="pq-text-4" rows="2"></textarea></div>
+              <div class="ctrl-block" style="grid-column:1/-1"><div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem"><input type="text" id="pq-icon-5" placeholder="📣" style="width:56px;text-align:center;font-size:1.3rem" /><label style="margin:0">Card 5</label></div><textarea id="pq-text-5" rows="2"></textarea></div>
+              <div class="ctrl-block" style="grid-column:1/-1"><div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem"><input type="text" id="pq-icon-6" placeholder="🎯" style="width:56px;text-align:center;font-size:1.3rem" /><label style="margin:0">Card 6</label></div><textarea id="pq-text-6" rows="2"></textarea></div>
+            </div>
+            <div class="form-grid" style="margin-top:1rem">
+              <div class="field full"><label>Texto CTA final</label><textarea id="pq-cta-text" rows="2"></textarea></div>
+              <div class="field full"><label>Botão CTA</label><input type="text" id="pq-cta-btn" placeholder="Quero resolver isso agora" /></div>
+            </div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Preview</div>
+            <div class="preview-frame pf-paraquem">
+              <div class="pv-paraquem">
+                <div class="pv-paraquem__eyebrow" id="pv-pq-eyebrow">PARA QUEM É</div>
+                <div class="pv-paraquem__title" id="pv-pq-title">Você se identifica com <span style="color:#fc4900">alguma dessas situações?</span></div>
+                <div class="pv-paraquem__grid" id="pv-pq-grid">
+                  <div class="pv-pq-card"><span>😤</span><p>Você é o único que sabe vender…</p></div>
+                  <div class="pv-pq-card"><span>📉</span><p>Suas vendas são inconsistentes…</p></div>
+                  <div class="pv-pq-card"><span>🤝</span><p>Você não sabe como contratar…</p></div>
+                  <div class="pv-pq-card"><span>💸</span><p>Você cobra barato…</p></div>
+                  <div class="pv-pq-card"><span>📣</span><p>Seu marketing não gera leads…</p></div>
+                  <div class="pv-pq-card"><span>🎯</span><p>Você quer escalar…</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ TAB: SENHA ═══ -->
+      <section class="tab-panel" id="tab-senha">
+        <div class="tab-split">
+          <div class="tab-controls">
+            <div class="section-header">
+              <h2>Alterar Senha</h2>
+              <p>Mude a senha de acesso ao painel administrativo.</p>
+            </div>
+            <div class="form-grid" style="max-width:400px">
+              <div class="field full"><label>Senha atual</label><input type="password" id="pwd-current" /></div>
+              <div class="field full"><label>Nova senha</label><input type="password" id="pwd-new" /></div>
+              <div class="field full"><label>Confirmar nova senha</label><input type="password" id="pwd-confirm" /></div>
+              <div class="pwd-msg" id="pwdMsg"></div>
+              <div class="field full"><button class="btn-save" id="changePwdBtn" style="width:100%">Alterar senha</button></div>
+            </div>
+
+            <div class="section-header" style="margin-top:2.5rem">
+              <h2>Publicação para todos os dispositivos</h2>
+              <p>Cole seu GitHub Token para ativar o botão <strong>Publicar</strong>. O conteúdo será enviado ao repositório e ficará disponível em todos os celulares e computadores.</p>
+            </div>
+            <div class="form-grid" style="max-width:400px">
+              <div class="field full">
+                <label>GitHub Token (Personal Access Token)</label>
+                <input type="password" id="github-token" placeholder="github_pat_…" autocomplete="off" />
+                <span class="field-hint">Salvo somente neste navegador. Nunca enviado a terceiros.</span>
+              </div>
+              <div class="field full"><button class="btn-save" id="saveTokenBtn" style="width:100%">Salvar token</button></div>
+            </div>
+          </div>
+          <div class="tab-preview-sticky">
+            <div class="preview-label">Dica de segurança</div>
+            <div class="preview-frame pf-senha">
+              <div class="pv-senha">
+                <div class="pv-lock">🔒</div>
+                <p class="pv-lock-title">Senha segura</p>
+                <ul class="pv-lock-tips">
+                  <li>Mínimo de 8 caracteres</li>
+                  <li>Misture letras e números</li>
+                  <li>Use caracteres especiais (!@#$)</li>
+                  <li>Não compartilhe sua senha</li>
+                  <li>A sessão expira ao fechar o navegador</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

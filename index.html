@@ -4,173 +4,243 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grupo Amplia – Estruturação Comercial de Alta Performance</title>
+  <meta name="description" content="Venda mais e melhor através da estruturação comercial de alta performance. 14 meses, +R$500K gerados para empresários brasileiros." />
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;500;600&family=Audiowide&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- ========== NAV ========== -->
   <header class="nav" id="nav">
     <div class="nav__inner container">
-      <a href="#hero" class="nav__logo">
-        <svg class="nav__logo-svg" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Grupo Amplia">
-          <!-- A mark -->
-          <polygon points="14,52 28,20 42,52 36,52 28,32 20,52" fill="#fc4900"/>
-          <polygon points="20,44 36,44 34,38 22,38" fill="#000"/>
-          <!-- Wordmark -->
-          <text x="52" y="50" font-family="Montserrat,sans-serif" font-weight="900" font-size="36" fill="#fc4900" letter-spacing="2">AMPLIA</text>
-        </svg>
+      <a href="#hero" class="nav__logo" aria-label="Grupo Amplia">
+        <img src="logo.png" alt="Amplia" class="logo-img" />
       </a>
-      <nav class="nav__links">
+      <nav class="nav__links" id="navLinks">
         <a href="#sobre">Sobre</a>
         <a href="#solucoes">Soluções</a>
         <a href="#resultados">Resultados</a>
-        <a href="#clientes">Clientes</a>
+        <a href="#para-quem">Para quem</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#produtos">Produtos</a>
         <a href="#fundadores">Fundadores</a>
         <a href="#contato" class="btn btn--sm">Falar com a equipe</a>
       </nav>
-      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+      <button class="nav__hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- ========== HERO ========== -->
   <section class="hero" id="hero">
-    <div class="hero__bg-logo" aria-hidden="true">A</div>
+    <div class="hero__bg-mark" aria-hidden="true">A</div>
     <div class="container hero__content">
-      <p class="hero__eyebrow">A nossa proposta de valor</p>
-      <h1 class="hero__headline">
-        <span class="text-white">VENDA </span><span class="text-orange">MAIS</span>
-        <span class="text-white"> e </span><span class="text-orange">MELHOR</span>
-        <br />
-        <span class="text-white">através da</span>
-        <br />
-        <span class="text-orange">ESTRUTURAÇÃO COMERCIAL</span>
-        <br />
-        <em class="text-white">de alta performance!</em>
+      <h1>
+        <span class="wh">O MÉTODO QUE </span><span class="or">DOBRO</span>
+        <br/>
+        <span class="wh">NOSSO </span><span class="or">FATURAMENTO</span>
       </h1>
       <div class="hero__pillars">
         <div class="hero__pillar">
           <div class="hero__pillar-icon">💰</div>
-          <p>Para construir um negócio que venda todos os dias, de forma independente do dono.</p>
+          <p>Através da estruturação comercial de alta performance do Grupo Amplia <strong>(+ DE 60% DE TAXA DE FECHAMENTO)</strong></p>
         </div>
         <div class="hero__pillar">
           <div class="hero__pillar-icon">📅</div>
-          <p>Através de uma metodologia que nós vivenciamos diariamente no Grupo Amplia.</p>
+          <p>Uma metodologia que nós <strong>vivenciamos diariamente</strong> no Grupo Amplia.</p>
         </div>
       </div>
-      <a href="#contato" class="btn btn--lg">Quero estruturar meu comercial</a>
+      <div class="hero__ctas">
+        <a href="https://wa.me/5549999999999" target="_blank" rel="noopener noreferrer" class="btn btn--lg btn--pulse">Quero esse resultado!</a>
+        <a href="#solucoes" class="btn btn--ghost btn--lg">Ver soluções →</a>
+      </div>
+      <div class="hero__trust">
+        <span>Empresas que confiam em nós:</span>
+        <div class="hero__trust-logos">
+          <span>Colcci</span>
+          <span>Tommy Hilfiger</span>
+          <span>Track &amp; Field</span>
+          <span>Marlon Veículos</span>
+          <span>F4 Autocenter</span>
+        </div>
+      </div>
     </div>
-    <div class="hero__scroll" aria-hidden="true">↓</div>
+    <a href="#numeros" class="hero__scroll" aria-label="Rolar para baixo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke="#fc4900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </section>
 
-  <!-- CONQUISTAS -->
-  <section class="conquistas" id="resultados">
+  <!-- ========== NÚMEROS ========== -->
+  <section class="numeros" id="numeros">
     <div class="container">
-      <div class="conquistas__grid">
-        <div class="conquistas__stat">
-          <span class="stat-number">+R$500<span class="stat-unit">mil</span></span>
-          <span class="stat-label">em faturamento gerado para empresários</span>
+      <div class="numeros__grid">
+        <div class="numero-item">
+          <span class="numero-val" data-target="500" data-prefix="R$" data-suffix="mil+">R$500mil+</span>
+          <span class="numero-label">em faturamento gerado para clientes</span>
         </div>
-        <div class="conquistas__stat">
-          <span class="stat-number">14<span class="stat-unit">meses</span></span>
-          <span class="stat-label">de mercado com resultados comprovados</span>
+        <div class="numero-item">
+          <span class="numero-val" data-target="14" data-suffix=" meses">14 meses</span>
+          <span class="numero-label">de mercado com resultados comprovados</span>
         </div>
-        <div class="conquistas__stat">
-          <span class="stat-number">60<span class="stat-unit">%</span></span>
-          <span class="stat-label">taxa de fechamento em reuniões de vendas</span>
+        <div class="numero-item">
+          <span class="numero-val" data-target="60" data-suffix="%">60%</span>
+          <span class="numero-label">de taxa de fechamento em reuniões de vendas</span>
         </div>
-        <div class="conquistas__stat">
-          <span class="stat-number">+8</span>
-          <span class="stat-label">empresas de grande porte atendidas</span>
+        <div class="numero-item">
+          <span class="numero-val" data-target="8" data-suffix="+ clientes">8+ clientes</span>
+          <span class="numero-label">de grande porte atendidos</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SOBRE -->
+  <!-- ========== SOBRE ========== -->
   <section class="sobre" id="sobre">
     <div class="container sobre__inner">
+      <div class="sobre__media">
+        <div class="sobre__media-card">
+          <div class="sobre__media-bg" aria-hidden="true">A</div>
+          <div class="sobre__quote">
+            <svg width="40" height="32" viewBox="0 0 40 32" fill="none" aria-hidden="true"><path d="M0 32V20C0 10.667 4 4 12 0l3.2 3.2C11.733 5.067 9.6 8.267 9.6 12H18V32H0ZM22 32V20C22 10.667 26 4 34 0l3.2 3.2C33.733 5.067 31.6 8.267 31.6 12H40V32H22Z" fill="#fc4900" opacity=".3"/></svg>
+            <p>"Construímos um negócio que vende todos os dias, de forma independente do dono — e ensinamos nossos clientes a fazer o mesmo."</p>
+            <cite>— Grupo Amplia</cite>
+          </div>
+        </div>
+        <div class="sobre__badge">
+          <span class="sobre__badge-num">R$13K</span>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="#fc4900" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="sobre__badge-num">R$25K</span>
+          <span class="sobre__badge-label">nosso próprio faturamento dobrado</span>
+        </div>
+      </div>
       <div class="sobre__text">
-        <span class="section-label">Quem somos</span>
-        <h2>Somos uma <span class="text-orange">Estruturadora Comercial</span></h2>
+        <span class="eyebrow">Quem somos</span>
+        <h2>Somos uma <span class="or">Estruturadora<br/>Comercial</span></h2>
         <p>
           O foco aqui é aumentar a sua precificação e estruturar o seu comercial.
-          Saímos de <strong>R$13K para R$25K</strong> de faturamento no início do ano,
-          através das nossas próprias soluções de marketing e comercial — e agora aplicamos
-          essa mesma metodologia para nossos clientes.
+          Somos uma empresa jovem com <strong>14 meses de mercado</strong> e resultados
+          que falam por si: mais de meio milhão de reais gerados para empresários
+          brasileiros em setores do varejo, automotivo e serviços.
         </p>
         <p>
-          Somos uma empresa jovem com <strong>14 meses de mercado</strong> e resultados
-          que falam por si: mais de meio milhão de reais gerados para empresários brasileiros
-          em setores do varejo, automotivo e serviços.
+          Antes de levar a metodologia para os nossos clientes, nós a aplicamos em
+          nós mesmos — e dobramos o nosso próprio faturamento, saindo de
+          <strong>R$13K para R$25K</strong> ao mês no início de 2024.
         </p>
-        <a href="#solucoes" class="btn btn--outline">Ver nossas soluções</a>
-      </div>
-      <div class="sobre__card">
-        <div class="sobre__card-bg" aria-hidden="true">A</div>
-        <div class="sobre__card-content">
-          <blockquote>
-            "Construímos um negócio que vende todos os dias, de forma independente do dono — e ensinamos nossos clientes a fazer o mesmo."
-          </blockquote>
-          <cite>— Grupo Amplia</cite>
+        <div class="sobre__bullets">
+          <div class="bullet"><span class="bullet__dot"></span><span class="bullet__text">Metodologia vivenciada internamente</span></div>
+          <div class="bullet"><span class="bullet__dot"></span><span class="bullet__text">Resultados mensuráveis desde o 1º mês</span></div>
+          <div class="bullet"><span class="bullet__dot"></span><span class="bullet__text">Processos completos: captação ao fechamento</span></div>
         </div>
+        <a href="#contato" class="btn btn--primary">Falar com a equipe</a>
       </div>
     </div>
   </section>
 
-  <!-- SOLUÇÕES -->
+  <!-- ========== PARA QUEM É ========== -->
+  <section class="para-quem" id="para-quem">
+    <div class="container">
+      <span class="eyebrow center">Para quem é</span>
+      <h2 class="center">Você se identifica com <span class="or">alguma dessas situações?</span></h2>
+      <div class="pq-grid">
+        <div class="pq-card">
+          <span class="pq-card__icon">😤</span>
+          <p>Você é o único que sabe vender na empresa e se sente <strong>refém do seu próprio negócio</strong></p>
+        </div>
+        <div class="pq-card">
+          <span class="pq-card__icon">📉</span>
+          <p>Suas vendas são <strong>inconsistentes</strong> — mês bom, mês ruim, sem previsibilidade</p>
+        </div>
+        <div class="pq-card">
+          <span class="pq-card__icon">🤝</span>
+          <p>Você não sabe como <strong>contratar, treinar e gerir</strong> um time comercial</p>
+        </div>
+        <div class="pq-card">
+          <span class="pq-card__icon">💸</span>
+          <p>Você cobra barato, tem dificuldade em <strong>aumentar sua precificação</strong> sem perder clientes</p>
+        </div>
+        <div class="pq-card">
+          <span class="pq-card__icon">📣</span>
+          <p>Seu marketing <strong>não gera leads qualificados</strong> para o seu time de vendas fechar</p>
+        </div>
+        <div class="pq-card">
+          <span class="pq-card__icon">🎯</span>
+          <p>Você quer escalar, mas <strong>não tem processos</strong> comerciais estruturados</p>
+        </div>
+      </div>
+      <div class="pq-cta">
+        <p>Se você se identificou com pelo menos uma dessas situações, o Grupo Amplia é para você.</p>
+        <a href="https://wa.me/5549999999999" target="_blank" rel="noopener noreferrer" class="btn btn--lg btn--pulse">Quero resolver isso agora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PORTFÓLIO ========== -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <span class="eyebrow center" id="portfolio-eyebrow">Portfólio</span>
+      <h2 class="center">Resultados <span class="or">em vídeo</span></h2>
+      <div class="portfolio__grid" id="portfolio-grid">
+        <!-- Videos injected by script.js -->
+        <div class="portfolio__empty">Nenhum vídeo adicionado ainda.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOLUÇÕES ========== -->
   <section class="solucoes" id="solucoes">
     <div class="container">
-      <span class="section-label">O que oferecemos</span>
-      <h2>Nossas <span class="text-orange">Soluções</span></h2>
-      <div class="solucoes__grid">
+      <span class="eyebrow center">O que oferecemos</span>
+      <h2 class="center">Nossas <span class="or">4 Soluções</span></h2>
+      <div class="sol-grid">
 
-        <div class="solucao-card">
-          <div class="solucao-card__icon">📣</div>
+        <div class="sol-card">
+          <div class="sol-card__num">01</div>
+          <div class="sol-card__icon">📣</div>
           <h3>Assessoria de Marketing</h3>
           <p>Estruturamos o marketing interno e a marca pessoal do empresário para gerar autoridade e atrair clientes de forma previsível.</p>
           <ul>
             <li>Posicionamento de marca</li>
             <li>Gestão de redes sociais</li>
             <li>Estratégia de conteúdo</li>
-            <li>Anúncios pagos (+6 dígitos gerenciados)</li>
+            <li>+6 dígitos gerenciados em anúncios</li>
           </ul>
         </div>
 
-        <div class="solucao-card solucao-card--featured">
-          <div class="solucao-card__badge">Mais procurado</div>
-          <div class="solucao-card__icon">🎯</div>
+        <div class="sol-card sol-card--featured">
+          <div class="sol-card__badge">Mais procurado</div>
+          <div class="sol-card__num">02</div>
+          <div class="sol-card__icon">🎯</div>
           <h3>Mentoria Comercial</h3>
           <p>Montamos todos os processos comerciais do zero: captação, qualificação, agendamento e fechamento.</p>
           <ul>
             <li>Pesquisa completa de ICP</li>
             <li>Script de Cold Call validado</li>
-            <li>Processos de apresentação para gerar valor antes de falar de preços</li>
-            <li>Todos os processos para vender e gerir equipe</li>
+            <li>Processo de apresentação (valor antes de preço)</li>
+            <li>Gestão de equipe comercial</li>
             <li>Encontros 1x1 para estruturar o comercial</li>
           </ul>
-          <div class="solucao-card__highlight">
-            <strong>60% de taxa de fechamento em reunião de vendas</strong>
-          </div>
+          <div class="sol-card__highlight">60% de taxa de fechamento em reunião</div>
         </div>
 
-        <div class="solucao-card">
-          <div class="solucao-card__icon">🎬</div>
+        <div class="sol-card">
+          <div class="sol-card__num">03</div>
+          <div class="sol-card__icon">🎬</div>
           <h3>Captação Audiovisual</h3>
-          <p>Produção de conteúdo estratégico que posiciona sua marca e converte visualizações em clientes.</p>
+          <p>Produção de conteúdo estratégico que posiciona sua marca e converte visualizações em clientes reais.</p>
           <ul>
-            <li>Vídeos institucionais</li>
+            <li>Vídeos institucionais e de vendas</li>
             <li>Conteúdo para redes sociais</li>
-            <li>+10 milhões de visualizações geradas para clientes</li>
+            <li>+10 milhões de visualizações geradas</li>
           </ul>
         </div>
 
-        <div class="solucao-card">
-          <div class="solucao-card__icon">📚</div>
+        <div class="sol-card">
+          <div class="sol-card__num">04</div>
+          <div class="sol-card__icon">📚</div>
           <h3>Produtos Educacionais</h3>
           <p>Cursos e playbooks da área comercial e de marketing para você dominar as estratégias que realmente funcionam.</p>
           <ul>
@@ -184,82 +254,89 @@
     </div>
   </section>
 
-  <!-- CLIENTES -->
-  <section class="clientes" id="clientes">
+  <!-- ========== RESULTADOS ========== -->
+  <section class="resultados" id="resultados">
     <div class="container">
-      <span class="section-label">Quem confia em nós</span>
-      <h2>Empresas que <span class="text-orange">confiam</span> no Grupo Amplia</h2>
-      <div class="clientes__grid">
+      <span class="eyebrow center">Prova social</span>
+      <h2 class="center">Empresas que <span class="or">confiam</span> no Grupo Amplia</h2>
+      <div class="res-grid">
 
-        <div class="cliente-card">
-          <h3 class="cliente-card__name">Colcci</h3>
-          <div class="cliente-card__result">
-            <span class="result-value text-orange">R$60K</span>
-            <span class="result-label">em vendas geradas</span>
+        <div class="res-card res-card--big">
+          <div class="res-card__tag">Automotivo</div>
+          <h3>Marlon Veículos</h3>
+          <div class="res-card__result">
+            <span class="res-val">+R$350K</span>
+            <span class="res-period">bruto no 1º mês</span>
           </div>
-          <p>Uma das maiores marcas de moda do Brasil. Estruturamos estratégias comerciais que geraram resultados expressivos em pouco tempo.</p>
+          <p>Implementamos processos comerciais completos e geramos mais de R$350 mil em venda de veículos já no primeiro mês de trabalho conjunto.</p>
         </div>
 
-        <div class="cliente-card">
-          <h3 class="cliente-card__name">Marlon Veículos</h3>
-          <div class="cliente-card__result">
-            <span class="result-value text-orange">+R$350K</span>
-            <span class="result-label">bruto no 1º mês</span>
-          </div>
-          <p>Implementamos processos comerciais completos e geramos mais de R$350 mil em venda de veículos já no primeiro mês de trabalho.</p>
-        </div>
-
-        <div class="cliente-card">
-          <h3 class="cliente-card__name">Chama Autocar</h3>
-          <div class="cliente-card__result">
-            <span class="result-value text-orange">+R$100K</span>
-            <span class="result-label">bruto no 1º mês</span>
+        <div class="res-card res-card--big">
+          <div class="res-card__tag">Automotivo</div>
+          <h3>Chama Autocar</h3>
+          <div class="res-card__result">
+            <span class="res-val">+R$100K</span>
+            <span class="res-period">bruto no 1º mês</span>
           </div>
           <p>Estruturamos o comercial e geramos mais de R$100 mil em vendas de veículos logo no primeiro mês de assessoria.</p>
         </div>
 
-        <div class="cliente-card">
-          <h3 class="cliente-card__name">Track & Field</h3>
-          <div class="cliente-card__result">
-            <span class="result-value text-orange">R$30K</span>
-            <span class="result-label">em vendas geradas</span>
+        <div class="res-card">
+          <div class="res-card__tag">Moda</div>
+          <h3>Colcci</h3>
+          <div class="res-card__result">
+            <span class="res-val">R$60K</span>
+            <span class="res-period">em vendas geradas</span>
           </div>
-          <p>Marca premium de moda esportiva. Desenvolvemos estratégias que impulsionaram as vendas de forma consistente.</p>
+          <p>Uma das maiores marcas de moda do Brasil confiou na nossa metodologia e colheu resultados expressivos.</p>
         </div>
 
-        <div class="cliente-card">
-          <h3 class="cliente-card__name">Tommy Hilfiger</h3>
-          <div class="cliente-card__result">
-            <span class="result-value text-orange">✓</span>
-            <span class="result-label">parceria ativa</span>
+        <div class="res-card">
+          <div class="res-card__tag">Moda esportiva</div>
+          <h3>Track &amp; Field</h3>
+          <div class="res-card__result">
+            <span class="res-val">R$30K</span>
+            <span class="res-period">em vendas geradas</span>
           </div>
-          <p>Uma das marcas de moda mais reconhecidas mundialmente. Confiou na nossa metodologia para estruturar seus processos comerciais.</p>
+          <p>Marca premium de moda esportiva. Desenvolvemos estratégias comerciais que impulsionaram as vendas de forma consistente.</p>
         </div>
 
-        <div class="cliente-card">
-          <h3 class="cliente-card__name">F4 Autocenter</h3>
-          <div class="cliente-card__result">
-            <span class="result-value text-orange">✓</span>
-            <span class="result-label">parceria ativa</span>
+        <div class="res-card">
+          <div class="res-card__tag">Moda premium</div>
+          <h3>Tommy Hilfiger</h3>
+          <div class="res-card__result">
+            <span class="res-val">✓</span>
+            <span class="res-period">parceria ativa</span>
           </div>
-          <p>Um dos maiores autocenters da região Oeste de SC. Estruturamos o comercial para garantir vendas previsíveis e escaláveis.</p>
+          <p>Uma das marcas mais reconhecidas do mundo. Confiou no Grupo Amplia para estruturar seus processos comerciais.</p>
         </div>
 
-        <div class="cliente-card">
-          <h3 class="cliente-card__name">Alecrim</h3>
-          <div class="cliente-card__result">
-            <span class="result-value text-orange">✓</span>
-            <span class="result-label">parceria ativa</span>
+        <div class="res-card">
+          <div class="res-card__tag">Automotivo / Serviços</div>
+          <h3>F4 Autocenter</h3>
+          <div class="res-card__result">
+            <span class="res-val">✓</span>
+            <span class="res-period">parceria ativa</span>
+          </div>
+          <p>Um dos maiores autocenters do Oeste de SC. Estruturamos o comercial para garantir vendas previsíveis e escaláveis.</p>
+        </div>
+
+        <div class="res-card">
+          <div class="res-card__tag">Gastronomia</div>
+          <h3>Alecrim</h3>
+          <div class="res-card__result">
+            <span class="res-val">✓</span>
+            <span class="res-period">parceria ativa</span>
           </div>
           <p>Um dos maiores empórios e cafeterias da região. Fortalecemos o posicionamento de marca e os processos de captação.</p>
         </div>
 
-        <div class="cliente-card cliente-card--mentor">
-          <div class="cliente-card__badge">Mentor</div>
-          <h3 class="cliente-card__name">Ascendy – Ale Ferreira</h3>
-          <div class="cliente-card__result">
-            <span class="result-value text-orange">+180K</span>
-            <span class="result-label">seguidores | R$200K aos 18 anos</span>
+        <div class="res-card res-card--mentor">
+          <div class="res-card__tag">Mentor</div>
+          <h3>Ascendy – Ale Ferreira</h3>
+          <div class="res-card__result">
+            <span class="res-val">+180K</span>
+            <span class="res-period">seguidores | R$200K aos 18 anos</span>
           </div>
           <p>Nosso mentor que nos ajudou a estruturar a empresa. Ale Ferreira faturou R$200K aos 18 anos e é referência em empreendedorismo jovem.</p>
         </div>
@@ -268,83 +345,174 @@
     </div>
   </section>
 
-  <!-- FUNDADORES -->
+  <!-- ========== FUNDADORES ========== -->
   <section class="fundadores" id="fundadores">
     <div class="container">
-      <span class="section-label">Nossa equipe</span>
-      <h2 class="text-orange" style="font-size:clamp(2.5rem,6vw,5rem);font-weight:900;text-transform:uppercase;margin-bottom:3rem;">Fundadores</h2>
-      <div class="fundadores__grid">
+      <span class="eyebrow center">Nossa equipe</span>
+      <h2 class="fundadores__title or">FUNDADORES</h2>
+      <p class="fundadores__sub center">Somos uma estruturadora comercial. O foco é aumentar a sua precificação e estruturar o seu comercial.</p>
+      <div class="fund-grid">
 
-        <div class="fundador-card">
-          <div class="fundador-card__avatar">JV</div>
+        <div class="fund-card">
+          <div class="fund-card__avatar">JV</div>
           <h3>João Visoli</h3>
-          <p class="fundador-card__role text-orange">Expert em Vendas e Estratégias de Aquisição</p>
-          <p>Taxa de conversão de <strong>+60%</strong> em reuniões de vendas. Especialista em estruturar processos de captação e fechamento de alto desempenho.</p>
+          <span class="fund-card__role">Expert em Vendas e Estratégias de Aquisição</span>
+          <div class="fund-card__stat">
+            <span class="fund-stat-num">+60%</span>
+            <span class="fund-stat-label">taxa de conversão em reuniões de vendas</span>
+          </div>
+          <p>Especialista em estruturar processos de captação e fechamento de alto desempenho para empresas de diferentes segmentos.</p>
         </div>
 
-        <div class="fundador-card">
-          <div class="fundador-card__avatar">CL</div>
+        <div class="fund-card fund-card--center">
+          <div class="fund-card__avatar">CL</div>
           <h3>Caetano Lorenci</h3>
-          <p class="fundador-card__role text-orange">Expert em Marketing e Gestão de Dados</p>
-          <p>Mais de <strong>6 dígitos gerenciados em anúncios</strong>. Especialista em transformar dados em estratégias de marketing que geram receita real.</p>
+          <span class="fund-card__role">Expert em Marketing e Gestão de Dados</span>
+          <div class="fund-card__stat">
+            <span class="fund-stat-num">+6 dígitos</span>
+            <span class="fund-stat-label">gerenciados em anúncios</span>
+          </div>
+          <p>Especialista em transformar dados em estratégias de marketing que geram receita real e previsível para o negócio.</p>
         </div>
 
-        <div class="fundador-card">
-          <div class="fundador-card__avatar">JM</div>
+        <div class="fund-card">
+          <div class="fund-card__avatar">JM</div>
           <h3>João Mortari</h3>
-          <p class="fundador-card__role text-orange">Expert em Criação de Conteúdo e Posicionamento</p>
-          <p>Mais de <strong>10 milhões de visualizações geradas para clientes</strong>. Especialista em posicionar marcas e empresários como referências no mercado.</p>
+          <span class="fund-card__role">Expert em Criação de Conteúdo e Posicionamento</span>
+          <div class="fund-card__stat">
+            <span class="fund-stat-num">+10M</span>
+            <span class="fund-stat-label">de visualizações geradas para clientes</span>
+          </div>
+          <p>Especialista em posicionar marcas e empresários como referências no mercado, convertendo autoridade em vendas.</p>
         </div>
 
-      </div>
-
-      <div class="fundadores__cta">
-        <p>Somos uma estruturadora comercial. O foco aqui é aumentar a sua precificação e estruturar o seu comercial.</p>
       </div>
     </div>
   </section>
 
-  <!-- CTA / CONTATO -->
-  <section class="contato" id="contato">
-    <div class="contato__bg" aria-hidden="true">A</div>
-    <div class="container contato__inner">
-      <span class="section-label">Próximo passo</span>
-      <h2>Pronto para <span class="text-orange">vender mais e melhor?</span></h2>
-      <p>Fale com nossa equipe e descubra como estruturar seu comercial de alta performance.</p>
-      <div class="contato__actions">
-        <a href="https://wa.me/5549999999999" target="_blank" rel="noopener" class="btn btn--lg">
+  <!-- ========== FAQ ========== -->
+  <section class="faq" id="faq">
+    <div class="container faq__inner">
+      <div class="faq__left">
+        <span class="eyebrow">Dúvidas frequentes</span>
+        <h2>Perguntas <span class="or">frequentes</span></h2>
+        <p>Ainda com dúvidas? Fale diretamente com a nossa equipe no WhatsApp.</p>
+        <a href="#contato" class="btn btn--primary" style="margin-top:1.5rem;">Falar agora</a>
+      </div>
+      <div class="faq__list">
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">
+            Para qual tipo de empresa o Grupo Amplia atende?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a">
+            <p>Atendemos empresários de qualquer segmento que queiram estruturar seu comercial e escalar as vendas. Já atendemos moda (Colcci, Tommy Hilfiger, Track & Field), automotivo (Marlon Veículos, Chama Autocar, F4 Autocenter), gastronomia (Alecrim) e outros.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">
+            Qual é o prazo para ver resultados?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a">
+            <p>Nossos clientes do setor automotivo já geramos resultados no 1º mês (R$350K para Marlon Veículos e R$100K para Chama Autocar). O prazo varia de acordo com o segmento e o ponto de partida do seu comercial, mas trabalhamos para gerar resultado o mais rápido possível.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">
+            Como funciona a Mentoria Comercial?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a">
+            <p>Montamos todos os seus processos comerciais do zero: pesquisa de ICP, script de cold call, processo de apresentação para gerar valor antes do preço, gestão de equipe e encontros 1x1 para estruturar e tirar dúvidas. Nossa taxa de fechamento em reuniões é de 60%.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">
+            Vocês trabalham com empresas de fora do Brasil?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a">
+            <p>Atualmente, nossa atuação é focada em empresas brasileiras. Se você tiver interesse em uma parceria internacional, entre em contato para conversarmos sobre viabilidade.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">
+            Como começar a trabalhar com o Grupo Amplia?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a">
+            <p>É simples: clique no botão "Falar com a equipe", entre em contato via WhatsApp ou Instagram, e nossa equipe vai apresentar as soluções mais adequadas para o seu negócio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRODUTOS ========== -->
+  <section class="produtos" id="produtos">
+    <div class="container">
+      <span class="eyebrow center">Produtos</span>
+      <h2 class="center">Invista no seu <span class="or">crescimento</span></h2>
+      <p class="center produtos__sub">Cursos, mentorias e programas para estruturar e escalar seu comercial.</p>
+      <div class="produtos__grid" id="produtos-grid">
+        <!-- Products injected by script.js -->
+        <div class="portfolio__empty">Nenhum produto adicionado ainda.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA FINAL ========== -->
+  <section class="cta-final" id="contato">
+    <div class="cta-final__bg" aria-hidden="true">A</div>
+    <div class="container cta-final__inner">
+      <span class="eyebrow center">Próximo passo</span>
+      <h2 class="center">Pronto para <span class="or">vender mais<br/>e melhor?</span></h2>
+      <p class="center">Fale com nossa equipe e descubra como estruturar seu comercial de alta performance. Sem enrolação.</p>
+      <div class="cta-final__actions">
+        <a href="https://wa.me/5549999999999" target="_blank" rel="noopener noreferrer" class="btn btn--lg btn--pulse">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="vertical-align:middle;margin-right:8px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Falar no WhatsApp
         </a>
-        <a href="https://instagram.com/grupoamplia" target="_blank" rel="noopener" class="btn btn--outline btn--lg">
-          Seguir no Instagram
+        <a href="https://instagram.com/grupo.amplia" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg">
+          Ver no Instagram
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="container footer__inner">
-      <div class="footer__brand">
-        <svg class="footer__logo" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Grupo Amplia">
-          <polygon points="14,52 28,20 42,52 36,52 28,32 20,52" fill="#fc4900"/>
-          <polygon points="20,44 36,44 34,38 22,38" fill="#111"/>
-          <text x="52" y="50" font-family="Montserrat,sans-serif" font-weight="900" font-size="36" fill="#fc4900" letter-spacing="2">AMPLIA</text>
-        </svg>
-        <p>Estruturação comercial de alta performance.</p>
+      <div class="footer__top">
+        <a href="#hero" class="footer__logo" aria-label="Grupo Amplia">
+          <img src="logo.png" alt="Amplia" class="logo-img logo-img--sm" />
+          <span>Estruturação comercial de alta performance.</span>
+        </a>
+        <nav class="footer__nav">
+          <a href="#sobre">Sobre</a>
+          <a href="#solucoes">Soluções</a>
+          <a href="#resultados">Resultados</a>
+          <a href="#para-quem">Para quem</a>
+          <a href="#portfolio">Portfólio</a>
+          <a href="#produtos">Produtos</a>
+          <a href="#fundadores">Fundadores</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contato">Contato</a>
+        </nav>
       </div>
-      <div class="footer__links">
-        <a href="#sobre">Sobre</a>
-        <a href="#solucoes">Soluções</a>
-        <a href="#resultados">Resultados</a>
-        <a href="#clientes">Clientes</a>
-        <a href="#fundadores">Fundadores</a>
-        <a href="#contato">Contato</a>
+      <div class="footer__bottom">
+        <p>© 2024 Grupo Amplia. Todos os direitos reservados.</p>
       </div>
-      <p class="footer__copy">© 2024 Grupo Amplia. Todos os direitos reservados.</p>
     </div>
   </footer>
 
+  <!-- ========== WHATSAPP FLOAT ========== -->
+  <a href="https://wa.me/5549999999999" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Falar no WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
   <script src="script.js"></script>
+  <script src="editor.js" defer></script>
 </body>
 </html>
