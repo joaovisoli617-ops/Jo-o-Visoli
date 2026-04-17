@@ -168,6 +168,16 @@ input::placeholder, textarea::placeholder { color: var(--wh3); }
 }
 .btn-save:hover { background: var(--or2); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(252,73,0,.3); }
 
+.btn-publish {
+  display: flex; align-items: center; gap: .4rem;
+  padding: .48rem 1.2rem; border-radius: 50px;
+  border: none; background: #1d6fd8; color: var(--wh); cursor: pointer;
+  font-size: .75rem; font-family: var(--ff-head); font-weight: 700; text-transform: uppercase; letter-spacing: .07em;
+  transition: background var(--tr), transform var(--tr), box-shadow var(--tr);
+}
+.btn-publish:hover { background: #1558b0; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(29,111,216,.35); }
+.btn-publish:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
+
 /* ── TOAST ─────────────────────────────────── */
 .toast {
   position: fixed; top: 72px; right: 1.75rem; z-index: 500;

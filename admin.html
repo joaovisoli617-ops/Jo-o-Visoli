@@ -124,6 +124,10 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
             Salvar alterações
           </button>
+          <button class="btn-publish" id="publishBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Publicar
+          </button>
         </div>
       </div>
       <div class="toast" id="toast">✓ Alterações salvas com sucesso!</div>
@@ -591,6 +595,19 @@ de alta {performance!}</textarea>
               <div class="field full"><label>Confirmar nova senha</label><input type="password" id="pwd-confirm" /></div>
               <div class="pwd-msg" id="pwdMsg"></div>
               <div class="field full"><button class="btn-save" id="changePwdBtn" style="width:100%">Alterar senha</button></div>
+            </div>
+
+            <div class="section-header" style="margin-top:2.5rem">
+              <h2>Publicação para todos os dispositivos</h2>
+              <p>Cole seu GitHub Token para ativar o botão <strong>Publicar</strong>. O conteúdo será enviado ao repositório e ficará disponível em todos os celulares e computadores.</p>
+            </div>
+            <div class="form-grid" style="max-width:400px">
+              <div class="field full">
+                <label>GitHub Token (Personal Access Token)</label>
+                <input type="password" id="github-token" placeholder="github_pat_…" autocomplete="off" />
+                <span class="field-hint">Salvo somente neste navegador. Nunca enviado a terceiros.</span>
+              </div>
+              <div class="field full"><button class="btn-save" id="saveTokenBtn" style="width:100%">Salvar token</button></div>
             </div>
           </div>
           <div class="tab-preview-sticky">

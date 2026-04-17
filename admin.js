@@ -98,10 +98,14 @@ const DEFAULTS = {
 };
 
 // ── STORAGE / AUTH ───────────────────────────────────────────
-const STORAGE_KEY = 'amplia_content';
-const PWD_KEY     = 'amplia_pwd_hash';
-const SESSION_KEY = 'amplia_auth';
-const DEFAULT_PWD = 'Amplia@2024';
+const STORAGE_KEY  = 'amplia_content';
+const PWD_KEY      = 'amplia_pwd_hash';
+const SESSION_KEY  = 'amplia_auth';
+const TOKEN_KEY    = 'amplia_github_token';
+const DEFAULT_PWD  = 'Amplia@2024';
+const GITHUB_OWNER = 'joaovisoli617-ops';
+const GITHUB_REPO  = 'Jo-o-Visoli';
+const GITHUB_FILE  = 'content.json';
 
 async function sha256(str) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
@@ -784,6 +788,57 @@ document.getElementById('changePwdBtn').addEventListener('click', async () => {
   ['pwd-current','pwd-new','pwd-confirm'].forEach(id => document.getElementById(id).value='');
 });
 
+// ── PUBLISH TO GITHUB ─────────────────────────────────────────
+function utf8ToBase64(str) {
+  const bytes = new TextEncoder().encode(str);
+  let bin = '';
+  bytes.forEach(b => { bin += String.fromCharCode(b); });
+  return btoa(bin);
+}
+
+async function publishContent() {
+  const token = localStorage.getItem(TOKEN_KEY);
+  if (!token) {
+    showToast('⚠ Configure o GitHub Token na aba "Senha" primeiro!');
+    switchTab('senha');
+    return;
+  }
+
+  const btn = document.getElementById('publishBtn');
+  if (btn) { btn.disabled = true; btn.textContent = 'Publicando…'; }
+
+  try {
+    const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+    const headers = { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
+
+    let sha = null;
+    const getResp = await fetch(apiUrl, { headers });
+    if (getResp.ok) { sha = (await getResp.json()).sha; }
+
+    const data = collectAll();
+    saveData(data);
+
+    const body = { message: 'chore: update site content via admin panel', content: utf8ToBase64(JSON.stringify(data, null, 2)) };
+    if (sha) body.sha = sha;
+
+    const putResp = await fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+
+    if (putResp.ok) {
+      showToast('🌐 Publicado! Todos os dispositivos verão as alterações em instantes.');
+    } else {
+      const err = await putResp.json().catch(() => ({}));
+      showToast(`⚠ Erro ao publicar: ${err.message || putResp.status}`);
+    }
+  } catch (e) {
+    showToast(`⚠ Erro de rede: ${e.message}`);
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Publicar';
+    }
+  }
+}
+
 // ── INIT ──────────────────────────────────────────────────────
 function initDashboard() {
   populateSimpleFields();
@@ -869,6 +924,21 @@ function initDashboard() {
       });
     }
   }
+
+  // ── Publish button ──
+  document.getElementById('publishBtn')?.addEventListener('click', publishContent);
+
+  // ── GitHub token field & save ──
+  const tokenEl = document.getElementById('github-token');
+  if (tokenEl) {
+    const saved = localStorage.getItem(TOKEN_KEY);
+    if (saved) tokenEl.value = saved;
+  }
+  document.getElementById('saveTokenBtn')?.addEventListener('click', () => {
+    const val = document.getElementById('github-token')?.value?.trim();
+    if (val) { localStorage.setItem(TOKEN_KEY, val); showToast('✓ Token salvo neste dispositivo.'); }
+    else { showToast('⚠ Digite um token antes de salvar.'); }
+  });
 
   updateAllPreviews();
 }

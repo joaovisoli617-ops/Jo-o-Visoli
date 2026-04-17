@@ -44,11 +44,22 @@ function buildVideoEmbed(v) {
   </div>`;
 }
 
-// ── LOAD ADMIN OVERRIDES ────────────────────
-(function applyAdminContent() {
+// ── LOAD CONTENT (localStorage → content.json fallback) ─────
+async function applyAdminContent() {
   const STORAGE_KEY = 'amplia_content';
   let data = {};
+
+  // Fast path: admin's own saved edits (this device)
   try { data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch {}
+
+  // Remote path: published content for all other devices
+  if (!Object.keys(data).length) {
+    try {
+      const r = await fetch('content.json?v=' + Date.now(), { cache: 'no-cache' });
+      if (r.ok) { const d = await r.json(); if (Object.keys(d).length) data = d; }
+    } catch {}
+  }
+
   if (!Object.keys(data).length) return;
 
   function setText(sel, val) {
@@ -363,7 +374,8 @@ function buildVideoEmbed(v) {
     const produtosSection = document.querySelector('.produtos');
     if (produtosSection) produtosSection.style.display = 'none';
   }
-})();
+}
+applyAdminContent();
 
 // ── NAV: scroll effect ──────────────────────
 const nav = document.getElementById('nav');
