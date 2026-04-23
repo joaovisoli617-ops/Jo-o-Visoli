@@ -423,4 +423,4 @@ cite { color: var(--or); font-style: normal; font-size: .85rem; font-weight: 700
 .prod-card h3 { font-size: 1.1rem; font-weight: 800; font-family: var(--ff-head); }
 .prod-card p { font-size: .85rem; color: var(--wh3); flex: 1; margin: 0; }
 .prod-card__price { font-size: 1.5rem; font-weight: 900; font-family: var(--ff-head); color: var(--or); }
-.prod-card__btn { margin-top: .5rem; text-align: center; display: block; }
+.prod-card__btn { margin-top: auto; padding-top: 1rem; text-align: center; display: block; }
